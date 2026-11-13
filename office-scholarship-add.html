@@ -1,0 +1,782 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Add Scholarship — BiPSU SRMS</title>
+  
+<link rel="icon" href="static/img/favicon.ico?v=2" sizes="any" />
+<link rel="icon" type="image/png" href="static/img/favicon-32.png?v=2" sizes="32x32" />
+<link rel="apple-touch-icon" href="static/img/apple-touch-icon.png?v=2" />
+
+  <meta name="robots" content="noindex, nofollow" />
+
+  <meta name="theme-color" id="themeColor" content="#ffffff" />
+  <script nonce="2uV4rcFT1s62fS0gBhvgIY2L">
+    var srmsDark = localStorage.getItem('theme') === 'dark' ||
+        (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches);
+    if (srmsDark) document.documentElement.classList.add('dark');
+    document.getElementById('themeColor').setAttribute('content', srmsDark ? '#171c2e' : '#ffffff');
+  </script>
+  
+  <link rel="stylesheet" href="static/css/tailwind.css?v=2" />
+  <link rel="stylesheet" href="static/css/srms.css?v=149" />
+  
+  <script src="static/js/skeleton.js?v=6" data-tabs-only></script>
+  
+  <script src="static/js/display-prefs.js?v=1"></script>
+
+<link rel="stylesheet" href="static/demo/demo.css">
+</head>
+
+<body data-portal="vpsea">
+<a href="#mainContent" class="skip-link">Skip to main content</a>
+<div class="scroll-progress" aria-hidden="true"></div>
+<div class="page-skeleton" aria-hidden="true">
+  <div class="skeleton-app">
+    <div class="skeleton-app-side">
+      <div class="skeleton-app-brand">
+        <div class="skeleton skeleton-avatar"></div>
+        <div class="skeleton-stack">
+          <div class="skeleton skeleton-brand-name"></div>
+          <div class="skeleton skeleton-brand-sub"></div>
+        </div>
+      </div>
+      <div class="skeleton-app-nav">
+        <div class="skeleton skeleton-app-navitem"></div>
+        <div class="skeleton skeleton-app-navitem"></div>
+        <div class="skeleton skeleton-app-navitem"></div>
+        <div class="skeleton skeleton-app-navitem"></div>
+        <div class="skeleton skeleton-app-navitem"></div>
+        <div class="skeleton skeleton-app-navitem"></div>
+      </div>
+    </div>
+    <div class="skeleton-app-main">
+      <div class="skeleton-app-head">
+        <div class="skeleton-stack">
+          <div class="skeleton skeleton-app-title"></div>
+          <div class="skeleton skeleton-app-subtitle"></div>
+        </div>
+        <div class="skeleton skeleton-avatar"></div>
+      </div>
+      <div class="skeleton-app-body">
+        <div class="skeleton skeleton-app-card"></div>
+        <div class="skeleton skeleton-app-card"></div>
+        <div class="skeleton skeleton-app-block"></div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="flex min-h-screen w-full">
+  <aside id="appSidebar"
+         class="app-sidebar fixed lg:sticky top-0 bottom-0 lg:bottom-auto left-0 z-50 lg:z-auto
+                w-64 shrink-0 flex flex-col self-start h-screen
+                -translate-x-full lg:translate-x-0 transition-transform duration-200">
+    <div class="sidebar-head flex items-center gap-2 px-6 py-5">
+      <div class="sidebar-logo h-9 w-9 rounded-lg overflow-hidden shrink-0 flex items-center justify-center">
+        <img src="media/logos/SDSO.png?v=2" alt="" class="h-9 w-9 object-contain" />
+      </div>
+      <div>
+        <p class="sidebar-brand text-sm font-semibold">BiPSU SRMS</p>
+        <p class="sidebar-brand-sub text-xs uppercase tracking-wider" title="Student Development and Services Office">Student Development and Services Office</p>
+      </div>
+    </div>
+    <div class="sidebar-search px-3 pt-3">
+      <div class="search-box">
+        <svg class="search-box__icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-4.35-4.35M11 19a8 8 0 100-16 8 8 0 000 16z"/></svg>
+        <input type="search" id="navSearch" placeholder="Find a page" autocomplete="off"
+               aria-label="Find a page in this portal"
+               data-search=".sidebar-nav .sidebar-link"
+               data-search-empty="#navSearchEmpty" />
+        <button type="button" class="search-clear" data-search-clear aria-label="Clear search" hidden>&#10005;</button>
+      </div>
+    </div>
+    <nav class="sidebar-nav flex-1 min-h-0 overflow-y-auto p-3 space-y-0.5">
+        <a href="office-dashboard.html" class="sidebar-link "><svg class="h-4 w-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>Dashboard</a>
+  <a href="office-accounts.html" class="sidebar-link "><svg class="h-4 w-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg><span class="sidebar-link__label">Account Verification</span></a>
+  <a href="office-analytics.html" class="sidebar-link "><svg class="h-4 w-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>Analytics</a>
+  <a href="office-announcements.html" class="sidebar-link "><svg class="h-4 w-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5.882V19.24a1.76 1.76 0 01-3.417.592l-2.147-6.15M18 13a3 3 0 100-6M5.436 13.683A4.001 4.001 0 017 6h1.832c4.1 0 7.625-1.234 9.168-3v14c-1.543-1.766-5.067-3-9.168-3H7a3.988 3.988 0 01-1.564-.317z"/></svg>Announcements</a>
+  <a href="office-affirmative.html" class="sidebar-link "><svg class="h-4 w-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>Applications</a>
+  <a href="office-audit-log.html" class="sidebar-link sidebar-link--sub "><svg class="h-4 w-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/></svg>Audit Log</a>
+  <a href="office-partners.html" class="sidebar-link "><svg class="h-4 w-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/></svg>External Partners</a>
+  <a href="office-renewals.html" class="sidebar-link "><svg class="h-4 w-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg>Renewal Applications</a>
+  <a href="office-reports.html" class="sidebar-link "><svg class="h-4 w-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>Reports</a>
+  <a href="office-archives.html" class="sidebar-link "><svg class="h-4 w-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4"/></svg>Scholarship Archives</a>
+  <a href="office-scholarships.html" class="sidebar-link active"><svg class="h-4 w-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>Scholarship Programs</a>
+  <a href="office-school-year.html" class="sidebar-link "><svg class="h-4 w-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>School Year &amp; Semester</a>
+  <a href="office-schools.html" class="sidebar-link "><svg class="h-4 w-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>Schools &amp; Courses</a>
+  
+
+      <p id="navSearchEmpty" class="sidebar-search__empty" hidden>No page matches &ldquo;<span data-search-term></span>&rdquo;.</p>
+    </nav>
+    <div class="sidebar-foot p-3 shrink-0">
+      <a href="index.html" class="sidebar-link">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a2 2 0 01-2 2H5a2 2 0 01-2-2V7a2 2 0 012-2h6a2 2 0 012 2v1"/></svg>
+        Sign out
+      </a>
+    </div>
+  </aside>
+  <div class="flex flex-1 flex-col min-w-0">
+    <header class="sticky top-0 z-30 flex h-16 items-center justify-between gap-2 lg:gap-4 px-4 lg:px-8 u-bg-color-mix-in-srgb-surface-85pct-transparent u-backdrop-blur-8px u-bb-1px-solid-border">
+      <button type="button" id="sidebarToggle" class="lg:hidden p-2 -ml-2 rounded-lg shrink-0 sidebar-toggle"
+              aria-label="Open menu" aria-controls="appSidebar" aria-expanded="false">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
+      <div class="min-w-0">
+        <h1 class="text-lg font-semibold truncate u-text-base">Add Scholarship Program</h1>
+        <p class="text-xs truncate u-text-muted">Add a new scholarship program</p>
+      </div>
+      <div class="header-tools flex items-center gap-3">
+        
+        <a href="office-school-year.html" class="hidden sm:flex items-center gap-1.5 rounded-full px-3 py-1 u-bg-brand-soft u-border-1px-solid-brand u-no-underline term-pill-link"
+           title="Active term. Change it under School Year &amp; Semester."
+           aria-label="Active term: 1st Semester, SY 2026-2027. Change it under School Year &amp; Semester.">
+          <svg class="h-3.5 w-3.5 u-text-brand" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+          <span class="text-xs font-semibold u-text-brand">1st Semester &nbsp;·&nbsp; SY 2026-2027</span>
+          <svg class="h-3 w-3 u-text-brand" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+        </a>
+        
+        
+        
+        <div class="display-settings">
+          <button type="button" id="displaySettingsToggle" class="relative p-2 rounded-lg hover:bg-muted u-bg-transparent u-border-none u-cursor-pointer"
+                  data-dl-menu="displaySettings" aria-haspopup="dialog" aria-label="Display settings">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+          </button>
+          <div id="displaySettings" class="dl-menu settings-panel" role="dialog" aria-label="Display settings">
+            <p class="settings-panel__title">Display settings</p>
+            <div class="settings-row">
+              <span class="settings-row__label">Theme</span>
+              <div class="settings-seg" role="group" aria-label="Theme">
+                <button type="button" class="settings-seg__btn" aria-pressed="false" data-theme-choice="light">Light</button>
+                <button type="button" class="settings-seg__btn" aria-pressed="false" data-theme-choice="dark">Dark</button>
+                <button type="button" class="settings-seg__btn" aria-pressed="false" data-theme-choice="system" data-tip="Follow your device's light or dark setting">Device</button>
+              </div>
+            </div>
+            <div class="settings-row">
+              <span class="settings-row__label">Eye comfort</span>
+              <button type="button" class="settings-switch" role="switch" aria-checked="false" aria-label="Eye comfort"
+                      data-pref-switch="eyeComfort" data-tip="Warmer colours that are easier on the eyes at night"><span class="settings-switch__knob"></span></button>
+            </div>
+            <div class="settings-row">
+              <span class="settings-row__label">Text size</span>
+              <div class="settings-stepper" data-text-sizes="90 100 112 125 150">
+                <button type="button" class="settings-stepper__btn" data-text-size-step="-1" aria-label="Smaller text" data-tip="Smaller text">A&minus;</button>
+                <output class="settings-stepper__value" aria-live="polite" data-text-size-value>100%</output>
+                <button type="button" class="settings-stepper__btn" data-text-size-step="1" aria-label="Larger text" data-tip="Larger text">A+</button>
+              </div>
+            </div>
+            <div class="settings-row">
+              <span class="settings-row__label">Reduce motion</span>
+              <button type="button" class="settings-switch" role="switch" aria-checked="false" aria-label="Reduce motion"
+                      data-pref-switch="reduceMotion" data-tip="Turn off animations and sliding effects"><span class="settings-switch__knob"></span></button>
+            </div>
+            <div class="settings-panel__foot">
+              <button type="button" class="settings-reset" data-display-reset>Reset to default</button>
+            </div>
+          </div>
+        </div>
+        <a href="office-profile.html" class="flex items-center gap-2 rounded-full pl-1 pr-3 py-1 hover:bg-muted u-no-underline" title="My Profile">
+          
+          <div class="h-8 w-8 rounded-full flex items-center justify-center text-xs font-semibold shrink-0 u-bg-brand u-text-on-brand">RB</div>
+          
+          <div class="hidden md:block text-left">
+            <p class="text-xs font-medium leading-tight">Rosario Bayhon</p>
+            <p class="text-xs leading-tight u-text-muted" title="Student Development and Services Office">
+              Student Development and Services Office
+              
+            </p>
+          </div>
+        </a>
+      </div>
+    </header>
+    <main id="mainContent" class="app-main flex-1 px-4 lg:px-8 py-6">
+      
+
+<div class="card p-6 u-maxw-52rem">
+  <form method="post">
+    
+    <div class="grid sm:grid-cols-2 gap-4 mb-4">
+      <div>
+        <label for="f-name" class="text-sm font-medium block mb-1">Scholarship Name <span class="u-text-danger">*</span></label>
+        <input id="f-name" class="u-w-full" name="name" value="" placeholder="e.g. Academic Scholarship" required/>
+      </div>
+      <div>
+        <label for="f-type" class="text-sm font-medium block mb-1">Type <span class="u-text-danger">*</span></label>
+        <input id="f-type" class="u-w-full" name="type" value="" placeholder="e.g. Academic, CHED, Custom" required/>
+      </div>
+    </div>
+    <div class="mb-4">
+      <label for="f-group" class="text-sm font-medium block mb-1">Group <span class="u-text-danger">*</span></label>
+      <select id="f-group" name="group">
+        <option value="internal" >Internal</option>
+        <option value="external" >External</option>
+        <option value="institutional" >Institutional</option>
+      </select>
+    </div>
+    
+    <div class="mb-4">
+      <label class="text-sm font-medium block mb-1" for="logoPicker">Logo</label>
+      <div class="logo-picker">
+        <select name="logo" id="logoPicker" data-logo-picker>
+          <option value="">Default for this programme type</option>
+          
+        </select>
+        <img src="media/logos/BiPSU.png?v=2"
+             alt="" class="logo-picker__preview" data-logo-preview />
+      </div>
+      <p class="text-xs u-text-muted">
+        Shown on the scholarship's card and modal. Leave on the default unless this
+        programme is funded by an agency with its own seal.
+      </p>
+    </div>
+    <div class="mb-4">
+      <label for="f-description" class="text-sm font-medium block mb-1">Short Description <span class="u-fs-0-75rem u-text-muted">(shown on card)</span></label>
+      <textarea id="f-description" class="u-w-full" name="description" rows="2" placeholder="Brief one-line description for the scholarship card…"></textarea>
+    </div>
+    <div class="mb-4">
+      <label for="f-background" class="text-sm font-medium block mb-1">Background <span class="u-fs-0-75rem u-text-muted">(shown in modal)</span></label>
+      <textarea id="f-background" class="u-w-full" name="background" rows="4" placeholder="Full background / history of the scholarship program…"></textarea>
+    </div>
+    <div class="grid sm:grid-cols-2 gap-4 mb-6">
+      <div>
+        <label for="f-eligibility-list" class="text-sm font-medium block mb-1">Eligibility Requirements <span class="u-fs-0-75rem u-text-muted">(one per line)</span></label>
+        <textarea id="f-eligibility-list" class="u-w-full" name="eligibility_list" rows="6" placeholder="GWA of 1.50 or better&#10;Must be a regular student&#10;No failing grades"></textarea>
+      </div>
+      <div>
+        <label for="f-benefits" class="text-sm font-medium block mb-1">Benefits <span class="u-fs-0-75rem u-text-muted">(one per line)</span></label>
+        <textarea id="f-benefits" class="u-w-full" name="benefits" rows="6" placeholder="Full tuition fee coverage&#10;Monthly stipend&#10;Book allowance"></textarea>
+      </div>
+    </div>
+    <div class="grid sm:grid-cols-2 gap-4 mb-6">
+      <div>
+        <label for="f-requirements" class="text-sm font-medium block mb-1">Required Documents <span class="u-fs-0-75rem u-text-muted">(one per line)</span></label>
+        <textarea id="f-requirements" class="u-w-full" name="requirements" rows="6" placeholder="Certificate of Grades&#10;Certificate of Enrollment&#10;Birth Certificate (PSA)"></textarea>
+      </div>
+      <div>
+        <label for="f-how-to-apply" class="text-sm font-medium block mb-1">How to Apply <span class="u-fs-0-75rem u-text-muted">(shown to students)</span></label>
+        <textarea id="f-how-to-apply" class="u-w-full" name="how_to_apply" rows="6" placeholder="Where to submit, deadlines, exams to register for, who to contact"></textarea>
+      </div>
+    </div>
+    <div class="mb-6">
+      
+      <label for="f-renewal-requirements" class="text-sm font-medium block mb-1">To Renew Each Semester <span class="u-fs-0-75rem u-text-muted">(one per line)</span></label>
+      
+      <p class="text-xs mb-2 u-text-muted">What a scholar uploads to renew this programme each semester, one file per line. Add "if applicable" to a line to make it optional. Left empty, renewals ask for one proof picture.</p>
+      
+      <textarea id="f-renewal-requirements" class="u-w-full" name="renewal_requirements" rows="4" placeholder="Certificate of Grades (COG)&#10;Certificate of Enrollment (COE)&#10;Picture of your bank account"></textarea>
+      
+    </div>
+    <div class="mb-6">
+      <input type="hidden" name="continues_shown" value="1" />
+      <label class="continues-switch">
+        <input type="checkbox" name="continues_automatically" />
+        <span>
+          <span class="continues-switch__title">Continues automatically</span>
+          <span class="continues-switch__hint">Scholars are carried into each new semester without renewing, for up to 4 years and never past 4th year. Their year level goes up by one each new school year. Stays on until it is switched off here.</span>
+        </span>
+      </label>
+    </div>
+    <fieldset class="conflict-picker mb-6">
+      <legend class="text-sm font-medium mb-1">Conflicts with</legend>
+      <p class="text-xs mb-2 u-text-muted">
+        Tick the programmes a student may not hold together with this one. The office is
+        warned before verifying a student who would hold both. A tick here is saved on
+        both programmes.
+      </p>
+      <input type="hidden" name="conflicts_shown" value="1" />
+      
+      <div class="conflict-picker__list">
+        
+        <label class="conflict-picker__option">
+          <input type="checkbox" name="conflicting_types" value="Academic"  />
+          <span>Academic Scholarship</span>
+        </label>
+        
+        <label class="conflict-picker__option">
+          <input type="checkbox" name="conflicting_types" value="Affirmative"  />
+          <span>Affirmative Action</span>
+        </label>
+        
+        <label class="conflict-picker__option">
+          <input type="checkbox" name="conflicting_types" value="Staff"  />
+          <span>BiPSU Employee Scholarship</span>
+        </label>
+        
+        <label class="conflict-picker__option">
+          <input type="checkbox" name="conflicting_types" value="CHED"  />
+          <span>CHED Merit</span>
+        </label>
+        
+        <label class="conflict-picker__option">
+          <input type="checkbox" name="conflicting_types" value="CoScho"  />
+          <span>CoScho (Coconut Farmers)</span>
+        </label>
+        
+        <label class="conflict-picker__option">
+          <input type="checkbox" name="conflicting_types" value="DOST"  />
+          <span>DOST S&amp;T Undergraduate Scholarship</span>
+        </label>
+        
+        <label class="conflict-picker__option">
+          <input type="checkbox" name="conflicting_types" value="FHE"  />
+          <span>Free Higher Education (FHE)</span>
+        </label>
+        
+        <label class="conflict-picker__option">
+          <input type="checkbox" name="conflicting_types" value="GSIS"  />
+          <span>GSIS Scholarship</span>
+        </label>
+        
+        <label class="conflict-picker__option">
+          <input type="checkbox" name="conflicting_types" value="JLSS"  />
+          <span>Junior Level Science Scholarship (JLSS)</span>
+        </label>
+        
+        <label class="conflict-picker__option">
+          <input type="checkbox" name="conflicting_types" value="SUC-TDP"  />
+          <span>SUC-TDP (Tulong Dunong for SUCs)</span>
+        </label>
+        
+        <label class="conflict-picker__option">
+          <input type="checkbox" name="conflicting_types" value="Sports"  />
+          <span>Sports, Athletics and Cultural Scholarship</span>
+        </label>
+        
+        <label class="conflict-picker__option">
+          <input type="checkbox" name="conflicting_types" value="TES"  />
+          <span>Tertiary Education Subsidy</span>
+        </label>
+        
+        <label class="conflict-picker__option">
+          <input type="checkbox" name="conflicting_types" value="TDP"  />
+          <span>Tulong Dunong Program Scholarship</span>
+        </label>
+        
+      </div>
+      
+    </fieldset>
+    <div class="col-picker mb-6">
+      <label class="text-sm font-medium block mb-1">Archive Table Columns</label>
+      <p class="col-picker__hint">
+        The table as it will read, left to right. Ticked columns are numbered in the
+        order they appear; use the arrows to move one. Everything below the ticked
+        block is off the table — tick it and it joins the end.
+      </p>
+      
+      <ol class="col-picker__list" id="columnPicker">
+        
+        <li class="col-picker__item">
+          <label class="col-picker__option">
+            <input type="checkbox" name="table_columns" value="last_name"
+                   checked />
+            <span class="col-picker__no">1</span>
+            <span class="col-picker__label">Last Name</span>
+          </label>
+          <span class="col-picker__moves">
+            <button type="button" class="btn btn-outline col-picker__move" data-move="up"
+                    aria-label="Move Last Name left">&uarr;</button>
+            <button type="button" class="btn btn-outline col-picker__move" data-move="down"
+                    aria-label="Move Last Name right">&darr;</button>
+          </span>
+        </li>
+        
+        <li class="col-picker__item">
+          <label class="col-picker__option">
+            <input type="checkbox" name="table_columns" value="first_name"
+                   checked />
+            <span class="col-picker__no">2</span>
+            <span class="col-picker__label">First Name</span>
+          </label>
+          <span class="col-picker__moves">
+            <button type="button" class="btn btn-outline col-picker__move" data-move="up"
+                    aria-label="Move First Name left">&uarr;</button>
+            <button type="button" class="btn btn-outline col-picker__move" data-move="down"
+                    aria-label="Move First Name right">&darr;</button>
+          </span>
+        </li>
+        
+        <li class="col-picker__item">
+          <label class="col-picker__option">
+            <input type="checkbox" name="table_columns" value="m_i"
+                   checked />
+            <span class="col-picker__no">3</span>
+            <span class="col-picker__label">Middle Initial</span>
+          </label>
+          <span class="col-picker__moves">
+            <button type="button" class="btn btn-outline col-picker__move" data-move="up"
+                    aria-label="Move Middle Initial left">&uarr;</button>
+            <button type="button" class="btn btn-outline col-picker__move" data-move="down"
+                    aria-label="Move Middle Initial right">&darr;</button>
+          </span>
+        </li>
+        
+        <li class="col-picker__item">
+          <label class="col-picker__option">
+            <input type="checkbox" name="table_columns" value="sex"
+                   checked />
+            <span class="col-picker__no">4</span>
+            <span class="col-picker__label">Sex</span>
+          </label>
+          <span class="col-picker__moves">
+            <button type="button" class="btn btn-outline col-picker__move" data-move="up"
+                    aria-label="Move Sex left">&uarr;</button>
+            <button type="button" class="btn btn-outline col-picker__move" data-move="down"
+                    aria-label="Move Sex right">&darr;</button>
+          </span>
+        </li>
+        
+        <li class="col-picker__item">
+          <label class="col-picker__option">
+            <input type="checkbox" name="table_columns" value="brgy_st"
+                   checked />
+            <span class="col-picker__no">5</span>
+            <span class="col-picker__label">Brgy. / St.</span>
+          </label>
+          <span class="col-picker__moves">
+            <button type="button" class="btn btn-outline col-picker__move" data-move="up"
+                    aria-label="Move Brgy. / St. left">&uarr;</button>
+            <button type="button" class="btn btn-outline col-picker__move" data-move="down"
+                    aria-label="Move Brgy. / St. right">&darr;</button>
+          </span>
+        </li>
+        
+        <li class="col-picker__item">
+          <label class="col-picker__option">
+            <input type="checkbox" name="table_columns" value="municipality"
+                   checked />
+            <span class="col-picker__no">6</span>
+            <span class="col-picker__label">Municipality</span>
+          </label>
+          <span class="col-picker__moves">
+            <button type="button" class="btn btn-outline col-picker__move" data-move="up"
+                    aria-label="Move Municipality left">&uarr;</button>
+            <button type="button" class="btn btn-outline col-picker__move" data-move="down"
+                    aria-label="Move Municipality right">&darr;</button>
+          </span>
+        </li>
+        
+        <li class="col-picker__item">
+          <label class="col-picker__option">
+            <input type="checkbox" name="table_columns" value="province"
+                   checked />
+            <span class="col-picker__no">7</span>
+            <span class="col-picker__label">Province</span>
+          </label>
+          <span class="col-picker__moves">
+            <button type="button" class="btn btn-outline col-picker__move" data-move="up"
+                    aria-label="Move Province left">&uarr;</button>
+            <button type="button" class="btn btn-outline col-picker__move" data-move="down"
+                    aria-label="Move Province right">&darr;</button>
+          </span>
+        </li>
+        
+        <li class="col-picker__item">
+          <label class="col-picker__option">
+            <input type="checkbox" name="table_columns" value="course"
+                   checked />
+            <span class="col-picker__no">8</span>
+            <span class="col-picker__label">Course</span>
+          </label>
+          <span class="col-picker__moves">
+            <button type="button" class="btn btn-outline col-picker__move" data-move="up"
+                    aria-label="Move Course left">&uarr;</button>
+            <button type="button" class="btn btn-outline col-picker__move" data-move="down"
+                    aria-label="Move Course right">&darr;</button>
+          </span>
+        </li>
+        
+        <li class="col-picker__item">
+          <label class="col-picker__option">
+            <input type="checkbox" name="table_columns" value="year_level"
+                   checked />
+            <span class="col-picker__no">9</span>
+            <span class="col-picker__label">Year Level</span>
+          </label>
+          <span class="col-picker__moves">
+            <button type="button" class="btn btn-outline col-picker__move" data-move="up"
+                    aria-label="Move Year Level left">&uarr;</button>
+            <button type="button" class="btn btn-outline col-picker__move" data-move="down"
+                    aria-label="Move Year Level right">&darr;</button>
+          </span>
+        </li>
+        
+        <li class="col-picker__item">
+          <label class="col-picker__option">
+            <input type="checkbox" name="table_columns" value="number"
+                   checked />
+            <span class="col-picker__no">10</span>
+            <span class="col-picker__label">Student No.</span>
+          </label>
+          <span class="col-picker__moves">
+            <button type="button" class="btn btn-outline col-picker__move" data-move="up"
+                    aria-label="Move Student No. left">&uarr;</button>
+            <button type="button" class="btn btn-outline col-picker__move" data-move="down"
+                    aria-label="Move Student No. right">&darr;</button>
+          </span>
+        </li>
+        
+        <li class="col-picker__item">
+          <label class="col-picker__option">
+            <input type="checkbox" name="table_columns" value="scholarship_program"
+                   checked />
+            <span class="col-picker__no">11</span>
+            <span class="col-picker__label">Scholarship Program</span>
+          </label>
+          <span class="col-picker__moves">
+            <button type="button" class="btn btn-outline col-picker__move" data-move="up"
+                    aria-label="Move Scholarship Program left">&uarr;</button>
+            <button type="button" class="btn btn-outline col-picker__move" data-move="down"
+                    aria-label="Move Scholarship Program right">&darr;</button>
+          </span>
+        </li>
+        
+        <li class="col-picker__item is-off">
+          <label class="col-picker__option">
+            <input type="checkbox" name="table_columns" value="award_number"
+                    />
+            <span class="col-picker__no"></span>
+            <span class="col-picker__label">Award No.</span>
+          </label>
+          <span class="col-picker__moves">
+            <button type="button" class="btn btn-outline col-picker__move" data-move="up"
+                    aria-label="Move Award No. left">&uarr;</button>
+            <button type="button" class="btn btn-outline col-picker__move" data-move="down"
+                    aria-label="Move Award No. right">&darr;</button>
+          </span>
+        </li>
+        
+        <li class="col-picker__item is-off">
+          <label class="col-picker__option">
+            <input type="checkbox" name="table_columns" value="middle_name"
+                    />
+            <span class="col-picker__no"></span>
+            <span class="col-picker__label">Middle Name</span>
+          </label>
+          <span class="col-picker__moves">
+            <button type="button" class="btn btn-outline col-picker__move" data-move="up"
+                    aria-label="Move Middle Name left">&uarr;</button>
+            <button type="button" class="btn btn-outline col-picker__move" data-move="down"
+                    aria-label="Move Middle Name right">&darr;</button>
+          </span>
+        </li>
+        
+        <li class="col-picker__item is-off">
+          <label class="col-picker__option">
+            <input type="checkbox" name="table_columns" value="cong_dist"
+                    />
+            <span class="col-picker__no"></span>
+            <span class="col-picker__label">Cong. District</span>
+          </label>
+          <span class="col-picker__moves">
+            <button type="button" class="btn btn-outline col-picker__move" data-move="up"
+                    aria-label="Move Cong. District left">&uarr;</button>
+            <button type="button" class="btn btn-outline col-picker__move" data-move="down"
+                    aria-label="Move Cong. District right">&darr;</button>
+          </span>
+        </li>
+        
+        <li class="col-picker__item is-off">
+          <label class="col-picker__option">
+            <input type="checkbox" name="table_columns" value="gwa"
+                    />
+            <span class="col-picker__no"></span>
+            <span class="col-picker__label">GWA</span>
+          </label>
+          <span class="col-picker__moves">
+            <button type="button" class="btn btn-outline col-picker__move" data-move="up"
+                    aria-label="Move GWA left">&uarr;</button>
+            <button type="button" class="btn btn-outline col-picker__move" data-move="down"
+                    aria-label="Move GWA right">&darr;</button>
+          </span>
+        </li>
+        
+        <li class="col-picker__item is-off">
+          <label class="col-picker__option">
+            <input type="checkbox" name="table_columns" value="percent"
+                    />
+            <span class="col-picker__no"></span>
+            <span class="col-picker__label">% / Type of Scholarship</span>
+          </label>
+          <span class="col-picker__moves">
+            <button type="button" class="btn btn-outline col-picker__move" data-move="up"
+                    aria-label="Move % / Type of Scholarship left">&uarr;</button>
+            <button type="button" class="btn btn-outline col-picker__move" data-move="down"
+                    aria-label="Move % / Type of Scholarship right">&darr;</button>
+          </span>
+        </li>
+        
+      </ol>
+      <div class="col-picker__custom">
+        <p class="col-picker__hint">
+          Need a column that is not on the list? Name it, then say what it holds.
+          Every scholar's row gets a box of that kind to fill in, and only a value
+          of that kind is stored — so the column reads one way down the page and
+          the archive report can sort and total it. Choice list is the one to pick
+          when there is a fixed set of answers; type them separated by commas.
+        </p>
+        <p class="col-picker__hint">
+          <strong>An upload fills it too.</strong> Give the column the same name
+          as the heading in the agency's spreadsheet and every row is filled on
+          import, so a column the file already carries never has to be typed.
+          The heading has to match the name — capitals and spacing do not matter,
+          but <em>Batch</em> and <em>Batch No.</em> are two different columns. A
+          cell holding the wrong kind of thing is left empty and counted for you
+          rather than stored.
+        </p>
+        <div id="customColumns" data-custom-types="text:Text|number:Number|date:Date|choice:Choice list|yesno:Yes / No">
+          
+        </div>
+        <button type="button" id="addCustomColumn" class="btn btn-outline col-picker__add">
+          + Add column
+        </button>
+      </div>
+    </div>
+    <div class="flex gap-3">
+      <button type="submit" class="btn btn-primary">Add Scholarship</button>
+      <a href="office-scholarships.html" class="btn btn-outline">Cancel</a>
+    </div>
+  </form>
+</div>
+
+    </main>
+  </div>
+</div>
+
+
+<script src="static/js/column-picker.js?v=3"></script>
+<script src="static/js/logo-picker.js?v=2"></script>
+
+<div id="sidebarBackdrop" class="sidebar-backdrop lg:hidden" hidden></div>
+<script src="static/js/mobile-nav.js?v=1" defer></script>
+<div id="confirmDialog" class="confirm-dialog" role="alertdialog" aria-modal="true" aria-labelledby="confirmTitle" aria-describedby="confirmMessage" hidden>
+  <div class="confirm-backdrop"></div>
+  <div class="confirm-panel">
+    <div class="confirm-head">
+      <svg id="confirmIcon" class="confirm-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v4m0 4h.01M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/>
+      </svg>
+      <p id="confirmTitle" class="confirm-title"></p>
+    </div>
+    <p id="confirmMessage" class="confirm-message"></p>
+    <p id="confirmConsequence" class="confirm-consequence" hidden></p>
+    <div class="confirm-actions">
+      <button type="button" id="confirmCancel" class="btn btn-outline">Cancel</button>
+      <button type="button" id="confirmGo" class="btn confirm-go">Confirm</button>
+    </div>
+  </div>
+</div>
+<script src="static/js/confirm-dialog.js?v=2" defer></script>
+<div id="docViewer" class="doc-viewer" role="dialog" aria-modal="true" aria-labelledby="docViewerTitle" hidden>
+  <div class="doc-viewer-backdrop" data-doc-close></div>
+  <div class="doc-viewer-panel">
+    <header class="doc-viewer-bar">
+      <div class="u-minw-0">
+        <p id="docViewerTitle" class="doc-viewer-title">Document</p>
+        <p id="docViewerName" class="doc-viewer-sub"></p>
+      </div>
+      <div class="doc-viewer-actions">
+        <a id="docViewerOpen" href="#" target="_blank" rel="noopener" class="btn btn-outline u-p-0-3rem-0-7rem u-fs-0-75rem">Open in new tab</a>
+        <a id="docViewerDownload" href="#" download class="btn btn-outline u-p-0-3rem-0-7rem u-fs-0-75rem">Download</a>
+        <button type="button" class="doc-viewer-close" data-doc-close aria-label="Close">&#10005;</button>
+      </div>
+    </header>
+    <div id="docViewerBody" class="doc-viewer-body"></div>
+  </div>
+</div>
+<script nonce="2uV4rcFT1s62fS0gBhvgIY2L">
+(function () {
+  var viewer   = document.getElementById('docViewer');
+  var body     = document.getElementById('docViewerBody');
+  var titleEl  = document.getElementById('docViewerTitle');
+  var nameEl   = document.getElementById('docViewerName');
+  var openEl   = document.getElementById('docViewerOpen');
+  var dlEl     = document.getElementById('docViewerDownload');
+  var lastFocus = null;
+  function fileName(url) {
+    try { return decodeURIComponent(url.split('?')[0].split('/').pop() || ''); }
+    catch (e) { return url; }
+  }
+  function render(url) {
+    var ext = fileName(url).split('.').pop().toLowerCase();
+    body.innerHTML = '';
+    if (['png', 'jpg', 'jpeg', 'gif', 'webp', 'bmp', 'svg'].indexOf(ext) !== -1) {
+      var img = document.createElement('img');
+      img.src = url;
+      img.alt = fileName(url);
+      body.appendChild(img);
+    } else if (ext === 'pdf' || ext === '') {
+      var frame = document.createElement('iframe');
+      frame.src = url;
+      frame.title = fileName(url);
+      body.appendChild(frame);
+    } else {
+      var p = document.createElement('div');
+      p.className = 'doc-viewer-fallback';
+      p.innerHTML = 'This file type cannot be previewed in the browser.<br />Use <strong>Download</strong> above to open it.';
+      body.appendChild(p);
+    }
+  }
+  window.openDoc = function (url, label) {
+    if (!url) return;
+    lastFocus = document.activeElement;
+    titleEl.textContent = label || 'Document';
+    nameEl.textContent = fileName(url);
+    openEl.href = url;
+    dlEl.href = url;
+    render(url);
+    viewer.hidden = false;
+    document.body.style.overflow = 'hidden';
+    viewer.querySelector('.doc-viewer-close').focus();
+  };
+  window.closeDoc = function () {
+    viewer.hidden = true;
+    body.innerHTML = '';
+    document.body.style.overflow = '';
+    if (lastFocus && lastFocus.focus) lastFocus.focus();
+  };
+  document.addEventListener('click', function (e) {
+    if (e.target.closest('[data-doc-close]')) { e.preventDefault(); window.closeDoc(); return; }
+    var link = e.target.closest('a[data-doc]');
+    if (!link) return;
+    if (e.metaKey || e.ctrlKey || e.shiftKey || e.button !== 0) return;
+    e.preventDefault();
+    window.openDoc(link.getAttribute('href'), link.getAttribute('data-doc') || link.textContent.trim());
+  });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && !viewer.hidden) window.closeDoc();
+  });
+})();
+</script>
+<button type="button" class="to-top" aria-label="Back to top">
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7"/></svg>
+</button>
+
+<div class="cookie-banner" role="region" aria-label="Cookie notice" hidden>
+  <p class="cookie-banner__text">
+    <strong>This site uses essential cookies only.</strong>
+    They keep you signed in and protect forms against tampering. No advertising
+    or third-party tracking cookies are set.
+  </p>
+  <button type="button" class="btn btn-primary" data-cookie-ok>Got it</button>
+</div>
+
+<script src="static/js/loading.js?v=3" defer></script>
+<script src="static/js/actions.js?v=1" defer></script>
+<script src="static/js/toast.js?v=1" defer></script>
+<script src="static/js/chrome.js?v=1" defer></script>
+<script src="static/js/meter.js?v=1" defer></script>
+<script src="static/js/table-pager.js?v=2" defer></script>
+<script src="static/js/consent.js?v=3" defer></script>
+<script src="static/js/search.js?v=2" defer></script>
+<script src="static/js/dl-menu.js?v=3" defer></script>
+<script src="static/js/display-settings.js?v=1" defer></script>
+<script src="static/js/tooltip.js?v=2" defer></script>
+<script src="static/js/table-priority.js?v=1" defer></script>
+
+<script type="speculationrules" nonce="2uV4rcFT1s62fS0gBhvgIY2L">
+{"prefetch": [{"where": {"selector_matches": ".sidebar-nav a.sidebar-link"}, "eagerness": "conservative"}]}
+</script>
+<script src="static/demo/demo.js"></script>
+</body>
+</html>

@@ -1,0 +1,932 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Scholars — CHED Regional Office VIII</title>
+  
+<link rel="icon" href="static/img/favicon.ico?v=2" sizes="any" />
+<link rel="icon" type="image/png" href="static/img/favicon-32.png?v=2" sizes="32x32" />
+<link rel="apple-touch-icon" href="static/img/apple-touch-icon.png?v=2" />
+
+  <meta name="robots" content="noindex, nofollow" />
+
+  <meta name="theme-color" id="themeColor" content="#ffffff" />
+  <script nonce="jUyWk2lbRhXAXO8AlFUi_6M_">
+    var srmsDark = localStorage.getItem('theme') === 'dark' ||
+        (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches);
+    if (srmsDark) document.documentElement.classList.add('dark');
+    document.getElementById('themeColor').setAttribute('content', srmsDark ? '#171c2e' : '#ffffff');
+  </script>
+  
+  <link rel="stylesheet" href="static/css/tailwind.css?v=2" />
+  <link rel="stylesheet" href="static/css/srms.css?v=149" />
+  
+  <script src="static/js/skeleton.js?v=6" data-tabs-only></script>
+  
+  <script src="static/js/display-prefs.js?v=1"></script>
+
+<link rel="stylesheet" href="static/demo/demo.css">
+</head>
+
+<body data-portal="student">
+<a href="#mainContent" class="skip-link">Skip to main content</a>
+<div class="scroll-progress" aria-hidden="true"></div>
+<div class="page-skeleton" aria-hidden="true">
+  <div class="skeleton-app">
+    <div class="skeleton-app-side">
+      <div class="skeleton-app-brand">
+        <div class="skeleton skeleton-avatar"></div>
+        <div class="skeleton-stack">
+          <div class="skeleton skeleton-brand-name"></div>
+          <div class="skeleton skeleton-brand-sub"></div>
+        </div>
+      </div>
+      <div class="skeleton-app-nav">
+        <div class="skeleton skeleton-app-navitem"></div>
+        <div class="skeleton skeleton-app-navitem"></div>
+        <div class="skeleton skeleton-app-navitem"></div>
+        <div class="skeleton skeleton-app-navitem"></div>
+        <div class="skeleton skeleton-app-navitem"></div>
+        <div class="skeleton skeleton-app-navitem"></div>
+      </div>
+    </div>
+    <div class="skeleton-app-main">
+      <div class="skeleton-app-head">
+        <div class="skeleton-stack">
+          <div class="skeleton skeleton-app-title"></div>
+          <div class="skeleton skeleton-app-subtitle"></div>
+        </div>
+        <div class="skeleton skeleton-avatar"></div>
+      </div>
+      <div class="skeleton-app-body">
+        <div class="skeleton skeleton-app-card"></div>
+        <div class="skeleton skeleton-app-card"></div>
+        <div class="skeleton skeleton-app-block"></div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="flex min-h-screen w-full">
+  <aside id="appSidebar"
+         class="app-sidebar fixed lg:sticky top-0 bottom-0 lg:bottom-auto left-0 z-50 lg:z-auto
+                w-64 shrink-0 flex flex-col self-start h-screen
+                -translate-x-full lg:translate-x-0 transition-transform duration-200">
+    <div class="sidebar-head flex items-center gap-2 px-6 py-5">
+      <div class="sidebar-logo h-9 w-9 rounded-lg overflow-hidden shrink-0 flex items-center justify-center">
+        <img src="media/logos/CHED.png?v=2" alt="" class="h-9 w-9 object-contain" />
+      </div>
+      <div>
+        <p class="sidebar-brand text-sm font-semibold">BiPSU SRMS</p>
+        <p class="sidebar-brand-sub text-xs uppercase tracking-wider" title="">CHED Regional Office VIII</p>
+      </div>
+    </div>
+    <div class="sidebar-search px-3 pt-3">
+      <div class="search-box">
+        <svg class="search-box__icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-4.35-4.35M11 19a8 8 0 100-16 8 8 0 000 16z"/></svg>
+        <input type="search" id="navSearch" placeholder="Find a page" autocomplete="off"
+               aria-label="Find a page in this portal"
+               data-search=".sidebar-nav .sidebar-link"
+               data-search-empty="#navSearchEmpty" />
+        <button type="button" class="search-clear" data-search-clear aria-label="Clear search" hidden>&#10005;</button>
+      </div>
+    </div>
+    <nav class="sidebar-nav flex-1 min-h-0 overflow-y-auto p-3 space-y-0.5">
+      
+  <a href="partner-dashboard.html" class="sidebar-link "><svg class="h-4 w-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>Dashboard</a>
+  <a href="partner-requirements.html" class="sidebar-link "><svg class="h-4 w-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"/></svg>Scholarship Program</a>
+  <a href="partner-announcements.html" class="sidebar-link "><svg class="h-4 w-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5.882V19.24a1.76 1.76 0 01-3.417.592l-2.147-6.15M18 13a3 3 0 100-6M5.436 13.683A4.001 4.001 0 017 6h1.832c4.1 0 7.625-1.234 9.168-3v14c-1.543-1.766-5.067-3-9.168-3H7a3.988 3.988 0 01-1.564-.317z"/></svg>Announcements</a>
+  <a href="partner-archives.html" class="sidebar-link active"><svg class="h-4 w-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4"/></svg>Scholars</a>
+
+      <p id="navSearchEmpty" class="sidebar-search__empty" hidden>No page matches &ldquo;<span data-search-term></span>&rdquo;.</p>
+    </nav>
+    <div class="sidebar-foot p-3 shrink-0">
+      <a href="index.html" class="sidebar-link">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a2 2 0 01-2 2H5a2 2 0 01-2-2V7a2 2 0 012-2h6a2 2 0 012 2v1"/></svg>
+        Sign out
+      </a>
+    </div>
+  </aside>
+  <div class="flex flex-1 flex-col min-w-0">
+    <header class="sticky top-0 z-30 flex h-16 items-center justify-between gap-2 lg:gap-4 px-4 lg:px-8 u-bg-color-mix-in-srgb-surface-85pct-transparent u-backdrop-blur-8px u-bb-1px-solid-border">
+      <button type="button" id="sidebarToggle" class="lg:hidden p-2 -ml-2 rounded-lg shrink-0 sidebar-toggle"
+              aria-label="Open menu" aria-controls="appSidebar" aria-expanded="false">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
+      <div class="min-w-0">
+        <h1 class="text-lg font-semibold truncate u-text-base">Scholars</h1>
+        <p class="text-xs truncate u-text-muted">Everyone BiPSU holds under your programmes</p>
+      </div>
+      <div class="header-tools flex items-center gap-3">
+        
+        <div class="hidden sm:flex items-center gap-1.5 rounded-full px-3 py-1 u-bg-brand-soft u-border-1px-solid-brand">
+          <svg class="h-3.5 w-3.5 u-text-brand" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+          <span class="text-xs font-semibold u-text-brand">1st Semester &nbsp;·&nbsp; SY 2026-2027</span>
+        </div>
+        
+        
+        
+        <div class="display-settings">
+          <button type="button" id="displaySettingsToggle" class="relative p-2 rounded-lg hover:bg-muted u-bg-transparent u-border-none u-cursor-pointer"
+                  data-dl-menu="displaySettings" aria-haspopup="dialog" aria-label="Display settings">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+          </button>
+          <div id="displaySettings" class="dl-menu settings-panel" role="dialog" aria-label="Display settings">
+            <p class="settings-panel__title">Display settings</p>
+            <div class="settings-row">
+              <span class="settings-row__label">Theme</span>
+              <div class="settings-seg" role="group" aria-label="Theme">
+                <button type="button" class="settings-seg__btn" aria-pressed="false" data-theme-choice="light">Light</button>
+                <button type="button" class="settings-seg__btn" aria-pressed="false" data-theme-choice="dark">Dark</button>
+                <button type="button" class="settings-seg__btn" aria-pressed="false" data-theme-choice="system" data-tip="Follow your device's light or dark setting">Device</button>
+              </div>
+            </div>
+            <div class="settings-row">
+              <span class="settings-row__label">Eye comfort</span>
+              <button type="button" class="settings-switch" role="switch" aria-checked="false" aria-label="Eye comfort"
+                      data-pref-switch="eyeComfort" data-tip="Warmer colours that are easier on the eyes at night"><span class="settings-switch__knob"></span></button>
+            </div>
+            <div class="settings-row">
+              <span class="settings-row__label">Text size</span>
+              <div class="settings-stepper" data-text-sizes="90 100 112 125 150">
+                <button type="button" class="settings-stepper__btn" data-text-size-step="-1" aria-label="Smaller text" data-tip="Smaller text">A&minus;</button>
+                <output class="settings-stepper__value" aria-live="polite" data-text-size-value>100%</output>
+                <button type="button" class="settings-stepper__btn" data-text-size-step="1" aria-label="Larger text" data-tip="Larger text">A+</button>
+              </div>
+            </div>
+            <div class="settings-row">
+              <span class="settings-row__label">Reduce motion</span>
+              <button type="button" class="settings-switch" role="switch" aria-checked="false" aria-label="Reduce motion"
+                      data-pref-switch="reduceMotion" data-tip="Turn off animations and sliding effects"><span class="settings-switch__knob"></span></button>
+            </div>
+            <div class="settings-panel__foot">
+              <button type="button" class="settings-reset" data-display-reset>Reset to default</button>
+            </div>
+          </div>
+        </div>
+        <a href="partner-profile.html" class="flex items-center gap-2 rounded-full pl-1 pr-3 py-1 hover:bg-muted u-no-underline" title="My Profile">
+          
+          <div class="h-8 w-8 rounded-full flex items-center justify-center text-xs font-semibold shrink-0 u-bg-brand u-text-on-brand">LM</div>
+          
+          <div class="hidden md:block text-left">
+            <p class="text-xs font-medium leading-tight">Liza Moreno</p>
+            <p class="text-xs leading-tight u-text-muted" title="">
+              partner
+            </p>
+          </div>
+        </a>
+      </div>
+    </header>
+    <main id="mainContent" class="app-main flex-1 px-4 lg:px-8 py-6">
+      
+
+<div class="flex flex-wrap items-center justify-between gap-2 mb-5">
+  <div class="flex flex-wrap gap-2">
+    
+    <a href="partner-archives.html"
+       class="btn btn-primary">CHED</a>
+    
+  </div>
+  <div class="flex gap-2">
+    <button type="button" class="btn btn-outline" data-preview-open="uploadExcelModal">
+      <svg class="h-4 w-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"/></svg>
+      Upload Excel
+    </button>
+  </div>
+</div>
+
+
+
+
+
+<div class="card p-6">
+  <div class="flex flex-wrap items-center justify-between gap-3 mb-5">
+    <div>
+      <div class="flex items-center gap-2">
+        <h3 class="font-semibold">CHED Scholars</h3>
+        <form method="get" data-auto-submit>
+          <input type="hidden" name="type" value="CHED" />
+          <select name="sy" class="term-pill" aria-label="Term">
+            
+            <option value="26-1" selected>26-1</option>
+            
+          </select>
+          <noscript><button type="submit" class="btn btn-outline">Go</button></noscript>
+        </form>
+      </div>
+      <p class="text-xs mt-0.5 text-muted-foreground">
+        1 scholar on file.
+        Rows you added or imported are yours to correct; a scholar holding a
+        BiPSU account is theirs and the office's.
+        
+      </p>
+    </div>
+    <div class="card-toolbar">
+      <input placeholder="Search…" id="partnerSearch" class="card-toolbar-search" aria-label="Search scholars" />
+      <button type="button" class="btn btn-outline" data-preview-open="columnsModal">Table layout</button>
+      <button type="button" class="btn btn-primary" data-preview-open="scholarModal" data-scholar-add>
+        <svg class="h-4 w-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>
+        Add Scholar
+      </button>
+      <div class="card-toolbar-menu">
+        <button type="button" class="btn btn-outline" data-dl-menu="dlMenu" aria-haspopup="true">
+          <svg class="h-4 w-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
+          Download Excel
+          <svg class="h-3 w-3" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+        </button>
+        <div id="dlMenu" class="dl-menu">
+          <div class="dl-menu__label">Current Semester</div>
+          <a class="dl-menu__item dl-menu__item-current"
+             href="#">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
+            2026-2027 — 1st Semester
+          </a>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="filter-scheme mb-4" data-filter-bar data-filter-search="#partnerSearch"></div>
+  <div class="table-scroll">
+    
+    <table data-paginate class="scholar-table" data-sortable data-filterable>
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Award No.</th><th>Last Name</th><th>First Name</th><th>Middle Name</th><th data-filter="Sex">Sex</th><th data-filter="Brgy. / St.">Brgy. / St.</th><th data-filter="Municipality">Municipality</th><th data-filter="Province">Province</th><th data-filter="Cong. District">Cong. District</th><th data-filter="Course">Course</th><th data-filter="Year Level">Year Level</th><th data-filter="Scholarship Program">Scholarship Program</th>
+      <th data-no-sort>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td class="cell-no">1</td>
+      
+      <td class="cell-muted">
+        
+        —
+        
+      </td>
+      
+      <td class="cell-name">
+        
+        Lim
+        
+      </td>
+      
+      <td class="">
+        
+        Pedro
+        
+      </td>
+      
+      <td class="">
+        
+        —
+        
+      </td>
+      
+      <td class="">
+        
+        M
+        
+      </td>
+      
+      <td class="cell-muted">
+        
+        —
+        
+      </td>
+      
+      <td class="cell-muted">
+        
+        Kawayan
+        
+      </td>
+      
+      <td class="cell-muted">
+        
+        Biliran
+        
+      </td>
+      
+      <td class="cell-muted">
+        
+        —
+        
+      </td>
+      
+      <td class="">
+        
+        BS Nursing
+        
+      </td>
+      
+      <td class="">
+        
+        3
+        
+      </td>
+      
+      <td class="">
+        
+        CHED Merit
+        
+      </td>
+      
+      <td class="cell-actions">
+        
+        <span class="cell-muted">BiPSU account</span>
+        
+      </td>
+    </tr>
+    
+  </tbody>
+</table>
+
+    
+  </div>
+</div>
+<div class="modal-overlay" id="uploadExcelModal" data-preview>
+  <div class="modal">
+    <div class="modal-header">
+      <h2 class="font-semibold text-base">Upload Excel — CHED</h2>
+      <button type="button" class="modal-close" data-preview-close aria-label="Close">&times;</button>
+    </div>
+    <div class="modal-body">
+      <p class="text-xs mb-4 text-muted-foreground">
+        A whole term of your CHED list at once. It replaces the rows
+        on this list that are yours — anything you added or imported for the term
+        you name below. A scholar the office has already matched to a BiPSU
+        student account is left exactly as it is.
+      </p>
+      <form method="post" action="#" enctype="multipart/form-data">
+        
+        <input type="hidden" name="type" value="CHED" />
+        <div class="space-y-3">
+          <div class="space-y-1.5">
+            <label for="importFile">Excel File</label>
+            <input type="file" name="file" id="importFile" accept=".xlsx" required />
+          </div>
+          <div class="space-y-1.5">
+            <label for="importTerm">Term <span class="label-optional">e.g. 26-1</span></label>
+            <input name="rollover_label" id="importTerm" value="26-1"
+                   placeholder="e.g. 26-1" required />
+            <p class="text-xs text-muted-foreground">Which term's list this sheet is. It is the term the rows land in, and the one they are downloaded under.</p>
+          </div>
+          <div class="notice">
+            <div>
+              <p class="notice__title">Expected columns for CHED</p>
+              <p class="notice__body font-mono">No. | Award Number | Last Name | First Name | Middle Name | Sex | Brgy./St. | Municipality | Province | Congress District | Course | Yr. | Scholarship Program</p>
+            </div>
+          </div>
+        </div>
+        <div class="flex flex-wrap gap-2 mt-4">
+          <button type="submit" class="btn btn-primary">Import</button>
+          <button type="button" class="btn btn-outline" data-preview-close>Cancel</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<div class="modal-overlay" id="columnsModal" data-preview>
+  <div class="modal">
+    <div class="modal-header">
+      <h2 class="font-semibold text-base">Table layout — CHED</h2>
+      <button type="button" class="modal-close" data-preview-close aria-label="Close">&times;</button>
+    </div>
+    <div class="modal-body">
+      <p class="col-picker__hint">
+        Your layout, for this account only. Ticked columns are numbered in the order
+        they appear; use the arrows to move one. The SDSO's table is untouched by
+        anything you do here, and so is every other partner's.
+      </p>
+      <form method="post" action="#">
+        
+        <input type="hidden" name="type" value="CHED" />
+        <ol class="col-picker__list" id="columnPicker">
+          
+          <li class="col-picker__item">
+            <label class="col-picker__option">
+              <input type="checkbox" name="table_columns" value="award_number"
+                     checked />
+              <span class="col-picker__no">1</span>
+              <span class="col-picker__label">Award No.</span>
+            </label>
+            <span class="col-picker__moves">
+              <button type="button" class="btn btn-outline col-picker__move" data-move="up"
+                      aria-label="Move Award No. left">&uarr;</button>
+              <button type="button" class="btn btn-outline col-picker__move" data-move="down"
+                      aria-label="Move Award No. right">&darr;</button>
+            </span>
+          </li>
+          
+          <li class="col-picker__item">
+            <label class="col-picker__option">
+              <input type="checkbox" name="table_columns" value="last_name"
+                     checked />
+              <span class="col-picker__no">2</span>
+              <span class="col-picker__label">Last Name</span>
+            </label>
+            <span class="col-picker__moves">
+              <button type="button" class="btn btn-outline col-picker__move" data-move="up"
+                      aria-label="Move Last Name left">&uarr;</button>
+              <button type="button" class="btn btn-outline col-picker__move" data-move="down"
+                      aria-label="Move Last Name right">&darr;</button>
+            </span>
+          </li>
+          
+          <li class="col-picker__item">
+            <label class="col-picker__option">
+              <input type="checkbox" name="table_columns" value="first_name"
+                     checked />
+              <span class="col-picker__no">3</span>
+              <span class="col-picker__label">First Name</span>
+            </label>
+            <span class="col-picker__moves">
+              <button type="button" class="btn btn-outline col-picker__move" data-move="up"
+                      aria-label="Move First Name left">&uarr;</button>
+              <button type="button" class="btn btn-outline col-picker__move" data-move="down"
+                      aria-label="Move First Name right">&darr;</button>
+            </span>
+          </li>
+          
+          <li class="col-picker__item">
+            <label class="col-picker__option">
+              <input type="checkbox" name="table_columns" value="middle_name"
+                     checked />
+              <span class="col-picker__no">4</span>
+              <span class="col-picker__label">Middle Name</span>
+            </label>
+            <span class="col-picker__moves">
+              <button type="button" class="btn btn-outline col-picker__move" data-move="up"
+                      aria-label="Move Middle Name left">&uarr;</button>
+              <button type="button" class="btn btn-outline col-picker__move" data-move="down"
+                      aria-label="Move Middle Name right">&darr;</button>
+            </span>
+          </li>
+          
+          <li class="col-picker__item">
+            <label class="col-picker__option">
+              <input type="checkbox" name="table_columns" value="sex"
+                     checked />
+              <span class="col-picker__no">5</span>
+              <span class="col-picker__label">Sex</span>
+            </label>
+            <span class="col-picker__moves">
+              <button type="button" class="btn btn-outline col-picker__move" data-move="up"
+                      aria-label="Move Sex left">&uarr;</button>
+              <button type="button" class="btn btn-outline col-picker__move" data-move="down"
+                      aria-label="Move Sex right">&darr;</button>
+            </span>
+          </li>
+          
+          <li class="col-picker__item">
+            <label class="col-picker__option">
+              <input type="checkbox" name="table_columns" value="brgy_st"
+                     checked />
+              <span class="col-picker__no">6</span>
+              <span class="col-picker__label">Brgy. / St.</span>
+            </label>
+            <span class="col-picker__moves">
+              <button type="button" class="btn btn-outline col-picker__move" data-move="up"
+                      aria-label="Move Brgy. / St. left">&uarr;</button>
+              <button type="button" class="btn btn-outline col-picker__move" data-move="down"
+                      aria-label="Move Brgy. / St. right">&darr;</button>
+            </span>
+          </li>
+          
+          <li class="col-picker__item">
+            <label class="col-picker__option">
+              <input type="checkbox" name="table_columns" value="municipality"
+                     checked />
+              <span class="col-picker__no">7</span>
+              <span class="col-picker__label">Municipality</span>
+            </label>
+            <span class="col-picker__moves">
+              <button type="button" class="btn btn-outline col-picker__move" data-move="up"
+                      aria-label="Move Municipality left">&uarr;</button>
+              <button type="button" class="btn btn-outline col-picker__move" data-move="down"
+                      aria-label="Move Municipality right">&darr;</button>
+            </span>
+          </li>
+          
+          <li class="col-picker__item">
+            <label class="col-picker__option">
+              <input type="checkbox" name="table_columns" value="province"
+                     checked />
+              <span class="col-picker__no">8</span>
+              <span class="col-picker__label">Province</span>
+            </label>
+            <span class="col-picker__moves">
+              <button type="button" class="btn btn-outline col-picker__move" data-move="up"
+                      aria-label="Move Province left">&uarr;</button>
+              <button type="button" class="btn btn-outline col-picker__move" data-move="down"
+                      aria-label="Move Province right">&darr;</button>
+            </span>
+          </li>
+          
+          <li class="col-picker__item">
+            <label class="col-picker__option">
+              <input type="checkbox" name="table_columns" value="cong_dist"
+                     checked />
+              <span class="col-picker__no">9</span>
+              <span class="col-picker__label">Cong. District</span>
+            </label>
+            <span class="col-picker__moves">
+              <button type="button" class="btn btn-outline col-picker__move" data-move="up"
+                      aria-label="Move Cong. District left">&uarr;</button>
+              <button type="button" class="btn btn-outline col-picker__move" data-move="down"
+                      aria-label="Move Cong. District right">&darr;</button>
+            </span>
+          </li>
+          
+          <li class="col-picker__item">
+            <label class="col-picker__option">
+              <input type="checkbox" name="table_columns" value="course"
+                     checked />
+              <span class="col-picker__no">10</span>
+              <span class="col-picker__label">Course</span>
+            </label>
+            <span class="col-picker__moves">
+              <button type="button" class="btn btn-outline col-picker__move" data-move="up"
+                      aria-label="Move Course left">&uarr;</button>
+              <button type="button" class="btn btn-outline col-picker__move" data-move="down"
+                      aria-label="Move Course right">&darr;</button>
+            </span>
+          </li>
+          
+          <li class="col-picker__item">
+            <label class="col-picker__option">
+              <input type="checkbox" name="table_columns" value="year_level"
+                     checked />
+              <span class="col-picker__no">11</span>
+              <span class="col-picker__label">Year Level</span>
+            </label>
+            <span class="col-picker__moves">
+              <button type="button" class="btn btn-outline col-picker__move" data-move="up"
+                      aria-label="Move Year Level left">&uarr;</button>
+              <button type="button" class="btn btn-outline col-picker__move" data-move="down"
+                      aria-label="Move Year Level right">&darr;</button>
+            </span>
+          </li>
+          
+          <li class="col-picker__item">
+            <label class="col-picker__option">
+              <input type="checkbox" name="table_columns" value="scholarship_program"
+                     checked />
+              <span class="col-picker__no">12</span>
+              <span class="col-picker__label">Scholarship Program</span>
+            </label>
+            <span class="col-picker__moves">
+              <button type="button" class="btn btn-outline col-picker__move" data-move="up"
+                      aria-label="Move Scholarship Program left">&uarr;</button>
+              <button type="button" class="btn btn-outline col-picker__move" data-move="down"
+                      aria-label="Move Scholarship Program right">&darr;</button>
+            </span>
+          </li>
+          
+          <li class="col-picker__item is-off">
+            <label class="col-picker__option">
+              <input type="checkbox" name="table_columns" value="m_i"
+                      />
+              <span class="col-picker__no"></span>
+              <span class="col-picker__label">Middle Initial</span>
+            </label>
+            <span class="col-picker__moves">
+              <button type="button" class="btn btn-outline col-picker__move" data-move="up"
+                      aria-label="Move Middle Initial left">&uarr;</button>
+              <button type="button" class="btn btn-outline col-picker__move" data-move="down"
+                      aria-label="Move Middle Initial right">&darr;</button>
+            </span>
+          </li>
+          
+          <li class="col-picker__item is-off">
+            <label class="col-picker__option">
+              <input type="checkbox" name="table_columns" value="gwa"
+                      />
+              <span class="col-picker__no"></span>
+              <span class="col-picker__label">GWA</span>
+            </label>
+            <span class="col-picker__moves">
+              <button type="button" class="btn btn-outline col-picker__move" data-move="up"
+                      aria-label="Move GWA left">&uarr;</button>
+              <button type="button" class="btn btn-outline col-picker__move" data-move="down"
+                      aria-label="Move GWA right">&darr;</button>
+            </span>
+          </li>
+          
+          <li class="col-picker__item is-off">
+            <label class="col-picker__option">
+              <input type="checkbox" name="table_columns" value="percent"
+                      />
+              <span class="col-picker__no"></span>
+              <span class="col-picker__label">% / Type of Scholarship</span>
+            </label>
+            <span class="col-picker__moves">
+              <button type="button" class="btn btn-outline col-picker__move" data-move="up"
+                      aria-label="Move % / Type of Scholarship left">&uarr;</button>
+              <button type="button" class="btn btn-outline col-picker__move" data-move="down"
+                      aria-label="Move % / Type of Scholarship right">&darr;</button>
+            </span>
+          </li>
+          
+          <li class="col-picker__item is-off">
+            <label class="col-picker__option">
+              <input type="checkbox" name="table_columns" value="number"
+                      />
+              <span class="col-picker__no"></span>
+              <span class="col-picker__label">Student No.</span>
+            </label>
+            <span class="col-picker__moves">
+              <button type="button" class="btn btn-outline col-picker__move" data-move="up"
+                      aria-label="Move Student No. left">&uarr;</button>
+              <button type="button" class="btn btn-outline col-picker__move" data-move="down"
+                      aria-label="Move Student No. right">&darr;</button>
+            </span>
+          </li>
+          
+        </ol>
+        <div class="flex flex-wrap gap-2 mt-3">
+          <button type="submit" class="btn btn-primary">Save my layout</button>
+          
+          <button type="button" class="btn btn-outline" data-preview-close>Cancel</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<div class="modal-overlay" id="scholarModal" data-preview>
+  <div class="modal">
+    <form method="post" action="#" id="scholarForm">
+      
+      <input type="hidden" name="action" value="add" id="scholarAction" />
+      <input type="hidden" name="type" value="CHED" />
+      <input type="hidden" name="sy" value="26-1" />
+      <input type="hidden" name="scholar_id" value="" id="scholarId" />
+      <div class="modal-header">
+        <h2 class="font-semibold text-base" id="scholarModalTitle">Add a scholar</h2>
+        <button type="button" class="modal-close" data-preview-close aria-label="Close">&times;</button>
+      </div>
+      <div class="modal-body">
+        <p class="text-xs mb-4 text-muted-foreground">
+          Your own CHED list for <strong>26-1</strong>. This
+          records a scholar; it does not create a BiPSU account, and the office is
+          the one who matches a scholar to a student who has one.
+        </p>
+        <div class="grid sm:grid-cols-2 gap-3">
+          <div class="space-y-1.5">
+            <label for="sc_last_name">Last Name</label>
+            <input name="last_name" id="sc_last_name" />
+          </div>
+          <div class="space-y-1.5">
+            <label for="sc_first_name">First Name</label>
+            <input name="first_name" id="sc_first_name" />
+          </div>
+          <div class="space-y-1.5">
+            <label for="sc_middle_name">Middle Name <span class="label-optional">Optional</span></label>
+            <input name="middle_name" id="sc_middle_name" />
+          </div>
+          <div class="space-y-1.5">
+            <label for="sc_gender">Sex <span class="label-optional">Optional</span></label>
+            <input name="gender" id="sc_gender" placeholder="e.g. F or Female" />
+          </div>
+          <div class="space-y-1.5">
+            <label for="sc_student_id">Student No. <span class="label-optional">Optional</span></label>
+            <input name="student_id" id="sc_student_id" class="font-mono" />
+          </div>
+          <div class="space-y-1.5">
+            <label for="sc_award_number">Award / Scholar No. <span class="label-optional">Optional</span></label>
+            <input name="award_number" id="sc_award_number" class="font-mono" />
+          </div>
+          <div class="space-y-1.5">
+            <label for="sc_course">Course <span class="label-optional">Optional</span></label>
+            <input name="course" id="sc_course" placeholder="e.g. BSCS" />
+          </div>
+          <div class="space-y-1.5">
+            <label for="sc_year_level">Year Level <span class="label-optional">Optional</span></label>
+            <input name="year_level" id="sc_year_level" type="number" min="1" max="10" />
+          </div>
+          <div class="space-y-1.5">
+            <label for="sc_gwa">GWA <span class="label-optional">Optional</span></label>
+            <input name="gwa" id="sc_gwa" type="number" step="0.01" min="0" placeholder="e.g. 1.25" />
+          </div>
+          <div class="space-y-1.5">
+            <label for="sc_congress_district">Cong. District <span class="label-optional">Optional</span></label>
+            <input name="congress_district" id="sc_congress_district" />
+          </div>
+          <div class="space-y-1.5">
+            <label for="sc_barangay">Brgy. / St. <span class="label-optional">Optional</span></label>
+            <input name="barangay" id="sc_barangay" />
+          </div>
+          <div class="space-y-1.5">
+            <label for="sc_municipality">Municipality <span class="label-optional">Optional</span></label>
+            <input name="municipality" id="sc_municipality" />
+          </div>
+          <div class="space-y-1.5">
+            <label for="sc_province">Province <span class="label-optional">Optional</span></label>
+            <input name="province" id="sc_province" />
+          </div>
+        </div>
+        <div class="flex flex-wrap gap-2 mt-4">
+          <button type="submit" class="btn btn-primary" id="scholarSubmit">Add scholar</button>
+          <button type="button" class="btn btn-outline" data-preview-close>Cancel</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+
+
+    </main>
+  </div>
+</div>
+
+
+<script src="static/js/table-sort.js?v=1"></script>
+<script src="static/js/table-filter.js?v=3"></script>
+<script src="static/js/column-picker.js?v=2"></script>
+<script src="static/js/modal-open.js?v=3"></script>
+<script src="static/js/partner-scholar.js?v=1"></script>
+
+<div id="sidebarBackdrop" class="sidebar-backdrop lg:hidden" hidden></div>
+<script src="static/js/mobile-nav.js?v=1" defer></script>
+<div id="confirmDialog" class="confirm-dialog" role="alertdialog" aria-modal="true" aria-labelledby="confirmTitle" aria-describedby="confirmMessage" hidden>
+  <div class="confirm-backdrop"></div>
+  <div class="confirm-panel">
+    <div class="confirm-head">
+      <svg id="confirmIcon" class="confirm-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v4m0 4h.01M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/>
+      </svg>
+      <p id="confirmTitle" class="confirm-title"></p>
+    </div>
+    <p id="confirmMessage" class="confirm-message"></p>
+    <p id="confirmConsequence" class="confirm-consequence" hidden></p>
+    <div class="confirm-actions">
+      <button type="button" id="confirmCancel" class="btn btn-outline">Cancel</button>
+      <button type="button" id="confirmGo" class="btn confirm-go">Confirm</button>
+    </div>
+  </div>
+</div>
+<script src="static/js/confirm-dialog.js?v=2" defer></script>
+<div id="docViewer" class="doc-viewer" role="dialog" aria-modal="true" aria-labelledby="docViewerTitle" hidden>
+  <div class="doc-viewer-backdrop" data-doc-close></div>
+  <div class="doc-viewer-panel">
+    <header class="doc-viewer-bar">
+      <div class="u-minw-0">
+        <p id="docViewerTitle" class="doc-viewer-title">Document</p>
+        <p id="docViewerName" class="doc-viewer-sub"></p>
+      </div>
+      <div class="doc-viewer-actions">
+        <a id="docViewerOpen" href="#" target="_blank" rel="noopener" class="btn btn-outline u-p-0-3rem-0-7rem u-fs-0-75rem">Open in new tab</a>
+        <a id="docViewerDownload" href="#" download class="btn btn-outline u-p-0-3rem-0-7rem u-fs-0-75rem">Download</a>
+        <button type="button" class="doc-viewer-close" data-doc-close aria-label="Close">&#10005;</button>
+      </div>
+    </header>
+    <div id="docViewerBody" class="doc-viewer-body"></div>
+  </div>
+</div>
+<script nonce="jUyWk2lbRhXAXO8AlFUi_6M_">
+(function () {
+  var viewer   = document.getElementById('docViewer');
+  var body     = document.getElementById('docViewerBody');
+  var titleEl  = document.getElementById('docViewerTitle');
+  var nameEl   = document.getElementById('docViewerName');
+  var openEl   = document.getElementById('docViewerOpen');
+  var dlEl     = document.getElementById('docViewerDownload');
+  var lastFocus = null;
+  function fileName(url) {
+    try { return decodeURIComponent(url.split('?')[0].split('/').pop() || ''); }
+    catch (e) { return url; }
+  }
+  function render(url) {
+    var ext = fileName(url).split('.').pop().toLowerCase();
+    body.innerHTML = '';
+    if (['png', 'jpg', 'jpeg', 'gif', 'webp', 'bmp', 'svg'].indexOf(ext) !== -1) {
+      var img = document.createElement('img');
+      img.src = url;
+      img.alt = fileName(url);
+      body.appendChild(img);
+    } else if (ext === 'pdf' || ext === '') {
+      var frame = document.createElement('iframe');
+      frame.src = url;
+      frame.title = fileName(url);
+      body.appendChild(frame);
+    } else {
+      var p = document.createElement('div');
+      p.className = 'doc-viewer-fallback';
+      p.innerHTML = 'This file type cannot be previewed in the browser.<br />Use <strong>Download</strong> above to open it.';
+      body.appendChild(p);
+    }
+  }
+  window.openDoc = function (url, label) {
+    if (!url) return;
+    lastFocus = document.activeElement;
+    titleEl.textContent = label || 'Document';
+    nameEl.textContent = fileName(url);
+    openEl.href = url;
+    dlEl.href = url;
+    render(url);
+    viewer.hidden = false;
+    document.body.style.overflow = 'hidden';
+    viewer.querySelector('.doc-viewer-close').focus();
+  };
+  window.closeDoc = function () {
+    viewer.hidden = true;
+    body.innerHTML = '';
+    document.body.style.overflow = '';
+    if (lastFocus && lastFocus.focus) lastFocus.focus();
+  };
+  document.addEventListener('click', function (e) {
+    if (e.target.closest('[data-doc-close]')) { e.preventDefault(); window.closeDoc(); return; }
+    var link = e.target.closest('a[data-doc]');
+    if (!link) return;
+    if (e.metaKey || e.ctrlKey || e.shiftKey || e.button !== 0) return;
+    e.preventDefault();
+    window.openDoc(link.getAttribute('href'), link.getAttribute('data-doc') || link.textContent.trim());
+  });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && !viewer.hidden) window.closeDoc();
+  });
+})();
+</script>
+<button type="button" class="to-top" aria-label="Back to top">
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7"/></svg>
+</button>
+
+<button type="button" class="fab-contact" data-dl-menu="helpMenu" aria-haspopup="dialog"
+        data-print-hide title="Contact the SDSO office">
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+  <span class="fab-contact__label">Need help?</span>
+</button>
+<div class="dl-menu help-menu" id="helpMenu" role="dialog" aria-label="Need help?">
+  <div class="help-menu__head">
+    <span class="help-menu__mark">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+    </span>
+    <div>
+      <p class="help-menu__title">Need help?</p>
+      <p class="help-menu__sub">The SDSO handles scholarships at BiPSU.</p>
+    </div>
+  </div>
+
+  <div class="help-menu__rows">
+    <div class="help-menu__row">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 11c0-1.105.895-2 2-2h1a2 2 0 002-2V6a2 2 0 00-2-2H9a2 2 0 00-2 2v1M5 11h14a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2z"/></svg>
+      <div>
+        <p class="help-menu__row-title">Cannot sign in</p>
+        <p class="help-menu__row-note">Or still waiting on verification. Give them the email you registered with.</p>
+      </div>
+    </div>
+    <div class="help-menu__row">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/></svg>
+      <div>
+        <p class="help-menu__row-title">A detail is wrong</p>
+        <p class="help-menu__row-note">Locked fields come from your records — only the office can change them.</p>
+      </div>
+    </div>
+    <div class="help-menu__row">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
+      <div>
+        <p class="help-menu__row-title">A question about a programme</p>
+        <p class="help-menu__row-note">Whether you qualify, when it opens, what to submit.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="help-menu__foot">
+    
+    <p class="help-menu__note">Visit the SDSO office on campus — no support address is set for this site yet.</p>
+    
+  </div>
+</div>
+
+
+<div class="cookie-banner" role="region" aria-label="Cookie notice" hidden>
+  <p class="cookie-banner__text">
+    <strong>This site uses essential cookies only.</strong>
+    They keep you signed in and protect forms against tampering. No advertising
+    or third-party tracking cookies are set.
+  </p>
+  <button type="button" class="btn btn-primary" data-cookie-ok>Got it</button>
+</div>
+
+<script src="static/js/loading.js?v=3" defer></script>
+<script src="static/js/actions.js?v=1" defer></script>
+<script src="static/js/toast.js?v=1" defer></script>
+<script src="static/js/chrome.js?v=1" defer></script>
+<script src="static/js/meter.js?v=1" defer></script>
+<script src="static/js/table-pager.js?v=2" defer></script>
+<script src="static/js/consent.js?v=3" defer></script>
+<script src="static/js/search.js?v=2" defer></script>
+<script src="static/js/dl-menu.js?v=3" defer></script>
+<script src="static/js/display-settings.js?v=1" defer></script>
+<script src="static/js/tooltip.js?v=2" defer></script>
+<script src="static/js/table-priority.js?v=1" defer></script>
+
+<script type="speculationrules" nonce="jUyWk2lbRhXAXO8AlFUi_6M_">
+{"prefetch": [{"where": {"selector_matches": ".sidebar-nav a.sidebar-link"}, "eagerness": "conservative"}]}
+</script>
+<script src="static/demo/demo.js"></script>
+</body>
+</html>

@@ -1,0 +1,3864 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Account Verification — BiPSU SRMS</title>
+  
+<link rel="icon" href="static/img/favicon.ico?v=2" sizes="any" />
+<link rel="icon" type="image/png" href="static/img/favicon-32.png?v=2" sizes="32x32" />
+<link rel="apple-touch-icon" href="static/img/apple-touch-icon.png?v=2" />
+
+  <meta name="robots" content="noindex, nofollow" />
+
+  <meta name="theme-color" id="themeColor" content="#ffffff" />
+  <script nonce="vChvAuAGicDoyLGe7pqhJzoe">
+    var srmsDark = localStorage.getItem('theme') === 'dark' ||
+        (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches);
+    if (srmsDark) document.documentElement.classList.add('dark');
+    document.getElementById('themeColor').setAttribute('content', srmsDark ? '#171c2e' : '#ffffff');
+  </script>
+  
+  <link rel="stylesheet" href="static/css/tailwind.css?v=2" />
+  <link rel="stylesheet" href="static/css/srms.css?v=149" />
+  
+  <script src="static/js/skeleton.js?v=6" data-tabs-only></script>
+  
+  <script src="static/js/display-prefs.js?v=1"></script>
+
+<link rel="stylesheet" href="static/demo/demo.css">
+</head>
+
+<body data-portal="vpsea">
+<a href="#mainContent" class="skip-link">Skip to main content</a>
+<div class="scroll-progress" aria-hidden="true"></div>
+<div class="page-skeleton" aria-hidden="true">
+  <div class="skeleton-app">
+    <div class="skeleton-app-side">
+      <div class="skeleton-app-brand">
+        <div class="skeleton skeleton-avatar"></div>
+        <div class="skeleton-stack">
+          <div class="skeleton skeleton-brand-name"></div>
+          <div class="skeleton skeleton-brand-sub"></div>
+        </div>
+      </div>
+      <div class="skeleton-app-nav">
+        <div class="skeleton skeleton-app-navitem"></div>
+        <div class="skeleton skeleton-app-navitem"></div>
+        <div class="skeleton skeleton-app-navitem"></div>
+        <div class="skeleton skeleton-app-navitem"></div>
+        <div class="skeleton skeleton-app-navitem"></div>
+        <div class="skeleton skeleton-app-navitem"></div>
+      </div>
+    </div>
+    <div class="skeleton-app-main">
+      <div class="skeleton-app-head">
+        <div class="skeleton-stack">
+          <div class="skeleton skeleton-app-title"></div>
+          <div class="skeleton skeleton-app-subtitle"></div>
+        </div>
+        <div class="skeleton skeleton-avatar"></div>
+      </div>
+      <div class="skeleton-app-body">
+        <div class="skeleton skeleton-app-card"></div>
+        <div class="skeleton skeleton-app-card"></div>
+        <div class="skeleton skeleton-app-block"></div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="flex min-h-screen w-full">
+  <aside id="appSidebar"
+         class="app-sidebar fixed lg:sticky top-0 bottom-0 lg:bottom-auto left-0 z-50 lg:z-auto
+                w-64 shrink-0 flex flex-col self-start h-screen
+                -translate-x-full lg:translate-x-0 transition-transform duration-200">
+    <div class="sidebar-head flex items-center gap-2 px-6 py-5">
+      <div class="sidebar-logo h-9 w-9 rounded-lg overflow-hidden shrink-0 flex items-center justify-center">
+        <img src="media/logos/BiPSU.png?v=2" alt="" class="h-9 w-9 object-contain" />
+      </div>
+      <div>
+        <p class="sidebar-brand text-sm font-semibold">BiPSU SRMS</p>
+        <p class="sidebar-brand-sub text-xs uppercase tracking-wider" title="Student Development and Services Office">Student Development and Services Office</p>
+      </div>
+    </div>
+    <div class="sidebar-search px-3 pt-3">
+      <div class="search-box">
+        <svg class="search-box__icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-4.35-4.35M11 19a8 8 0 100-16 8 8 0 000 16z"/></svg>
+        <input type="search" id="navSearch" placeholder="Find a page" autocomplete="off"
+               aria-label="Find a page in this portal"
+               data-search=".sidebar-nav .sidebar-link"
+               data-search-empty="#navSearchEmpty" />
+        <button type="button" class="search-clear" data-search-clear aria-label="Clear search" hidden>&#10005;</button>
+      </div>
+    </div>
+    <nav class="sidebar-nav flex-1 min-h-0 overflow-y-auto p-3 space-y-0.5">
+        <a href="office-dashboard.html" class="sidebar-link "><svg class="h-4 w-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>Dashboard</a>
+  <a href="office-accounts.html" class="sidebar-link active"><svg class="h-4 w-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg><span class="sidebar-link__label">Account Verification</span></a>
+  <a href="office-analytics.html" class="sidebar-link "><svg class="h-4 w-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>Analytics</a>
+  <a href="office-announcements.html" class="sidebar-link "><svg class="h-4 w-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5.882V19.24a1.76 1.76 0 01-3.417.592l-2.147-6.15M18 13a3 3 0 100-6M5.436 13.683A4.001 4.001 0 017 6h1.832c4.1 0 7.625-1.234 9.168-3v14c-1.543-1.766-5.067-3-9.168-3H7a3.988 3.988 0 01-1.564-.317z"/></svg>Announcements</a>
+  <a href="office-affirmative.html" class="sidebar-link "><svg class="h-4 w-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>Applications</a>
+  <a href="office-audit-log.html" class="sidebar-link sidebar-link--sub "><svg class="h-4 w-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/></svg>Audit Log</a>
+  <a href="office-partners.html" class="sidebar-link "><svg class="h-4 w-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/></svg>External Partners</a>
+  <a href="office-renewals.html" class="sidebar-link "><svg class="h-4 w-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg>Renewal Applications</a>
+  <a href="office-reports.html" class="sidebar-link "><svg class="h-4 w-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>Reports</a>
+  <a href="office-archives.html" class="sidebar-link "><svg class="h-4 w-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4"/></svg>Scholarship Archives</a>
+  <a href="office-scholarships.html" class="sidebar-link "><svg class="h-4 w-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>Scholarship Programs</a>
+  <a href="office-school-year.html" class="sidebar-link "><svg class="h-4 w-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>School Year &amp; Semester</a>
+  <a href="office-schools.html" class="sidebar-link "><svg class="h-4 w-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>Schools &amp; Courses</a>
+  
+
+      <p id="navSearchEmpty" class="sidebar-search__empty" hidden>No page matches &ldquo;<span data-search-term></span>&rdquo;.</p>
+    </nav>
+    <div class="sidebar-foot p-3 shrink-0">
+      <a href="index.html" class="sidebar-link">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a2 2 0 01-2 2H5a2 2 0 01-2-2V7a2 2 0 012-2h6a2 2 0 012 2v1"/></svg>
+        Sign out
+      </a>
+    </div>
+  </aside>
+  <div class="flex flex-1 flex-col min-w-0">
+    <header class="sticky top-0 z-30 flex h-16 items-center justify-between gap-2 lg:gap-4 px-4 lg:px-8 u-bg-color-mix-in-srgb-surface-85pct-transparent u-backdrop-blur-8px u-bb-1px-solid-border">
+      <button type="button" id="sidebarToggle" class="lg:hidden p-2 -ml-2 rounded-lg shrink-0 sidebar-toggle"
+              aria-label="Open menu" aria-controls="appSidebar" aria-expanded="false">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
+      <div class="min-w-0">
+        <h1 class="text-lg font-semibold truncate u-text-base">Account Verification</h1>
+        <p class="text-xs truncate u-text-muted">Registrations waiting to be released</p>
+      </div>
+      <div class="header-tools flex items-center gap-3">
+        
+        <a href="office-school-year.html" class="hidden sm:flex items-center gap-1.5 rounded-full px-3 py-1 u-bg-brand-soft u-border-1px-solid-brand u-no-underline term-pill-link"
+           title="Active term. Change it under School Year &amp; Semester."
+           aria-label="Active term: 1st Semester, SY 2026-2027. Change it under School Year &amp; Semester.">
+          <svg class="h-3.5 w-3.5 u-text-brand" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+          <span class="text-xs font-semibold u-text-brand">1st Semester &nbsp;·&nbsp; SY 2026-2027</span>
+          <svg class="h-3 w-3 u-text-brand" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+        </a>
+        
+        
+        
+        <div class="display-settings">
+          <button type="button" id="displaySettingsToggle" class="relative p-2 rounded-lg hover:bg-muted u-bg-transparent u-border-none u-cursor-pointer"
+                  data-dl-menu="displaySettings" aria-haspopup="dialog" aria-label="Display settings">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+          </button>
+          <div id="displaySettings" class="dl-menu settings-panel" role="dialog" aria-label="Display settings">
+            <p class="settings-panel__title">Display settings</p>
+            <div class="settings-row">
+              <span class="settings-row__label">Theme</span>
+              <div class="settings-seg" role="group" aria-label="Theme">
+                <button type="button" class="settings-seg__btn" aria-pressed="false" data-theme-choice="light">Light</button>
+                <button type="button" class="settings-seg__btn" aria-pressed="false" data-theme-choice="dark">Dark</button>
+                <button type="button" class="settings-seg__btn" aria-pressed="false" data-theme-choice="system" data-tip="Follow your device's light or dark setting">Device</button>
+              </div>
+            </div>
+            <div class="settings-row">
+              <span class="settings-row__label">Eye comfort</span>
+              <button type="button" class="settings-switch" role="switch" aria-checked="false" aria-label="Eye comfort"
+                      data-pref-switch="eyeComfort" data-tip="Warmer colours that are easier on the eyes at night"><span class="settings-switch__knob"></span></button>
+            </div>
+            <div class="settings-row">
+              <span class="settings-row__label">Text size</span>
+              <div class="settings-stepper" data-text-sizes="90 100 112 125 150">
+                <button type="button" class="settings-stepper__btn" data-text-size-step="-1" aria-label="Smaller text" data-tip="Smaller text">A&minus;</button>
+                <output class="settings-stepper__value" aria-live="polite" data-text-size-value>100%</output>
+                <button type="button" class="settings-stepper__btn" data-text-size-step="1" aria-label="Larger text" data-tip="Larger text">A+</button>
+              </div>
+            </div>
+            <div class="settings-row">
+              <span class="settings-row__label">Reduce motion</span>
+              <button type="button" class="settings-switch" role="switch" aria-checked="false" aria-label="Reduce motion"
+                      data-pref-switch="reduceMotion" data-tip="Turn off animations and sliding effects"><span class="settings-switch__knob"></span></button>
+            </div>
+            <div class="settings-panel__foot">
+              <button type="button" class="settings-reset" data-display-reset>Reset to default</button>
+            </div>
+          </div>
+        </div>
+        <a href="office-profile.html" class="flex items-center gap-2 rounded-full pl-1 pr-3 py-1 hover:bg-muted u-no-underline" title="My Profile">
+          
+          <div class="h-8 w-8 rounded-full flex items-center justify-center text-xs font-semibold shrink-0 u-bg-brand u-text-on-brand">RB</div>
+          
+          <div class="hidden md:block text-left">
+            <p class="text-xs font-medium leading-tight">Rosario Bayhon</p>
+            <p class="text-xs leading-tight u-text-muted" title="Student Development and Services Office">
+              Student Development and Services Office
+              
+            </p>
+          </div>
+        </a>
+      </div>
+    </header>
+    <main id="mainContent" class="app-main flex-1 px-4 lg:px-8 py-6">
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+<nav class="acct-stats" aria-label="Sections on this page">
+  <a class="acct-stat" href="#pending">
+    <span class="acct-stat__icon" aria-hidden="true">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+    </span>
+    <span class="acct-stat__text">
+      <span class="acct-stat__label">Waiting for you</span>
+      <span class="acct-stat__value">0</span>
+      <span class="acct-stat__hint">Nothing to decide</span>
+    </span>
+  </a>
+  
+  <a class="acct-stat" href="#decided">
+    <span class="acct-stat__icon" aria-hidden="true">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/></svg>
+    </span>
+    <span class="acct-stat__text">
+      <span class="acct-stat__label">Decided</span>
+      <span class="acct-stat__value">0</span>
+      <span class="acct-stat__hint">verified or rejected</span>
+    </span>
+  </a>
+  <a class="acct-stat" href="#manage">
+    <span class="acct-stat__icon" aria-hidden="true">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+    </span>
+    <span class="acct-stat__text">
+      <span class="acct-stat__label">All accounts</span>
+      <span class="acct-stat__value">9</span>
+      <span class="acct-stat__hint">students and employees</span>
+    </span>
+  </a>
+  <a class="acct-stat" href="#office">
+    <span class="acct-stat__icon" aria-hidden="true">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
+    </span>
+    <span class="acct-stat__text">
+      <span class="acct-stat__label">Office accounts</span>
+      <span class="acct-stat__value">2</span>
+      <span class="acct-stat__hint">who signs in to this portal</span>
+    </span>
+  </a>
+</nav>
+
+<section class="card acct-section" id="pending" aria-labelledby="pending-title">
+  <div class="acct-section__head">
+    <div class="acct-section__intro">
+      <h2 class="acct-section__title" id="pending-title">Waiting for you <span class="acct-count">0</span></h2>
+      <p class="acct-section__desc">
+        Someone who registers on the public form cannot sign in until you decide here. Check what they entered
+        against your records — an unverified account is the only thing standing between a stranger and a student portal.
+        A registration that declares a scholarship is decided here too: verifying the account records the award.
+      </p>
+    </div>
+  </div>
+  
+  <div class="acct-empty">
+    <span class="acct-empty__icon" aria-hidden="true">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+    </span>
+    <p class="acct-empty__text">Nothing waiting. New registrations land here.</p>
+  </div>
+  
+</section>
+
+
+
+
+<section class="card acct-section" id="decided" aria-labelledby="decided-title">
+  <div class="acct-section__head">
+    <div class="acct-section__intro">
+      <h2 class="acct-section__title" id="decided-title">Recently decided <span class="acct-count">0</span></h2>
+      <p class="acct-section__desc">The last 25 decisions. <strong>View record</strong> reopens everything the decision was made on — what they registered with, and what became of any scholarship they declared. A rejected registration is deleted when you reject it, so it is not listed here; the Audit Log keeps it.</p>
+    </div>
+    <div class="filter-scheme acct-section__tools" data-filter-bar></div>
+  </div>
+  
+  <div class="acct-empty">
+    <p class="acct-empty__text">No decisions yet.</p>
+  </div>
+  
+</section>
+
+<section class="card acct-section manage-section" id="manage" aria-labelledby="manage-title">
+  <div class="acct-section__head">
+    <div class="acct-section__intro">
+      <h2 class="acct-section__title" id="manage-title">Manage student &amp; employee accounts <span class="acct-count">9</span></h2>
+      <p class="acct-section__desc">
+        Everyone who registered on the public form, whatever became of their registration. Correct what they
+        entered, let them back in after too many wrong passwords, give them a new password, or close the account
+        &mdash; and once it is closed, delete it. Every change is recorded in the audit log under your name.
+      </p>
+    </div>
+  </div>
+  <div class="acct-toolbar">
+    
+    <form method="get" action="#manage" class="manage-search" role="search">
+      <div class="manage-search__field manage-search__field--wide">
+        <label for="manage-q">Search</label>
+        <input id="manage-q" type="search" name="q" value="" placeholder="Name, email, student or employee ID" />
+      </div>
+      <div class="manage-search__field">
+        <label for="manage-role">Role</label>
+        <select id="manage-role" name="role">
+          <option value="">Students and employees</option>
+          <option value="student">Students</option>
+          <option value="nsu_staff">BiPSU Employees</option>
+        </select>
+      </div>
+      <div class="manage-search__field">
+        <label for="manage-state">Show</label>
+        <select id="manage-state" name="state">
+          
+          <option value="" selected>Every account</option>
+          
+          <option value="active">Can sign in</option>
+          
+          <option value="closed">Closed</option>
+          
+          <option value="unconfirmed">Email not confirmed</option>
+          
+          <option value="pending">Awaiting verification</option>
+          
+          <option value="rejected">Rejected</option>
+          
+        </select>
+      </div>
+      <div class="manage-search__actions">
+        <button type="submit" class="btn btn-primary">Search</button>
+        
+      </div>
+    </form>
+    
+  </div>
+  
+  <div class="table-scroll">
+    <table class="acct-table" data-priority-columns>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th data-priority="medium">Role</th>
+          <th>ID number</th>
+          <th>Status</th>
+          <th data-priority="low">Last sign-in</th>
+          <th data-no-sort><span class="sr-only">Actions</span></th>
+        </tr>
+      </thead>
+      <tbody>
+        
+        <tr>
+          <td class="acct-table__person"><span class="acct-person">
+  <span class="acct-avatar" aria-hidden="true" data-initials="EA"></span>
+  <span class="acct-person__text">
+    <span class="acct-person__name">Elena Abarca</span>
+    <span class="acct-person__mail">employee@demo.local</span>
+  </span>
+</span>
+</td>
+          <td class="acct-table__muted" data-label="Role">BiPSU Employee</td>
+          <td class="acct-table__muted" data-label="ID number">
+            32-1-204518
+          </td>
+          <td data-label="Status">
+            <span class="manage-status"><span class="badge badge-success">Verified</span>
+
+
+
+</span>
+          </td>
+          <td class="acct-table__muted acct-table__nowrap" data-label="Last sign-in">Nov 13, 2026</td>
+          <td class="acct-table__actions">
+            <div class="record-actions">
+              <button type="button" class="btn btn-outline record-actions__btn"
+                      data-preview-open="manage-12">Manage</button>
+            </div>
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="acct-table__person"><span class="acct-person">
+  <span class="acct-avatar" aria-hidden="true" data-initials="RC"></span>
+  <span class="acct-person__text">
+    <span class="acct-person__name">Rosa Cruz</span>
+    <span class="acct-person__mail">rosa.cruz@bipsu.edu.ph</span>
+  </span>
+</span>
+</td>
+          <td class="acct-table__muted" data-label="Role">Student</td>
+          <td class="acct-table__muted" data-label="ID number">
+            2022-00105
+          </td>
+          <td data-label="Status">
+            <span class="manage-status"><span class="badge badge-success">Verified</span>
+
+
+
+</span>
+          </td>
+          <td class="acct-table__muted acct-table__nowrap" data-label="Last sign-in">Never</td>
+          <td class="acct-table__actions">
+            <div class="record-actions">
+              <button type="button" class="btn btn-outline record-actions__btn"
+                      data-preview-open="manage-8">Manage</button>
+            </div>
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="acct-table__person"><span class="acct-person">
+  <span class="acct-avatar" aria-hidden="true" data-initials="JD"></span>
+  <span class="acct-person__text">
+    <span class="acct-person__name">Juan Dela Cruz</span>
+    <span class="acct-person__mail">juan.delacruz@bipsu.edu.ph</span>
+  </span>
+</span>
+</td>
+          <td class="acct-table__muted" data-label="Role">Student</td>
+          <td class="acct-table__muted" data-label="ID number">
+            2022-00451
+          </td>
+          <td data-label="Status">
+            <span class="manage-status"><span class="badge badge-success">Verified</span>
+
+
+
+</span>
+          </td>
+          <td class="acct-table__muted acct-table__nowrap" data-label="Last sign-in">Nov 13, 2026</td>
+          <td class="acct-table__actions">
+            <div class="record-actions">
+              <button type="button" class="btn btn-outline record-actions__btn"
+                      data-preview-open="manage-3">Manage</button>
+            </div>
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="acct-table__person"><span class="acct-person">
+  <span class="acct-avatar" aria-hidden="true" data-initials="AG"></span>
+  <span class="acct-person__text">
+    <span class="acct-person__name">Ana Garcia</span>
+    <span class="acct-person__mail">ana.garcia@bipsu.edu.ph</span>
+  </span>
+</span>
+</td>
+          <td class="acct-table__muted" data-label="Role">Student</td>
+          <td class="acct-table__muted" data-label="ID number">
+            2022-00103
+          </td>
+          <td data-label="Status">
+            <span class="manage-status"><span class="badge badge-success">Verified</span>
+
+
+
+</span>
+          </td>
+          <td class="acct-table__muted acct-table__nowrap" data-label="Last sign-in">Never</td>
+          <td class="acct-table__actions">
+            <div class="record-actions">
+              <button type="button" class="btn btn-outline record-actions__btn"
+                      data-preview-open="manage-6">Manage</button>
+            </div>
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="acct-table__person"><span class="acct-person">
+  <span class="acct-avatar" aria-hidden="true" data-initials="PL"></span>
+  <span class="acct-person__text">
+    <span class="acct-person__name">Pedro Lim</span>
+    <span class="acct-person__mail">pedro.lim@bipsu.edu.ph</span>
+  </span>
+</span>
+</td>
+          <td class="acct-table__muted" data-label="Role">Student</td>
+          <td class="acct-table__muted" data-label="ID number">
+            2022-00104
+          </td>
+          <td data-label="Status">
+            <span class="manage-status"><span class="badge badge-success">Verified</span>
+
+
+
+</span>
+          </td>
+          <td class="acct-table__muted acct-table__nowrap" data-label="Last sign-in">Never</td>
+          <td class="acct-table__actions">
+            <div class="record-actions">
+              <button type="button" class="btn btn-outline record-actions__btn"
+                      data-preview-open="manage-7">Manage</button>
+            </div>
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="acct-table__person"><span class="acct-person">
+  <span class="acct-avatar" aria-hidden="true" data-initials="CM"></span>
+  <span class="acct-person__text">
+    <span class="acct-person__name">Carlo Mendoza</span>
+    <span class="acct-person__mail">carlo.mendoza@bipsu.edu.ph</span>
+  </span>
+</span>
+</td>
+          <td class="acct-table__muted" data-label="Role">Student</td>
+          <td class="acct-table__muted" data-label="ID number">
+            2022-00106
+          </td>
+          <td data-label="Status">
+            <span class="manage-status"><span class="badge badge-success">Verified</span>
+
+
+
+</span>
+          </td>
+          <td class="acct-table__muted acct-table__nowrap" data-label="Last sign-in">Never</td>
+          <td class="acct-table__actions">
+            <div class="record-actions">
+              <button type="button" class="btn btn-outline record-actions__btn"
+                      data-preview-open="manage-9">Manage</button>
+            </div>
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="acct-table__person"><span class="acct-person">
+  <span class="acct-avatar" aria-hidden="true" data-initials="JR"></span>
+  <span class="acct-person__text">
+    <span class="acct-person__name">Jose Reyes</span>
+    <span class="acct-person__mail">jose.reyes@bipsu.edu.ph</span>
+  </span>
+</span>
+</td>
+          <td class="acct-table__muted" data-label="Role">Student</td>
+          <td class="acct-table__muted" data-label="ID number">
+            2022-00102
+          </td>
+          <td data-label="Status">
+            <span class="manage-status"><span class="badge badge-success">Verified</span>
+
+
+
+</span>
+          </td>
+          <td class="acct-table__muted acct-table__nowrap" data-label="Last sign-in">Never</td>
+          <td class="acct-table__actions">
+            <div class="record-actions">
+              <button type="button" class="btn btn-outline record-actions__btn"
+                      data-preview-open="manage-5">Manage</button>
+            </div>
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="acct-table__person"><span class="acct-person">
+  <span class="acct-avatar" aria-hidden="true" data-initials="MS"></span>
+  <span class="acct-person__text">
+    <span class="acct-person__name">Maria Santos</span>
+    <span class="acct-person__mail">maria.santos@bipsu.edu.ph</span>
+  </span>
+</span>
+</td>
+          <td class="acct-table__muted" data-label="Role">Student</td>
+          <td class="acct-table__muted" data-label="ID number">
+            2022-00101
+          </td>
+          <td data-label="Status">
+            <span class="manage-status"><span class="badge badge-success">Verified</span>
+
+
+
+</span>
+          </td>
+          <td class="acct-table__muted acct-table__nowrap" data-label="Last sign-in">Never</td>
+          <td class="acct-table__actions">
+            <div class="record-actions">
+              <button type="button" class="btn btn-outline record-actions__btn"
+                      data-preview-open="manage-4">Manage</button>
+            </div>
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="acct-table__person"><span class="acct-person">
+  <span class="acct-avatar" aria-hidden="true" data-initials="LT"></span>
+  <span class="acct-person__text">
+    <span class="acct-person__name">Liza Torres</span>
+    <span class="acct-person__mail">liza.torres@bipsu.edu.ph</span>
+  </span>
+</span>
+</td>
+          <td class="acct-table__muted" data-label="Role">Student</td>
+          <td class="acct-table__muted" data-label="ID number">
+            2022-00107
+          </td>
+          <td data-label="Status">
+            <span class="manage-status"><span class="badge badge-success">Verified</span>
+
+
+
+</span>
+          </td>
+          <td class="acct-table__muted acct-table__nowrap" data-label="Last sign-in">Never</td>
+          <td class="acct-table__actions">
+            <div class="record-actions">
+              <button type="button" class="btn btn-outline record-actions__btn"
+                      data-preview-open="manage-10">Manage</button>
+            </div>
+          </td>
+        </tr>
+        
+      </tbody>
+    </table>
+  </div>
+  
+
+
+
+  
+</section>
+
+<details class="card office-panel" id="office">
+  <summary class="office-panel__summary">
+    <span class="office-panel__icon" aria-hidden="true">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
+    </span>
+    <span class="office-panel__title">Office accounts</span>
+    <span class="acct-count">2</span>
+    <span class="office-panel__hint">who else signs in to this portal</span>
+    <svg class="office-panel__chevron" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+  </summary>
+  <div class="office-panel__body">
+    <p class="office-panel__note">
+      An office account reaches every page you reach. What separates two officers is not
+      what they may do but that each decision &mdash; every account verified, application
+      decided and renewal reviewed &mdash; is recorded against the one who made it. Share a
+      login and that record says nothing.
+    </p>
+    
+    <p class="office-panel__note">
+      Opening and closing these accounts is left to an account that can also reach the
+      Django admin, so that whatever goes wrong here can be put back. Yours signs in to
+      every page of this portal but not to this list.
+    </p>
+    
+    <div class="office-accounts">
+      
+      <div class="office-accounts__row">
+        <span class="office-accounts__who">
+          <span class="acct-person">
+  <span class="acct-avatar" aria-hidden="true" data-initials="IA"></span>
+  <span class="acct-person__text">
+    <span class="acct-person__name">IT Admin</span>
+    <span class="acct-person__mail">it@bipsu.edu.ph</span>
+  </span>
+</span>
+
+          <span class="office-accounts__tags">
+            
+            
+            <span class="office-accounts__mail">opened Nov 13, 2026</span>
+          </span>
+        </span>
+        
+      </div>
+      
+      <div class="office-accounts__row">
+        <span class="office-accounts__who">
+          <span class="acct-person">
+  <span class="acct-avatar" aria-hidden="true" data-initials="RB"></span>
+  <span class="acct-person__text">
+    <span class="acct-person__name">Rosario Bayhon</span>
+    <span class="acct-person__mail">vpsea@bipsu.edu.ph</span>
+  </span>
+</span>
+
+          <span class="office-accounts__tags">
+            <span class="badge badge-muted">You</span>
+            
+            <span class="office-accounts__mail">opened Nov 13, 2026</span>
+          </span>
+        </span>
+        
+      </div>
+      
+    </div>
+    
+  </div>
+</details>
+
+
+
+
+
+
+<div class="modal-overlay" id="manage-12" data-preview>
+  <div class="modal record-modal" role="dialog" aria-modal="true" aria-labelledby="manage-12-name">
+    <div class="modal-header">
+      <div class="record-modal__who">
+        <h2 class="record-modal__name" id="manage-12-name">Elena Abarca</h2>
+        <p class="record-modal__sub">employee@demo.local · BiPSU Employee · registered Nov 13, 2026</p>
+      </div>
+      <button type="button" class="modal-close" data-preview-close aria-label="Close">&times;</button>
+    </div>
+    <div class="modal-body">
+      
+
+      <p class="manage-status manage-status--head"><span class="badge badge-success">Verified</span>
+
+
+
+</p>
+      <div class="detail-grid">
+        <div class="detail-field"><label>Last sign-in</label><span>Nov 13, 2026 11:19 AM</span></div>
+        <div class="detail-field"><label>Registered for</label><span>2026-2027 1st Semester</span></div>
+      </div>
+
+      <p class="section-title">Correct their details</p>
+      <form method="post" class="space-y-4">
+        
+        <input type="hidden" name="manage" value="details" />
+        <input type="hidden" name="account_id" value="12" />
+        <div class="grid sm:grid-cols-2 gap-4">
+          <div class="space-y-1.5">
+            <label for="m-first-12">First Name</label>
+            <input id="m-first-12" name="first_name" value="Elena" required />
+          </div>
+          <div class="space-y-1.5">
+            <label for="m-last-12">Last Name</label>
+            <input id="m-last-12" name="last_name" value="Abarca" required />
+          </div>
+          
+          <div class="space-y-1.5">
+            <label for="m-middle-12">Middle Name</label>
+            <input id="m-middle-12" name="middle_name" value="" />
+          </div>
+          <div class="space-y-1.5">
+            <label for="m-suffix-12">Suffix <span class="label-optional">Optional</span></label>
+            <input id="m-suffix-12" name="suffix" value="" />
+          </div>
+          
+          <div class="space-y-1.5">
+            <label for="m-email-12">Email &mdash; how they sign in</label>
+            <input id="m-email-12" type="email" name="email" value="employee@demo.local" required />
+          </div>
+          
+          <div class="space-y-1.5">
+            <label for="m-contact-12">Contact Number</label>
+            <input id="m-contact-12" type="tel" name="contact_number" value="09171112233" />
+          </div>
+          
+          
+          <div class="space-y-1.5">
+            <label for="m-school-id-12">School / Employee ID</label>
+            <input id="m-school-id-12" name="school_id" value="32-1-204518" required />
+          </div>
+          <div class="space-y-1.5">
+            <label for="m-staff-school-12">Office / College / Unit</label>
+            <input id="m-staff-school-12" name="staff_school" value="Main Campus" list="bipsuStaffUnits" autocomplete="off" />
+          </div>
+          <div class="space-y-1.5">
+            <label for="m-department-12">Department</label>
+            <input id="m-department-12" name="department" value="College of Engineering" />
+          </div>
+          <div class="space-y-1.5">
+            <label for="m-position-12">Position</label>
+            <input id="m-position-12" name="position" value="Instructor I" />
+          </div>
+          
+        </div>
+        
+        <button type="submit" class="btn btn-primary">Save changes</button>
+      </form>
+
+      <p class="section-title">Signing in</p>
+      <div class="account-manage">
+        
+        <form method="post" class="account-manage__row">
+          
+          <input type="hidden" name="manage" value="password" />
+          <input type="hidden" name="account_id" value="12" />
+          <label class="sr-only" for="m-pw-12">New password for employee@demo.local</label>
+          <input type="password" name="password" id="m-pw-12" minlength="8"
+                 autocomplete="new-password" placeholder="New password" required />
+          <label class="sr-only" for="m-pw2-12">Type the new password again</label>
+          <input type="password" name="confirm_password" id="m-pw2-12" minlength="8"
+                 autocomplete="new-password" placeholder="Type it again" required />
+          <button type="submit" class="btn btn-outline">Set password</button>
+        </form>
+        <p class="account-manage__note">Hand a new password over in person &mdash; this system never emails one. They can change it under My Profile once they are in.</p>
+        
+      </div>
+
+      <p class="section-title">Access</p>
+      <form method="post" class="account-manage__row"
+            data-confirm="Close the account of Elena Abarca?"
+            data-confirm-detail="They can no longer sign in. Nothing is deleted &mdash; their applications, awards and history stay, and the account can be reopened at any time."
+            data-confirm-tone="danger" data-confirm-label="Close the account">
+        
+        <input type="hidden" name="manage" value="access" />
+        <input type="hidden" name="account_id" value="12" />
+        <input type="hidden" name="active" value="0" />
+        <span class="account-manage__label">
+          Stop this account signing in without deleting anything.
+        </span>
+        <button type="submit" class="btn btn-danger-soft">
+          Close the account
+        </button>
+      </form>
+      
+    </div>
+  </div>
+</div>
+
+
+
+<div class="modal-overlay" id="manage-8" data-preview>
+  <div class="modal record-modal" role="dialog" aria-modal="true" aria-labelledby="manage-8-name">
+    <div class="modal-header">
+      <div class="record-modal__who">
+        <h2 class="record-modal__name" id="manage-8-name">Rosa Cruz</h2>
+        <p class="record-modal__sub">rosa.cruz@bipsu.edu.ph · Student · registered Nov 13, 2026</p>
+      </div>
+      <button type="button" class="modal-close" data-preview-close aria-label="Close">&times;</button>
+    </div>
+    <div class="modal-body">
+      
+
+      <p class="manage-status manage-status--head"><span class="badge badge-success">Verified</span>
+
+
+
+</p>
+      <div class="detail-grid">
+        <div class="detail-field"><label>Last sign-in</label><span>Never</span></div>
+        <div class="detail-field"><label>Registered for</label><span>2026-2027 1st Semester</span></div>
+      </div>
+
+      <p class="section-title">Correct their details</p>
+      <form method="post" class="space-y-4">
+        
+        <input type="hidden" name="manage" value="details" />
+        <input type="hidden" name="account_id" value="8" />
+        <div class="grid sm:grid-cols-2 gap-4">
+          <div class="space-y-1.5">
+            <label for="m-first-8">First Name</label>
+            <input id="m-first-8" name="first_name" value="Rosa" required />
+          </div>
+          <div class="space-y-1.5">
+            <label for="m-last-8">Last Name</label>
+            <input id="m-last-8" name="last_name" value="Cruz" required />
+          </div>
+          
+          <div class="space-y-1.5">
+            <label for="m-middle-8">Middle Name</label>
+            <input id="m-middle-8" name="middle_name" value="" />
+          </div>
+          <div class="space-y-1.5">
+            <label for="m-suffix-8">Suffix <span class="label-optional">Optional</span></label>
+            <input id="m-suffix-8" name="suffix" value="" />
+          </div>
+          
+          <div class="space-y-1.5">
+            <label for="m-email-8">Email &mdash; how they sign in</label>
+            <input id="m-email-8" type="email" name="email" value="rosa.cruz@bipsu.edu.ph" required />
+          </div>
+          
+          <div class="space-y-1.5">
+            <label for="m-contact-8">Contact Number</label>
+            <input id="m-contact-8" type="tel" name="contact_number" value="" />
+          </div>
+          
+          
+          <div class="space-y-1.5">
+            <label for="m-student-id-8">Student ID</label>
+            <input id="m-student-id-8" name="student_id" value="2022-00105" required />
+          </div>
+          <div class="space-y-1.5">
+            <label for="m-course-8">Course</label>
+            <select id="m-course-8" name="course">
+              <option value="BS Forestry" selected>BS Forestry</option>
+              
+              <optgroup label="School of Technologies and Computer Studies">
+                
+                <option value="BSCS">BSCS</option>
+                
+                <option value="BSIS">BSIS</option>
+                
+                <option value="BSIT - Automotive Technology">BSIT - Automotive Technology</option>
+                
+                <option value="BSIT - Architectural Drafting">BSIT - Architectural Drafting</option>
+                
+                <option value="BSIT - Electrical Technology">BSIT - Electrical Technology</option>
+                
+                <option value="BSIT - Electronics Technology">BSIT - Electronics Technology</option>
+                
+                <option value="BSIT - Culinary Technology">BSIT - Culinary Technology</option>
+                
+                <option value="BSIT - Apparel and Fashion Design Technology">BSIT - Apparel and Fashion Design Technology</option>
+                
+                <option value="BSIT - HVAC-R Technology">BSIT - HVAC-R Technology</option>
+                
+              </optgroup>
+              
+              <optgroup label="School of Engineering">
+                
+                <option value="BSCE">BSCE</option>
+                
+                <option value="BSEE">BSEE</option>
+                
+                <option value="BSCpE">BSCpE</option>
+                
+                <option value="BSME">BSME</option>
+                
+              </optgroup>
+              
+              <optgroup label="School of Nursing and Health Sciences">
+                
+                <option value="BSN">BSN</option>
+                
+              </optgroup>
+              
+              <optgroup label="School of Criminal Justice Education">
+                
+                <option value="BSCrim">BSCrim</option>
+                
+                <option value="BSISM">BSISM</option>
+                
+              </optgroup>
+              
+              <optgroup label="School of Tourism and Hospitality Management">
+                
+                <option value="BSHM">BSHM</option>
+                
+                <option value="BSTM">BSTM</option>
+                
+              </optgroup>
+              
+              <optgroup label="School of Arts and Sciences">
+                
+                <option value="BAComm">BAComm</option>
+                
+                <option value="BAEcon">BAEcon</option>
+                
+              </optgroup>
+              
+              <optgroup label="School of Teacher Education">
+                
+                <option value="BSEd - Mathematics">BSEd - Mathematics</option>
+                
+                <option value="BSEd - Science">BSEd - Science</option>
+                
+                <option value="BSEd - English">BSEd - English</option>
+                
+                <option value="BSEd - Filipino">BSEd - Filipino</option>
+                
+                <option value="BSEd - Social Studies">BSEd - Social Studies</option>
+                
+                <option value="BEEd">BEEd</option>
+                
+                <option value="BTLEd">BTLEd</option>
+                
+                <option value="BPEd">BPEd</option>
+                
+                <option value="BECEd">BECEd</option>
+                
+                <option value="BSNEd">BSNEd</option>
+                
+              </optgroup>
+              
+              <optgroup label="School of Business and Management">
+                
+                <option value="BSBA - Financial Management">BSBA - Financial Management</option>
+                
+                <option value="BSBA - Marketing Management">BSBA - Marketing Management</option>
+                
+              </optgroup>
+              
+            </select>
+          </div>
+          <div class="space-y-1.5">
+            <label for="m-year-8">Year Level</label>
+            <select id="m-year-8" name="year_level">
+              
+              
+              <option value="1" selected>1st Year</option>
+              
+              <option value="2">2nd Year</option>
+              
+              <option value="3">3rd Year</option>
+              
+              <option value="4">4th Year</option>
+              
+            </select>
+          </div>
+          <div class="space-y-1.5">
+            <label for="m-gwa-8">GWA</label>
+            <input id="m-gwa-8" name="gwa" type="number" step="0.01" min="1" max="5"
+                   value="1.8" placeholder="Not set" />
+          </div>
+          
+        </div>
+        
+        <details class="manage-more">
+          <summary class="manage-more__summary">
+            More details
+            <span class="manage-more__hint">Address, family, schooling and admission scores &mdash; the student cannot change these once they are set</span>
+          </summary>
+          <div class="grid sm:grid-cols-2 gap-4 manage-more__body">
+            <div class="space-y-1.5">
+              <label for="m-gender-8">Gender</label>
+              <select id="m-gender-8" name="gender">
+                <option value="">&mdash; Not set &mdash;</option>
+                
+                <option value="Male">Male</option>
+                
+                <option value="Female" selected>Female</option>
+                
+              </select>
+            </div>
+            <div class="space-y-1.5">
+              <label for="m-civil-8">Civil Status</label>
+              <select id="m-civil-8" name="civil_status">
+                <option value="">&mdash; Not set &mdash;</option>
+                
+                <option value="Single">Single</option>
+                
+                <option value="Married">Married</option>
+                
+                <option value="Widowed">Widowed</option>
+                
+                <option value="Separated">Separated</option>
+                
+              </select>
+            </div>
+            
+            <div class="space-y-1.5">
+              <label for="m-barangay-8">Barangay / Street</label>
+              <input id="m-barangay-8" name="barangay" value="" />
+            </div>
+            
+            <div class="space-y-1.5">
+              <label for="m-municipality-8">Municipality</label>
+              <input id="m-municipality-8" name="municipality" value="Culaba" />
+            </div>
+            
+            <div class="space-y-1.5">
+              <label for="m-province-8">Province</label>
+              <input id="m-province-8" name="province" value="Biliran" />
+            </div>
+            
+            <div class="space-y-1.5">
+              <label for="m-elementary-8">Elementary School</label>
+              <input id="m-elementary-8" name="elementary" value="" />
+            </div>
+            
+            <div class="space-y-1.5">
+              <label for="m-highschool-8">High School</label>
+              <input id="m-highschool-8" name="highschool" value="" />
+            </div>
+            
+            <div class="space-y-1.5">
+              <label for="m-last_school-8">Last School Attended</label>
+              <input id="m-last_school-8" name="last_school" value="" />
+            </div>
+            
+            <div class="space-y-1.5">
+              <label for="m-father_last_name-8">Father&#x27;s Last Name</label>
+              <input id="m-father_last_name-8" name="father_last_name" value="" />
+            </div>
+            
+            <div class="space-y-1.5">
+              <label for="m-father_first_name-8">Father&#x27;s Given Name</label>
+              <input id="m-father_first_name-8" name="father_first_name" value="" />
+            </div>
+            
+            <div class="space-y-1.5">
+              <label for="m-father_middle_name-8">Father&#x27;s Middle Name</label>
+              <input id="m-father_middle_name-8" name="father_middle_name" value="" />
+            </div>
+            
+            <div class="space-y-1.5">
+              <label for="m-father_occupation-8">Father&#x27;s Occupation</label>
+              <input id="m-father_occupation-8" name="father_occupation" value="" />
+            </div>
+            
+            <div class="space-y-1.5">
+              <label for="m-mother_last_name-8">Mother&#x27;s Last Name</label>
+              <input id="m-mother_last_name-8" name="mother_last_name" value="" />
+            </div>
+            
+            <div class="space-y-1.5">
+              <label for="m-mother_first_name-8">Mother&#x27;s Given Name</label>
+              <input id="m-mother_first_name-8" name="mother_first_name" value="" />
+            </div>
+            
+            <div class="space-y-1.5">
+              <label for="m-mother_middle_name-8">Mother&#x27;s Middle Name</label>
+              <input id="m-mother_middle_name-8" name="mother_middle_name" value="" />
+            </div>
+            
+            <div class="space-y-1.5">
+              <label for="m-mother_occupation-8">Mother&#x27;s Occupation</label>
+              <input id="m-mother_occupation-8" name="mother_occupation" value="" />
+            </div>
+            
+            <div class="space-y-1.5">
+              <label for="m-public-hs-8">Was the high school public?</label>
+              <select id="m-public-hs-8" name="highschool_is_public">
+                <option value="">&mdash; Not set &mdash;</option>
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+              </select>
+            </div>
+            <div class="space-y-1.5 sm:col-span-2">
+              <label for="m-suc-score-8">SUC Admission Exam Score</label>
+              <div class="suc-score-pair">
+                <input id="m-suc-score-8" name="suc_exam_score" type="number" step="0.01" min="0"
+                       value="" placeholder="score" />
+                <span class="suc-score-of">out of</span>
+                <input name="suc_exam_total" type="number" step="0.01" min="0"
+                       value="" placeholder="total" aria-label="Total items" />
+              </div>
+            </div>
+          </div>
+          <p class="text-xs u-text-muted">A box left empty keeps what is already on file.</p>
+        </details>
+        
+        <button type="submit" class="btn btn-primary">Save changes</button>
+      </form>
+
+      <p class="section-title">Signing in</p>
+      <div class="account-manage">
+        
+        <form method="post" class="account-manage__row">
+          
+          <input type="hidden" name="manage" value="password" />
+          <input type="hidden" name="account_id" value="8" />
+          <label class="sr-only" for="m-pw-8">New password for rosa.cruz@bipsu.edu.ph</label>
+          <input type="password" name="password" id="m-pw-8" minlength="8"
+                 autocomplete="new-password" placeholder="New password" required />
+          <label class="sr-only" for="m-pw2-8">Type the new password again</label>
+          <input type="password" name="confirm_password" id="m-pw2-8" minlength="8"
+                 autocomplete="new-password" placeholder="Type it again" required />
+          <button type="submit" class="btn btn-outline">Set password</button>
+        </form>
+        <p class="account-manage__note">Hand a new password over in person &mdash; this system never emails one. They can change it under My Profile once they are in.</p>
+        
+      </div>
+
+      <p class="section-title">Access</p>
+      <form method="post" class="account-manage__row"
+            data-confirm="Close the account of Rosa Cruz?"
+            data-confirm-detail="They can no longer sign in. Nothing is deleted &mdash; their applications, awards and history stay, and the account can be reopened at any time."
+            data-confirm-tone="danger" data-confirm-label="Close the account">
+        
+        <input type="hidden" name="manage" value="access" />
+        <input type="hidden" name="account_id" value="8" />
+        <input type="hidden" name="active" value="0" />
+        <span class="account-manage__label">
+          Stop this account signing in without deleting anything.
+        </span>
+        <button type="submit" class="btn btn-danger-soft">
+          Close the account
+        </button>
+      </form>
+      
+    </div>
+  </div>
+</div>
+
+
+
+<div class="modal-overlay" id="manage-3" data-preview>
+  <div class="modal record-modal" role="dialog" aria-modal="true" aria-labelledby="manage-3-name">
+    <div class="modal-header">
+      <div class="record-modal__who">
+        <h2 class="record-modal__name" id="manage-3-name">Juan Dela Cruz</h2>
+        <p class="record-modal__sub">juan.delacruz@bipsu.edu.ph · Student · registered Nov 13, 2026</p>
+      </div>
+      <button type="button" class="modal-close" data-preview-close aria-label="Close">&times;</button>
+    </div>
+    <div class="modal-body">
+      
+
+      <p class="manage-status manage-status--head"><span class="badge badge-success">Verified</span>
+
+
+
+</p>
+      <div class="detail-grid">
+        <div class="detail-field"><label>Last sign-in</label><span>Nov 13, 2026 11:20 AM</span></div>
+        <div class="detail-field"><label>Registered for</label><span>2026-2027 1st Semester</span></div>
+      </div>
+
+      <p class="section-title">Correct their details</p>
+      <form method="post" class="space-y-4">
+        
+        <input type="hidden" name="manage" value="details" />
+        <input type="hidden" name="account_id" value="3" />
+        <div class="grid sm:grid-cols-2 gap-4">
+          <div class="space-y-1.5">
+            <label for="m-first-3">First Name</label>
+            <input id="m-first-3" name="first_name" value="Juan" required />
+          </div>
+          <div class="space-y-1.5">
+            <label for="m-last-3">Last Name</label>
+            <input id="m-last-3" name="last_name" value="Dela Cruz" required />
+          </div>
+          
+          <div class="space-y-1.5">
+            <label for="m-middle-3">Middle Name</label>
+            <input id="m-middle-3" name="middle_name" value="" />
+          </div>
+          <div class="space-y-1.5">
+            <label for="m-suffix-3">Suffix <span class="label-optional">Optional</span></label>
+            <input id="m-suffix-3" name="suffix" value="" />
+          </div>
+          
+          <div class="space-y-1.5">
+            <label for="m-email-3">Email &mdash; how they sign in</label>
+            <input id="m-email-3" type="email" name="email" value="juan.delacruz@bipsu.edu.ph" required />
+          </div>
+          
+          <div class="space-y-1.5">
+            <label for="m-contact-3">Contact Number</label>
+            <input id="m-contact-3" type="tel" name="contact_number" value="+63 917 555 0142" />
+          </div>
+          
+          
+          <div class="space-y-1.5">
+            <label for="m-student-id-3">Student ID</label>
+            <input id="m-student-id-3" name="student_id" value="2022-00451" required />
+          </div>
+          <div class="space-y-1.5">
+            <label for="m-course-3">Course</label>
+            <select id="m-course-3" name="course">
+              <option value="BS Computer Science" selected>BS Computer Science</option>
+              
+              <optgroup label="School of Technologies and Computer Studies">
+                
+                <option value="BSCS">BSCS</option>
+                
+                <option value="BSIS">BSIS</option>
+                
+                <option value="BSIT - Automotive Technology">BSIT - Automotive Technology</option>
+                
+                <option value="BSIT - Architectural Drafting">BSIT - Architectural Drafting</option>
+                
+                <option value="BSIT - Electrical Technology">BSIT - Electrical Technology</option>
+                
+                <option value="BSIT - Electronics Technology">BSIT - Electronics Technology</option>
+                
+                <option value="BSIT - Culinary Technology">BSIT - Culinary Technology</option>
+                
+                <option value="BSIT - Apparel and Fashion Design Technology">BSIT - Apparel and Fashion Design Technology</option>
+                
+                <option value="BSIT - HVAC-R Technology">BSIT - HVAC-R Technology</option>
+                
+              </optgroup>
+              
+              <optgroup label="School of Engineering">
+                
+                <option value="BSCE">BSCE</option>
+                
+                <option value="BSEE">BSEE</option>
+                
+                <option value="BSCpE">BSCpE</option>
+                
+                <option value="BSME">BSME</option>
+                
+              </optgroup>
+              
+              <optgroup label="School of Nursing and Health Sciences">
+                
+                <option value="BSN">BSN</option>
+                
+              </optgroup>
+              
+              <optgroup label="School of Criminal Justice Education">
+                
+                <option value="BSCrim">BSCrim</option>
+                
+                <option value="BSISM">BSISM</option>
+                
+              </optgroup>
+              
+              <optgroup label="School of Tourism and Hospitality Management">
+                
+                <option value="BSHM">BSHM</option>
+                
+                <option value="BSTM">BSTM</option>
+                
+              </optgroup>
+              
+              <optgroup label="School of Arts and Sciences">
+                
+                <option value="BAComm">BAComm</option>
+                
+                <option value="BAEcon">BAEcon</option>
+                
+              </optgroup>
+              
+              <optgroup label="School of Teacher Education">
+                
+                <option value="BSEd - Mathematics">BSEd - Mathematics</option>
+                
+                <option value="BSEd - Science">BSEd - Science</option>
+                
+                <option value="BSEd - English">BSEd - English</option>
+                
+                <option value="BSEd - Filipino">BSEd - Filipino</option>
+                
+                <option value="BSEd - Social Studies">BSEd - Social Studies</option>
+                
+                <option value="BEEd">BEEd</option>
+                
+                <option value="BTLEd">BTLEd</option>
+                
+                <option value="BPEd">BPEd</option>
+                
+                <option value="BECEd">BECEd</option>
+                
+                <option value="BSNEd">BSNEd</option>
+                
+              </optgroup>
+              
+              <optgroup label="School of Business and Management">
+                
+                <option value="BSBA - Financial Management">BSBA - Financial Management</option>
+                
+                <option value="BSBA - Marketing Management">BSBA - Marketing Management</option>
+                
+              </optgroup>
+              
+            </select>
+          </div>
+          <div class="space-y-1.5">
+            <label for="m-year-3">Year Level</label>
+            <select id="m-year-3" name="year_level">
+              
+              
+              <option value="1">1st Year</option>
+              
+              <option value="2">2nd Year</option>
+              
+              <option value="3" selected>3rd Year</option>
+              
+              <option value="4">4th Year</option>
+              
+            </select>
+          </div>
+          <div class="space-y-1.5">
+            <label for="m-gwa-3">GWA</label>
+            <input id="m-gwa-3" name="gwa" type="number" step="0.01" min="1" max="5"
+                   value="1.28" placeholder="Not set" />
+          </div>
+          
+        </div>
+        
+        <details class="manage-more">
+          <summary class="manage-more__summary">
+            More details
+            <span class="manage-more__hint">Address, family, schooling and admission scores &mdash; the student cannot change these once they are set</span>
+          </summary>
+          <div class="grid sm:grid-cols-2 gap-4 manage-more__body">
+            <div class="space-y-1.5">
+              <label for="m-gender-3">Gender</label>
+              <select id="m-gender-3" name="gender">
+                <option value="">&mdash; Not set &mdash;</option>
+                
+                <option value="Male" selected>Male</option>
+                
+                <option value="Female">Female</option>
+                
+              </select>
+            </div>
+            <div class="space-y-1.5">
+              <label for="m-civil-3">Civil Status</label>
+              <select id="m-civil-3" name="civil_status">
+                <option value="">&mdash; Not set &mdash;</option>
+                
+                <option value="Single">Single</option>
+                
+                <option value="Married">Married</option>
+                
+                <option value="Widowed">Widowed</option>
+                
+                <option value="Separated">Separated</option>
+                
+              </select>
+            </div>
+            
+            <div class="space-y-1.5">
+              <label for="m-barangay-3">Barangay / Street</label>
+              <input id="m-barangay-3" name="barangay" value="" />
+            </div>
+            
+            <div class="space-y-1.5">
+              <label for="m-municipality-3">Municipality</label>
+              <input id="m-municipality-3" name="municipality" value="Naval" />
+            </div>
+            
+            <div class="space-y-1.5">
+              <label for="m-province-3">Province</label>
+              <input id="m-province-3" name="province" value="Biliran" />
+            </div>
+            
+            <div class="space-y-1.5">
+              <label for="m-elementary-3">Elementary School</label>
+              <input id="m-elementary-3" name="elementary" value="" />
+            </div>
+            
+            <div class="space-y-1.5">
+              <label for="m-highschool-3">High School</label>
+              <input id="m-highschool-3" name="highschool" value="" />
+            </div>
+            
+            <div class="space-y-1.5">
+              <label for="m-last_school-3">Last School Attended</label>
+              <input id="m-last_school-3" name="last_school" value="" />
+            </div>
+            
+            <div class="space-y-1.5">
+              <label for="m-father_last_name-3">Father&#x27;s Last Name</label>
+              <input id="m-father_last_name-3" name="father_last_name" value="" />
+            </div>
+            
+            <div class="space-y-1.5">
+              <label for="m-father_first_name-3">Father&#x27;s Given Name</label>
+              <input id="m-father_first_name-3" name="father_first_name" value="" />
+            </div>
+            
+            <div class="space-y-1.5">
+              <label for="m-father_middle_name-3">Father&#x27;s Middle Name</label>
+              <input id="m-father_middle_name-3" name="father_middle_name" value="" />
+            </div>
+            
+            <div class="space-y-1.5">
+              <label for="m-father_occupation-3">Father&#x27;s Occupation</label>
+              <input id="m-father_occupation-3" name="father_occupation" value="" />
+            </div>
+            
+            <div class="space-y-1.5">
+              <label for="m-mother_last_name-3">Mother&#x27;s Last Name</label>
+              <input id="m-mother_last_name-3" name="mother_last_name" value="" />
+            </div>
+            
+            <div class="space-y-1.5">
+              <label for="m-mother_first_name-3">Mother&#x27;s Given Name</label>
+              <input id="m-mother_first_name-3" name="mother_first_name" value="" />
+            </div>
+            
+            <div class="space-y-1.5">
+              <label for="m-mother_middle_name-3">Mother&#x27;s Middle Name</label>
+              <input id="m-mother_middle_name-3" name="mother_middle_name" value="" />
+            </div>
+            
+            <div class="space-y-1.5">
+              <label for="m-mother_occupation-3">Mother&#x27;s Occupation</label>
+              <input id="m-mother_occupation-3" name="mother_occupation" value="" />
+            </div>
+            
+            <div class="space-y-1.5">
+              <label for="m-public-hs-3">Was the high school public?</label>
+              <select id="m-public-hs-3" name="highschool_is_public">
+                <option value="">&mdash; Not set &mdash;</option>
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+              </select>
+            </div>
+            <div class="space-y-1.5 sm:col-span-2">
+              <label for="m-suc-score-3">SUC Admission Exam Score</label>
+              <div class="suc-score-pair">
+                <input id="m-suc-score-3" name="suc_exam_score" type="number" step="0.01" min="0"
+                       value="" placeholder="score" />
+                <span class="suc-score-of">out of</span>
+                <input name="suc_exam_total" type="number" step="0.01" min="0"
+                       value="" placeholder="total" aria-label="Total items" />
+              </div>
+            </div>
+          </div>
+          <p class="text-xs u-text-muted">A box left empty keeps what is already on file.</p>
+        </details>
+        
+        <button type="submit" class="btn btn-primary">Save changes</button>
+      </form>
+
+      <p class="section-title">Signing in</p>
+      <div class="account-manage">
+        
+        <form method="post" class="account-manage__row">
+          
+          <input type="hidden" name="manage" value="password" />
+          <input type="hidden" name="account_id" value="3" />
+          <label class="sr-only" for="m-pw-3">New password for juan.delacruz@bipsu.edu.ph</label>
+          <input type="password" name="password" id="m-pw-3" minlength="8"
+                 autocomplete="new-password" placeholder="New password" required />
+          <label class="sr-only" for="m-pw2-3">Type the new password again</label>
+          <input type="password" name="confirm_password" id="m-pw2-3" minlength="8"
+                 autocomplete="new-password" placeholder="Type it again" required />
+          <button type="submit" class="btn btn-outline">Set password</button>
+        </form>
+        <p class="account-manage__note">Hand a new password over in person &mdash; this system never emails one. They can change it under My Profile once they are in.</p>
+        
+      </div>
+
+      <p class="section-title">Access</p>
+      <form method="post" class="account-manage__row"
+            data-confirm="Close the account of Juan Dela Cruz?"
+            data-confirm-detail="They can no longer sign in. Nothing is deleted &mdash; their applications, awards and history stay, and the account can be reopened at any time."
+            data-confirm-tone="danger" data-confirm-label="Close the account">
+        
+        <input type="hidden" name="manage" value="access" />
+        <input type="hidden" name="account_id" value="3" />
+        <input type="hidden" name="active" value="0" />
+        <span class="account-manage__label">
+          Stop this account signing in without deleting anything.
+        </span>
+        <button type="submit" class="btn btn-danger-soft">
+          Close the account
+        </button>
+      </form>
+      
+    </div>
+  </div>
+</div>
+
+
+
+<div class="modal-overlay" id="manage-6" data-preview>
+  <div class="modal record-modal" role="dialog" aria-modal="true" aria-labelledby="manage-6-name">
+    <div class="modal-header">
+      <div class="record-modal__who">
+        <h2 class="record-modal__name" id="manage-6-name">Ana Garcia</h2>
+        <p class="record-modal__sub">ana.garcia@bipsu.edu.ph · Student · registered Nov 13, 2026</p>
+      </div>
+      <button type="button" class="modal-close" data-preview-close aria-label="Close">&times;</button>
+    </div>
+    <div class="modal-body">
+      
+
+      <p class="manage-status manage-status--head"><span class="badge badge-success">Verified</span>
+
+
+
+</p>
+      <div class="detail-grid">
+        <div class="detail-field"><label>Last sign-in</label><span>Never</span></div>
+        <div class="detail-field"><label>Registered for</label><span>2026-2027 1st Semester</span></div>
+      </div>
+
+      <p class="section-title">Correct their details</p>
+      <form method="post" class="space-y-4">
+        
+        <input type="hidden" name="manage" value="details" />
+        <input type="hidden" name="account_id" value="6" />
+        <div class="grid sm:grid-cols-2 gap-4">
+          <div class="space-y-1.5">
+            <label for="m-first-6">First Name</label>
+            <input id="m-first-6" name="first_name" value="Ana" required />
+          </div>
+          <div class="space-y-1.5">
+            <label for="m-last-6">Last Name</label>
+            <input id="m-last-6" name="last_name" value="Garcia" required />
+          </div>
+          
+          <div class="space-y-1.5">
+            <label for="m-middle-6">Middle Name</label>
+            <input id="m-middle-6" name="middle_name" value="" />
+          </div>
+          <div class="space-y-1.5">
+            <label for="m-suffix-6">Suffix <span class="label-optional">Optional</span></label>
+            <input id="m-suffix-6" name="suffix" value="" />
+          </div>
+          
+          <div class="space-y-1.5">
+            <label for="m-email-6">Email &mdash; how they sign in</label>
+            <input id="m-email-6" type="email" name="email" value="ana.garcia@bipsu.edu.ph" required />
+          </div>
+          
+          <div class="space-y-1.5">
+            <label for="m-contact-6">Contact Number</label>
+            <input id="m-contact-6" type="tel" name="contact_number" value="" />
+          </div>
+          
+          
+          <div class="space-y-1.5">
+            <label for="m-student-id-6">Student ID</label>
+            <input id="m-student-id-6" name="student_id" value="2022-00103" required />
+          </div>
+          <div class="space-y-1.5">
+            <label for="m-course-6">Course</label>
+            <select id="m-course-6" name="course">
+              <option value="BS Biology" selected>BS Biology</option>
+              
+              <optgroup label="School of Technologies and Computer Studies">
+                
+                <option value="BSCS">BSCS</option>
+                
+                <option value="BSIS">BSIS</option>
+                
+                <option value="BSIT - Automotive Technology">BSIT - Automotive Technology</option>
+                
+                <option value="BSIT - Architectural Drafting">BSIT - Architectural Drafting</option>
+                
+                <option value="BSIT - Electrical Technology">BSIT - Electrical Technology</option>
+                
+                <option value="BSIT - Electronics Technology">BSIT - Electronics Technology</option>
+                
+                <option value="BSIT - Culinary Technology">BSIT - Culinary Technology</option>
+                
+                <option value="BSIT - Apparel and Fashion Design Technology">BSIT - Apparel and Fashion Design Technology</option>
+                
+                <option value="BSIT - HVAC-R Technology">BSIT - HVAC-R Technology</option>
+                
+              </optgroup>
+              
+              <optgroup label="School of Engineering">
+                
+                <option value="BSCE">BSCE</option>
+                
+                <option value="BSEE">BSEE</option>
+                
+                <option value="BSCpE">BSCpE</option>
+                
+                <option value="BSME">BSME</option>
+                
+              </optgroup>
+              
+              <optgroup label="School of Nursing and Health Sciences">
+                
+                <option value="BSN">BSN</option>
+                
+              </optgroup>
+              
+              <optgroup label="School of Criminal Justice Education">
+                
+                <option value="BSCrim">BSCrim</option>
+                
+                <option value="BSISM">BSISM</option>
+                
+              </optgroup>
+              
+              <optgroup label="School of Tourism and Hospitality Management">
+                
+                <option value="BSHM">BSHM</option>
+                
+                <option value="BSTM">BSTM</option>
+                
+              </optgroup>
+              
+              <optgroup label="School of Arts and Sciences">
+                
+                <option value="BAComm">BAComm</option>
+                
+                <option value="BAEcon">BAEcon</option>
+                
+              </optgroup>
+              
+              <optgroup label="School of Teacher Education">
+                
+                <option value="BSEd - Mathematics">BSEd - Mathematics</option>
+                
+                <option value="BSEd - Science">BSEd - Science</option>
+                
+                <option value="BSEd - English">BSEd - English</option>
+                
+                <option value="BSEd - Filipino">BSEd - Filipino</option>
+                
+                <option value="BSEd - Social Studies">BSEd - Social Studies</option>
+                
+                <option value="BEEd">BEEd</option>
+                
+                <option value="BTLEd">BTLEd</option>
+                
+                <option value="BPEd">BPEd</option>
+                
+                <option value="BECEd">BECEd</option>
+                
+                <option value="BSNEd">BSNEd</option>
+                
+              </optgroup>
+              
+              <optgroup label="School of Business and Management">
+                
+                <option value="BSBA - Financial Management">BSBA - Financial Management</option>
+                
+                <option value="BSBA - Marketing Management">BSBA - Marketing Management</option>
+                
+              </optgroup>
+              
+            </select>
+          </div>
+          <div class="space-y-1.5">
+            <label for="m-year-6">Year Level</label>
+            <select id="m-year-6" name="year_level">
+              
+              
+              <option value="1">1st Year</option>
+              
+              <option value="2" selected>2nd Year</option>
+              
+              <option value="3">3rd Year</option>
+              
+              <option value="4">4th Year</option>
+              
+            </select>
+          </div>
+          <div class="space-y-1.5">
+            <label for="m-gwa-6">GWA</label>
+            <input id="m-gwa-6" name="gwa" type="number" step="0.01" min="1" max="5"
+                   value="1.4" placeholder="Not set" />
+          </div>
+          
+        </div>
+        
+        <details class="manage-more">
+          <summary class="manage-more__summary">
+            More details
+            <span class="manage-more__hint">Address, family, schooling and admission scores &mdash; the student cannot change these once they are set</span>
+          </summary>
+          <div class="grid sm:grid-cols-2 gap-4 manage-more__body">
+            <div class="space-y-1.5">
+              <label for="m-gender-6">Gender</label>
+              <select id="m-gender-6" name="gender">
+                <option value="">&mdash; Not set &mdash;</option>
+                
+                <option value="Male">Male</option>
+                
+                <option value="Female" selected>Female</option>
+                
+              </select>
+            </div>
+            <div class="space-y-1.5">
+              <label for="m-civil-6">Civil Status</label>
+              <select id="m-civil-6" name="civil_status">
+                <option value="">&mdash; Not set &mdash;</option>
+                
+                <option value="Single">Single</option>
+                
+                <option value="Married">Married</option>
+                
+                <option value="Widowed">Widowed</option>
+                
+                <option value="Separated">Separated</option>
+                
+              </select>
+            </div>
+            
+            <div class="space-y-1.5">
+              <label for="m-barangay-6">Barangay / Street</label>
+              <input id="m-barangay-6" name="barangay" value="" />
+            </div>
+            
+            <div class="space-y-1.5">
+              <label for="m-municipality-6">Municipality</label>
+              <input id="m-municipality-6" name="municipality" value="Naval" />
+            </div>
+            
+            <div class="space-y-1.5">
+              <label for="m-province-6">Province</label>
+              <input id="m-province-6" name="province" value="Biliran" />
+            </div>
+            
+            <div class="space-y-1.5">
+              <label for="m-elementary-6">Elementary School</label>
+              <input id="m-elementary-6" name="elementary" value="" />
+            </div>
+            
+            <div class="space-y-1.5">
+              <label for="m-highschool-6">High School</label>
+              <input id="m-highschool-6" name="highschool" value="" />
+            </div>
+            
+            <div class="space-y-1.5">
+              <label for="m-last_school-6">Last School Attended</label>
+              <input id="m-last_school-6" name="last_school" value="" />
+            </div>
+            
+            <div class="space-y-1.5">
+              <label for="m-father_last_name-6">Father&#x27;s Last Name</label>
+              <input id="m-father_last_name-6" name="father_last_name" value="" />
+            </div>
+            
+            <div class="space-y-1.5">
+              <label for="m-father_first_name-6">Father&#x27;s Given Name</label>
+              <input id="m-father_first_name-6" name="father_first_name" value="" />
+            </div>
+            
+            <div class="space-y-1.5">
+              <label for="m-father_middle_name-6">Father&#x27;s Middle Name</label>
+              <input id="m-father_middle_name-6" name="father_middle_name" value="" />
+            </div>
+            
+            <div class="space-y-1.5">
+              <label for="m-father_occupation-6">Father&#x27;s Occupation</label>
+              <input id="m-father_occupation-6" name="father_occupation" value="" />
+            </div>
+            
+            <div class="space-y-1.5">
+              <label for="m-mother_last_name-6">Mother&#x27;s Last Name</label>
+              <input id="m-mother_last_name-6" name="mother_last_name" value="" />
+            </div>
+            
+            <div class="space-y-1.5">
+              <label for="m-mother_first_name-6">Mother&#x27;s Given Name</label>
+              <input id="m-mother_first_name-6" name="mother_first_name" value="" />
+            </div>
+            
+            <div class="space-y-1.5">
+              <label for="m-mother_middle_name-6">Mother&#x27;s Middle Name</label>
+              <input id="m-mother_middle_name-6" name="mother_middle_name" value="" />
+            </div>
+            
+            <div class="space-y-1.5">
+              <label for="m-mother_occupation-6">Mother&#x27;s Occupation</label>
+              <input id="m-mother_occupation-6" name="mother_occupation" value="" />
+            </div>
+            
+            <div class="space-y-1.5">
+              <label for="m-public-hs-6">Was the high school public?</label>
+              <select id="m-public-hs-6" name="highschool_is_public">
+                <option value="">&mdash; Not set &mdash;</option>
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+              </select>
+            </div>
+            <div class="space-y-1.5 sm:col-span-2">
+              <label for="m-suc-score-6">SUC Admission Exam Score</label>
+              <div class="suc-score-pair">
+                <input id="m-suc-score-6" name="suc_exam_score" type="number" step="0.01" min="0"
+                       value="" placeholder="score" />
+                <span class="suc-score-of">out of</span>
+                <input name="suc_exam_total" type="number" step="0.01" min="0"
+                       value="" placeholder="total" aria-label="Total items" />
+              </div>
+            </div>
+          </div>
+          <p class="text-xs u-text-muted">A box left empty keeps what is already on file.</p>
+        </details>
+        
+        <button type="submit" class="btn btn-primary">Save changes</button>
+      </form>
+
+      <p class="section-title">Signing in</p>
+      <div class="account-manage">
+        
+        <form method="post" class="account-manage__row">
+          
+          <input type="hidden" name="manage" value="password" />
+          <input type="hidden" name="account_id" value="6" />
+          <label class="sr-only" for="m-pw-6">New password for ana.garcia@bipsu.edu.ph</label>
+          <input type="password" name="password" id="m-pw-6" minlength="8"
+                 autocomplete="new-password" placeholder="New password" required />
+          <label class="sr-only" for="m-pw2-6">Type the new password again</label>
+          <input type="password" name="confirm_password" id="m-pw2-6" minlength="8"
+                 autocomplete="new-password" placeholder="Type it again" required />
+          <button type="submit" class="btn btn-outline">Set password</button>
+        </form>
+        <p class="account-manage__note">Hand a new password over in person &mdash; this system never emails one. They can change it under My Profile once they are in.</p>
+        
+      </div>
+
+      <p class="section-title">Access</p>
+      <form method="post" class="account-manage__row"
+            data-confirm="Close the account of Ana Garcia?"
+            data-confirm-detail="They can no longer sign in. Nothing is deleted &mdash; their applications, awards and history stay, and the account can be reopened at any time."
+            data-confirm-tone="danger" data-confirm-label="Close the account">
+        
+        <input type="hidden" name="manage" value="access" />
+        <input type="hidden" name="account_id" value="6" />
+        <input type="hidden" name="active" value="0" />
+        <span class="account-manage__label">
+          Stop this account signing in without deleting anything.
+        </span>
+        <button type="submit" class="btn btn-danger-soft">
+          Close the account
+        </button>
+      </form>
+      
+    </div>
+  </div>
+</div>
+
+
+
+<div class="modal-overlay" id="manage-7" data-preview>
+  <div class="modal record-modal" role="dialog" aria-modal="true" aria-labelledby="manage-7-name">
+    <div class="modal-header">
+      <div class="record-modal__who">
+        <h2 class="record-modal__name" id="manage-7-name">Pedro Lim</h2>
+        <p class="record-modal__sub">pedro.lim@bipsu.edu.ph · Student · registered Nov 13, 2026</p>
+      </div>
+      <button type="button" class="modal-close" data-preview-close aria-label="Close">&times;</button>
+    </div>
+    <div class="modal-body">
+      
+
+      <p class="manage-status manage-status--head"><span class="badge badge-success">Verified</span>
+
+
+
+</p>
+      <div class="detail-grid">
+        <div class="detail-field"><label>Last sign-in</label><span>Never</span></div>
+        <div class="detail-field"><label>Registered for</label><span>2026-2027 1st Semester</span></div>
+      </div>
+
+      <p class="section-title">Correct their details</p>
+      <form method="post" class="space-y-4">
+        
+        <input type="hidden" name="manage" value="details" />
+        <input type="hidden" name="account_id" value="7" />
+        <div class="grid sm:grid-cols-2 gap-4">
+          <div class="space-y-1.5">
+            <label for="m-first-7">First Name</label>
+            <input id="m-first-7" name="first_name" value="Pedro" required />
+          </div>
+          <div class="space-y-1.5">
+            <label for="m-last-7">Last Name</label>
+            <input id="m-last-7" name="last_name" value="Lim" required />
+          </div>
+          
+          <div class="space-y-1.5">
+            <label for="m-middle-7">Middle Name</label>
+            <input id="m-middle-7" name="middle_name" value="" />
+          </div>
+          <div class="space-y-1.5">
+            <label for="m-suffix-7">Suffix <span class="label-optional">Optional</span></label>
+            <input id="m-suffix-7" name="suffix" value="" />
+          </div>
+          
+          <div class="space-y-1.5">
+            <label for="m-email-7">Email &mdash; how they sign in</label>
+            <input id="m-email-7" type="email" name="email" value="pedro.lim@bipsu.edu.ph" required />
+          </div>
+          
+          <div class="space-y-1.5">
+            <label for="m-contact-7">Contact Number</label>
+            <input id="m-contact-7" type="tel" name="contact_number" value="" />
+          </div>
+          
+          
+          <div class="space-y-1.5">
+            <label for="m-student-id-7">Student ID</label>
+            <input id="m-student-id-7" name="student_id" value="2022-00104" required />
+          </div>
+          <div class="space-y-1.5">
+            <label for="m-course-7">Course</label>
+            <select id="m-course-7" name="course">
+              <option value="BS Nursing" selected>BS Nursing</option>
+              
+              <optgroup label="School of Technologies and Computer Studies">
+                
+                <option value="BSCS">BSCS</option>
+                
+                <option value="BSIS">BSIS</option>
+                
+                <option value="BSIT - Automotive Technology">BSIT - Automotive Technology</option>
+                
+                <option value="BSIT - Architectural Drafting">BSIT - Architectural Drafting</option>
+                
+                <option value="BSIT - Electrical Technology">BSIT - Electrical Technology</option>
+                
+                <option value="BSIT - Electronics Technology">BSIT - Electronics Technology</option>
+                
+                <option value="BSIT - Culinary Technology">BSIT - Culinary Technology</option>
+                
+                <option value="BSIT - Apparel and Fashion Design Technology">BSIT - Apparel and Fashion Design Technology</option>
+                
+                <option value="BSIT - HVAC-R Technology">BSIT - HVAC-R Technology</option>
+                
+              </optgroup>
+              
+              <optgroup label="School of Engineering">
+                
+                <option value="BSCE">BSCE</option>
+                
+                <option value="BSEE">BSEE</option>
+                
+                <option value="BSCpE">BSCpE</option>
+                
+                <option value="BSME">BSME</option>
+                
+              </optgroup>
+              
+              <optgroup label="School of Nursing and Health Sciences">
+                
+                <option value="BSN">BSN</option>
+                
+              </optgroup>
+              
+              <optgroup label="School of Criminal Justice Education">
+                
+                <option value="BSCrim">BSCrim</option>
+                
+                <option value="BSISM">BSISM</option>
+                
+              </optgroup>
+              
+              <optgroup label="School of Tourism and Hospitality Management">
+                
+                <option value="BSHM">BSHM</option>
+                
+                <option value="BSTM">BSTM</option>
+                
+              </optgroup>
+              
+              <optgroup label="School of Arts and Sciences">
+                
+                <option value="BAComm">BAComm</option>
+                
+                <option value="BAEcon">BAEcon</option>
+                
+              </optgroup>
+              
+              <optgroup label="School of Teacher Education">
+                
+                <option value="BSEd - Mathematics">BSEd - Mathematics</option>
+                
+                <option value="BSEd - Science">BSEd - Science</option>
+                
+                <option value="BSEd - English">BSEd - English</option>
+                
+                <option value="BSEd - Filipino">BSEd - Filipino</option>
+                
+                <option value="BSEd - Social Studies">BSEd - Social Studies</option>
+                
+                <option value="BEEd">BEEd</option>
+                
+                <option value="BTLEd">BTLEd</option>
+                
+                <option value="BPEd">BPEd</option>
+                
+                <option value="BECEd">BECEd</option>
+                
+                <option value="BSNEd">BSNEd</option>
+                
+              </optgroup>
+              
+              <optgroup label="School of Business and Management">
+                
+                <option value="BSBA - Financial Management">BSBA - Financial Management</option>
+                
+                <option value="BSBA - Marketing Management">BSBA - Marketing Management</option>
+                
+              </optgroup>
+              
+            </select>
+          </div>
+          <div class="space-y-1.5">
+            <label for="m-year-7">Year Level</label>
+            <select id="m-year-7" name="year_level">
+              
+              
+              <option value="1">1st Year</option>
+              
+              <option value="2">2nd Year</option>
+              
+              <option value="3" selected>3rd Year</option>
+              
+              <option value="4">4th Year</option>
+              
+            </select>
+          </div>
+          <div class="space-y-1.5">
+            <label for="m-gwa-7">GWA</label>
+            <input id="m-gwa-7" name="gwa" type="number" step="0.01" min="1" max="5"
+                   value="1.6" placeholder="Not set" />
+          </div>
+          
+        </div>
+        
+        <details class="manage-more">
+          <summary class="manage-more__summary">
+            More details
+            <span class="manage-more__hint">Address, family, schooling and admission scores &mdash; the student cannot change these once they are set</span>
+          </summary>
+          <div class="grid sm:grid-cols-2 gap-4 manage-more__body">
+            <div class="space-y-1.5">
+              <label for="m-gender-7">Gender</label>
+              <select id="m-gender-7" name="gender">
+                <option value="">&mdash; Not set &mdash;</option>
+                
+                <option value="Male" selected>Male</option>
+                
+                <option value="Female">Female</option>
+                
+              </select>
+            </div>
+            <div class="space-y-1.5">
+              <label for="m-civil-7">Civil Status</label>
+              <select id="m-civil-7" name="civil_status">
+                <option value="">&mdash; Not set &mdash;</option>
+                
+                <option value="Single">Single</option>
+                
+                <option value="Married">Married</option>
+                
+                <option value="Widowed">Widowed</option>
+                
+                <option value="Separated">Separated</option>
+                
+              </select>
+            </div>
+            
+            <div class="space-y-1.5">
+              <label for="m-barangay-7">Barangay / Street</label>
+              <input id="m-barangay-7" name="barangay" value="" />
+            </div>
+            
+            <div class="space-y-1.5">
+              <label for="m-municipality-7">Municipality</label>
+              <input id="m-municipality-7" name="municipality" value="Kawayan" />
+            </div>
+            
+            <div class="space-y-1.5">
+              <label for="m-province-7">Province</label>
+              <input id="m-province-7" name="province" value="Biliran" />
+            </div>
+            
+            <div class="space-y-1.5">
+              <label for="m-elementary-7">Elementary School</label>
+              <input id="m-elementary-7" name="elementary" value="" />
+            </div>
+            
+            <div class="space-y-1.5">
+              <label for="m-highschool-7">High School</label>
+              <input id="m-highschool-7" name="highschool" value="" />
+            </div>
+            
+            <div class="space-y-1.5">
+              <label for="m-last_school-7">Last School Attended</label>
+              <input id="m-last_school-7" name="last_school" value="" />
+            </div>
+            
+            <div class="space-y-1.5">
+              <label for="m-father_last_name-7">Father&#x27;s Last Name</label>
+              <input id="m-father_last_name-7" name="father_last_name" value="" />
+            </div>
+            
+            <div class="space-y-1.5">
+              <label for="m-father_first_name-7">Father&#x27;s Given Name</label>
+              <input id="m-father_first_name-7" name="father_first_name" value="" />
+            </div>
+            
+            <div class="space-y-1.5">
+              <label for="m-father_middle_name-7">Father&#x27;s Middle Name</label>
+              <input id="m-father_middle_name-7" name="father_middle_name" value="" />
+            </div>
+            
+            <div class="space-y-1.5">
+              <label for="m-father_occupation-7">Father&#x27;s Occupation</label>
+              <input id="m-father_occupation-7" name="father_occupation" value="" />
+            </div>
+            
+            <div class="space-y-1.5">
+              <label for="m-mother_last_name-7">Mother&#x27;s Last Name</label>
+              <input id="m-mother_last_name-7" name="mother_last_name" value="" />
+            </div>
+            
+            <div class="space-y-1.5">
+              <label for="m-mother_first_name-7">Mother&#x27;s Given Name</label>
+              <input id="m-mother_first_name-7" name="mother_first_name" value="" />
+            </div>
+            
+            <div class="space-y-1.5">
+              <label for="m-mother_middle_name-7">Mother&#x27;s Middle Name</label>
+              <input id="m-mother_middle_name-7" name="mother_middle_name" value="" />
+            </div>
+            
+            <div class="space-y-1.5">
+              <label for="m-mother_occupation-7">Mother&#x27;s Occupation</label>
+              <input id="m-mother_occupation-7" name="mother_occupation" value="" />
+            </div>
+            
+            <div class="space-y-1.5">
+              <label for="m-public-hs-7">Was the high school public?</label>
+              <select id="m-public-hs-7" name="highschool_is_public">
+                <option value="">&mdash; Not set &mdash;</option>
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+              </select>
+            </div>
+            <div class="space-y-1.5 sm:col-span-2">
+              <label for="m-suc-score-7">SUC Admission Exam Score</label>
+              <div class="suc-score-pair">
+                <input id="m-suc-score-7" name="suc_exam_score" type="number" step="0.01" min="0"
+                       value="" placeholder="score" />
+                <span class="suc-score-of">out of</span>
+                <input name="suc_exam_total" type="number" step="0.01" min="0"
+                       value="" placeholder="total" aria-label="Total items" />
+              </div>
+            </div>
+          </div>
+          <p class="text-xs u-text-muted">A box left empty keeps what is already on file.</p>
+        </details>
+        
+        <button type="submit" class="btn btn-primary">Save changes</button>
+      </form>
+
+      <p class="section-title">Signing in</p>
+      <div class="account-manage">
+        
+        <form method="post" class="account-manage__row">
+          
+          <input type="hidden" name="manage" value="password" />
+          <input type="hidden" name="account_id" value="7" />
+          <label class="sr-only" for="m-pw-7">New password for pedro.lim@bipsu.edu.ph</label>
+          <input type="password" name="password" id="m-pw-7" minlength="8"
+                 autocomplete="new-password" placeholder="New password" required />
+          <label class="sr-only" for="m-pw2-7">Type the new password again</label>
+          <input type="password" name="confirm_password" id="m-pw2-7" minlength="8"
+                 autocomplete="new-password" placeholder="Type it again" required />
+          <button type="submit" class="btn btn-outline">Set password</button>
+        </form>
+        <p class="account-manage__note">Hand a new password over in person &mdash; this system never emails one. They can change it under My Profile once they are in.</p>
+        
+      </div>
+
+      <p class="section-title">Access</p>
+      <form method="post" class="account-manage__row"
+            data-confirm="Close the account of Pedro Lim?"
+            data-confirm-detail="They can no longer sign in. Nothing is deleted &mdash; their applications, awards and history stay, and the account can be reopened at any time."
+            data-confirm-tone="danger" data-confirm-label="Close the account">
+        
+        <input type="hidden" name="manage" value="access" />
+        <input type="hidden" name="account_id" value="7" />
+        <input type="hidden" name="active" value="0" />
+        <span class="account-manage__label">
+          Stop this account signing in without deleting anything.
+        </span>
+        <button type="submit" class="btn btn-danger-soft">
+          Close the account
+        </button>
+      </form>
+      
+    </div>
+  </div>
+</div>
+
+
+
+<div class="modal-overlay" id="manage-9" data-preview>
+  <div class="modal record-modal" role="dialog" aria-modal="true" aria-labelledby="manage-9-name">
+    <div class="modal-header">
+      <div class="record-modal__who">
+        <h2 class="record-modal__name" id="manage-9-name">Carlo Mendoza</h2>
+        <p class="record-modal__sub">carlo.mendoza@bipsu.edu.ph · Student · registered Nov 13, 2026</p>
+      </div>
+      <button type="button" class="modal-close" data-preview-close aria-label="Close">&times;</button>
+    </div>
+    <div class="modal-body">
+      
+
+      <p class="manage-status manage-status--head"><span class="badge badge-success">Verified</span>
+
+
+
+</p>
+      <div class="detail-grid">
+        <div class="detail-field"><label>Last sign-in</label><span>Never</span></div>
+        <div class="detail-field"><label>Registered for</label><span>2026-2027 1st Semester</span></div>
+      </div>
+
+      <p class="section-title">Correct their details</p>
+      <form method="post" class="space-y-4">
+        
+        <input type="hidden" name="manage" value="details" />
+        <input type="hidden" name="account_id" value="9" />
+        <div class="grid sm:grid-cols-2 gap-4">
+          <div class="space-y-1.5">
+            <label for="m-first-9">First Name</label>
+            <input id="m-first-9" name="first_name" value="Carlo" required />
+          </div>
+          <div class="space-y-1.5">
+            <label for="m-last-9">Last Name</label>
+            <input id="m-last-9" name="last_name" value="Mendoza" required />
+          </div>
+          
+          <div class="space-y-1.5">
+            <label for="m-middle-9">Middle Name</label>
+            <input id="m-middle-9" name="middle_name" value="" />
+          </div>
+          <div class="space-y-1.5">
+            <label for="m-suffix-9">Suffix <span class="label-optional">Optional</span></label>
+            <input id="m-suffix-9" name="suffix" value="" />
+          </div>
+          
+          <div class="space-y-1.5">
+            <label for="m-email-9">Email &mdash; how they sign in</label>
+            <input id="m-email-9" type="email" name="email" value="carlo.mendoza@bipsu.edu.ph" required />
+          </div>
+          
+          <div class="space-y-1.5">
+            <label for="m-contact-9">Contact Number</label>
+            <input id="m-contact-9" type="tel" name="contact_number" value="" />
+          </div>
+          
+          
+          <div class="space-y-1.5">
+            <label for="m-student-id-9">Student ID</label>
+            <input id="m-student-id-9" name="student_id" value="2022-00106" required />
+          </div>
+          <div class="space-y-1.5">
+            <label for="m-course-9">Course</label>
+            <select id="m-course-9" name="course">
+              <option value="BS Physical Education" selected>BS Physical Education</option>
+              
+              <optgroup label="School of Technologies and Computer Studies">
+                
+                <option value="BSCS">BSCS</option>
+                
+                <option value="BSIS">BSIS</option>
+                
+                <option value="BSIT - Automotive Technology">BSIT - Automotive Technology</option>
+                
+                <option value="BSIT - Architectural Drafting">BSIT - Architectural Drafting</option>
+                
+                <option value="BSIT - Electrical Technology">BSIT - Electrical Technology</option>
+                
+                <option value="BSIT - Electronics Technology">BSIT - Electronics Technology</option>
+                
+                <option value="BSIT - Culinary Technology">BSIT - Culinary Technology</option>
+                
+                <option value="BSIT - Apparel and Fashion Design Technology">BSIT - Apparel and Fashion Design Technology</option>
+                
+                <option value="BSIT - HVAC-R Technology">BSIT - HVAC-R Technology</option>
+                
+              </optgroup>
+              
+              <optgroup label="School of Engineering">
+                
+                <option value="BSCE">BSCE</option>
+                
+                <option value="BSEE">BSEE</option>
+                
+                <option value="BSCpE">BSCpE</option>
+                
+                <option value="BSME">BSME</option>
+                
+              </optgroup>
+              
+              <optgroup label="School of Nursing and Health Sciences">
+                
+                <option value="BSN">BSN</option>
+                
+              </optgroup>
+              
+              <optgroup label="School of Criminal Justice Education">
+                
+                <option value="BSCrim">BSCrim</option>
+                
+                <option value="BSISM">BSISM</option>
+                
+              </optgroup>
+              
+              <optgroup label="School of Tourism and Hospitality Management">
+                
+                <option value="BSHM">BSHM</option>
+                
+                <option value="BSTM">BSTM</option>
+                
+              </optgroup>
+              
+              <optgroup label="School of Arts and Sciences">
+                
+                <option value="BAComm">BAComm</option>
+                
+                <option value="BAEcon">BAEcon</option>
+                
+              </optgroup>
+              
+              <optgroup label="School of Teacher Education">
+                
+                <option value="BSEd - Mathematics">BSEd - Mathematics</option>
+                
+                <option value="BSEd - Science">BSEd - Science</option>
+                
+                <option value="BSEd - English">BSEd - English</option>
+                
+                <option value="BSEd - Filipino">BSEd - Filipino</option>
+                
+                <option value="BSEd - Social Studies">BSEd - Social Studies</option>
+                
+                <option value="BEEd">BEEd</option>
+                
+                <option value="BTLEd">BTLEd</option>
+                
+                <option value="BPEd">BPEd</option>
+                
+                <option value="BECEd">BECEd</option>
+                
+                <option value="BSNEd">BSNEd</option>
+                
+              </optgroup>
+              
+              <optgroup label="School of Business and Management">
+                
+                <option value="BSBA - Financial Management">BSBA - Financial Management</option>
+                
+                <option value="BSBA - Marketing Management">BSBA - Marketing Management</option>
+                
+              </optgroup>
+              
+            </select>
+          </div>
+          <div class="space-y-1.5">
+            <label for="m-year-9">Year Level</label>
+            <select id="m-year-9" name="year_level">
+              
+              
+              <option value="1">1st Year</option>
+              
+              <option value="2" selected>2nd Year</option>
+              
+              <option value="3">3rd Year</option>
+              
+              <option value="4">4th Year</option>
+              
+            </select>
+          </div>
+          <div class="space-y-1.5">
+            <label for="m-gwa-9">GWA</label>
+            <input id="m-gwa-9" name="gwa" type="number" step="0.01" min="1" max="5"
+                   value="2.0" placeholder="Not set" />
+          </div>
+          
+        </div>
+        
+        <details class="manage-more">
+          <summary class="manage-more__summary">
+            More details
+            <span class="manage-more__hint">Address, family, schooling and admission scores &mdash; the student cannot change these once they are set</span>
+          </summary>
+          <div class="grid sm:grid-cols-2 gap-4 manage-more__body">
+            <div class="space-y-1.5">
+              <label for="m-gender-9">Gender</label>
+              <select id="m-gender-9" name="gender">
+                <option value="">&mdash; Not set &mdash;</option>
+                
+                <option value="Male" selected>Male</option>
+                
+                <option value="Female">Female</option>
+                
+              </select>
+            </div>
+            <div class="space-y-1.5">
+              <label for="m-civil-9">Civil Status</label>
+              <select id="m-civil-9" name="civil_status">
+                <option value="">&mdash; Not set &mdash;</option>
+                
+                <option value="Single">Single</option>
+                
+                <option value="Married">Married</option>
+                
+                <option value="Widowed">Widowed</option>
+                
+                <option value="Separated">Separated</option>
+                
+              </select>
+            </div>
+            
+            <div class="space-y-1.5">
+              <label for="m-barangay-9">Barangay / Street</label>
+              <input id="m-barangay-9" name="barangay" value="" />
+            </div>
+            
+            <div class="space-y-1.5">
+              <label for="m-municipality-9">Municipality</label>
+              <input id="m-municipality-9" name="municipality" value="Biliran" />
+            </div>
+            
+            <div class="space-y-1.5">
+              <label for="m-province-9">Province</label>
+              <input id="m-province-9" name="province" value="Biliran" />
+            </div>
+            
+            <div class="space-y-1.5">
+              <label for="m-elementary-9">Elementary School</label>
+              <input id="m-elementary-9" name="elementary" value="" />
+            </div>
+            
+            <div class="space-y-1.5">
+              <label for="m-highschool-9">High School</label>
+              <input id="m-highschool-9" name="highschool" value="" />
+            </div>
+            
+            <div class="space-y-1.5">
+              <label for="m-last_school-9">Last School Attended</label>
+              <input id="m-last_school-9" name="last_school" value="" />
+            </div>
+            
+            <div class="space-y-1.5">
+              <label for="m-father_last_name-9">Father&#x27;s Last Name</label>
+              <input id="m-father_last_name-9" name="father_last_name" value="" />
+            </div>
+            
+            <div class="space-y-1.5">
+              <label for="m-father_first_name-9">Father&#x27;s Given Name</label>
+              <input id="m-father_first_name-9" name="father_first_name" value="" />
+            </div>
+            
+            <div class="space-y-1.5">
+              <label for="m-father_middle_name-9">Father&#x27;s Middle Name</label>
+              <input id="m-father_middle_name-9" name="father_middle_name" value="" />
+            </div>
+            
+            <div class="space-y-1.5">
+              <label for="m-father_occupation-9">Father&#x27;s Occupation</label>
+              <input id="m-father_occupation-9" name="father_occupation" value="" />
+            </div>
+            
+            <div class="space-y-1.5">
+              <label for="m-mother_last_name-9">Mother&#x27;s Last Name</label>
+              <input id="m-mother_last_name-9" name="mother_last_name" value="" />
+            </div>
+            
+            <div class="space-y-1.5">
+              <label for="m-mother_first_name-9">Mother&#x27;s Given Name</label>
+              <input id="m-mother_first_name-9" name="mother_first_name" value="" />
+            </div>
+            
+            <div class="space-y-1.5">
+              <label for="m-mother_middle_name-9">Mother&#x27;s Middle Name</label>
+              <input id="m-mother_middle_name-9" name="mother_middle_name" value="" />
+            </div>
+            
+            <div class="space-y-1.5">
+              <label for="m-mother_occupation-9">Mother&#x27;s Occupation</label>
+              <input id="m-mother_occupation-9" name="mother_occupation" value="" />
+            </div>
+            
+            <div class="space-y-1.5">
+              <label for="m-public-hs-9">Was the high school public?</label>
+              <select id="m-public-hs-9" name="highschool_is_public">
+                <option value="">&mdash; Not set &mdash;</option>
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+              </select>
+            </div>
+            <div class="space-y-1.5 sm:col-span-2">
+              <label for="m-suc-score-9">SUC Admission Exam Score</label>
+              <div class="suc-score-pair">
+                <input id="m-suc-score-9" name="suc_exam_score" type="number" step="0.01" min="0"
+                       value="" placeholder="score" />
+                <span class="suc-score-of">out of</span>
+                <input name="suc_exam_total" type="number" step="0.01" min="0"
+                       value="" placeholder="total" aria-label="Total items" />
+              </div>
+            </div>
+          </div>
+          <p class="text-xs u-text-muted">A box left empty keeps what is already on file.</p>
+        </details>
+        
+        <button type="submit" class="btn btn-primary">Save changes</button>
+      </form>
+
+      <p class="section-title">Signing in</p>
+      <div class="account-manage">
+        
+        <form method="post" class="account-manage__row">
+          
+          <input type="hidden" name="manage" value="password" />
+          <input type="hidden" name="account_id" value="9" />
+          <label class="sr-only" for="m-pw-9">New password for carlo.mendoza@bipsu.edu.ph</label>
+          <input type="password" name="password" id="m-pw-9" minlength="8"
+                 autocomplete="new-password" placeholder="New password" required />
+          <label class="sr-only" for="m-pw2-9">Type the new password again</label>
+          <input type="password" name="confirm_password" id="m-pw2-9" minlength="8"
+                 autocomplete="new-password" placeholder="Type it again" required />
+          <button type="submit" class="btn btn-outline">Set password</button>
+        </form>
+        <p class="account-manage__note">Hand a new password over in person &mdash; this system never emails one. They can change it under My Profile once they are in.</p>
+        
+      </div>
+
+      <p class="section-title">Access</p>
+      <form method="post" class="account-manage__row"
+            data-confirm="Close the account of Carlo Mendoza?"
+            data-confirm-detail="They can no longer sign in. Nothing is deleted &mdash; their applications, awards and history stay, and the account can be reopened at any time."
+            data-confirm-tone="danger" data-confirm-label="Close the account">
+        
+        <input type="hidden" name="manage" value="access" />
+        <input type="hidden" name="account_id" value="9" />
+        <input type="hidden" name="active" value="0" />
+        <span class="account-manage__label">
+          Stop this account signing in without deleting anything.
+        </span>
+        <button type="submit" class="btn btn-danger-soft">
+          Close the account
+        </button>
+      </form>
+      
+    </div>
+  </div>
+</div>
+
+
+
+<div class="modal-overlay" id="manage-5" data-preview>
+  <div class="modal record-modal" role="dialog" aria-modal="true" aria-labelledby="manage-5-name">
+    <div class="modal-header">
+      <div class="record-modal__who">
+        <h2 class="record-modal__name" id="manage-5-name">Jose Reyes</h2>
+        <p class="record-modal__sub">jose.reyes@bipsu.edu.ph · Student · registered Nov 13, 2026</p>
+      </div>
+      <button type="button" class="modal-close" data-preview-close aria-label="Close">&times;</button>
+    </div>
+    <div class="modal-body">
+      
+
+      <p class="manage-status manage-status--head"><span class="badge badge-success">Verified</span>
+
+
+
+</p>
+      <div class="detail-grid">
+        <div class="detail-field"><label>Last sign-in</label><span>Never</span></div>
+        <div class="detail-field"><label>Registered for</label><span>2026-2027 1st Semester</span></div>
+      </div>
+
+      <p class="section-title">Correct their details</p>
+      <form method="post" class="space-y-4">
+        
+        <input type="hidden" name="manage" value="details" />
+        <input type="hidden" name="account_id" value="5" />
+        <div class="grid sm:grid-cols-2 gap-4">
+          <div class="space-y-1.5">
+            <label for="m-first-5">First Name</label>
+            <input id="m-first-5" name="first_name" value="Jose" required />
+          </div>
+          <div class="space-y-1.5">
+            <label for="m-last-5">Last Name</label>
+            <input id="m-last-5" name="last_name" value="Reyes" required />
+          </div>
+          
+          <div class="space-y-1.5">
+            <label for="m-middle-5">Middle Name</label>
+            <input id="m-middle-5" name="middle_name" value="" />
+          </div>
+          <div class="space-y-1.5">
+            <label for="m-suffix-5">Suffix <span class="label-optional">Optional</span></label>
+            <input id="m-suffix-5" name="suffix" value="" />
+          </div>
+          
+          <div class="space-y-1.5">
+            <label for="m-email-5">Email &mdash; how they sign in</label>
+            <input id="m-email-5" type="email" name="email" value="jose.reyes@bipsu.edu.ph" required />
+          </div>
+          
+          <div class="space-y-1.5">
+            <label for="m-contact-5">Contact Number</label>
+            <input id="m-contact-5" type="tel" name="contact_number" value="" />
+          </div>
+          
+          
+          <div class="space-y-1.5">
+            <label for="m-student-id-5">Student ID</label>
+            <input id="m-student-id-5" name="student_id" value="2022-00102" required />
+          </div>
+          <div class="space-y-1.5">
+            <label for="m-course-5">Course</label>
+            <select id="m-course-5" name="course">
+              <option value="BS Agriculture" selected>BS Agriculture</option>
+              
+              <optgroup label="School of Technologies and Computer Studies">
+                
+                <option value="BSCS">BSCS</option>
+                
+                <option value="BSIS">BSIS</option>
+                
+                <option value="BSIT - Automotive Technology">BSIT - Automotive Technology</option>
+                
+                <option value="BSIT - Architectural Drafting">BSIT - Architectural Drafting</option>
+                
+                <option value="BSIT - Electrical Technology">BSIT - Electrical Technology</option>
+                
+                <option value="BSIT - Electronics Technology">BSIT - Electronics Technology</option>
+                
+                <option value="BSIT - Culinary Technology">BSIT - Culinary Technology</option>
+                
+                <option value="BSIT - Apparel and Fashion Design Technology">BSIT - Apparel and Fashion Design Technology</option>
+                
+                <option value="BSIT - HVAC-R Technology">BSIT - HVAC-R Technology</option>
+                
+              </optgroup>
+              
+              <optgroup label="School of Engineering">
+                
+                <option value="BSCE">BSCE</option>
+                
+                <option value="BSEE">BSEE</option>
+                
+                <option value="BSCpE">BSCpE</option>
+                
+                <option value="BSME">BSME</option>
+                
+              </optgroup>
+              
+              <optgroup label="School of Nursing and Health Sciences">
+                
+                <option value="BSN">BSN</option>
+                
+              </optgroup>
+              
+              <optgroup label="School of Criminal Justice Education">
+                
+                <option value="BSCrim">BSCrim</option>
+                
+                <option value="BSISM">BSISM</option>
+                
+              </optgroup>
+              
+              <optgroup label="School of Tourism and Hospitality Management">
+                
+                <option value="BSHM">BSHM</option>
+                
+                <option value="BSTM">BSTM</option>
+                
+              </optgroup>
+              
+              <optgroup label="School of Arts and Sciences">
+                
+                <option value="BAComm">BAComm</option>
+                
+                <option value="BAEcon">BAEcon</option>
+                
+              </optgroup>
+              
+              <optgroup label="School of Teacher Education">
+                
+                <option value="BSEd - Mathematics">BSEd - Mathematics</option>
+                
+                <option value="BSEd - Science">BSEd - Science</option>
+                
+                <option value="BSEd - English">BSEd - English</option>
+                
+                <option value="BSEd - Filipino">BSEd - Filipino</option>
+                
+                <option value="BSEd - Social Studies">BSEd - Social Studies</option>
+                
+                <option value="BEEd">BEEd</option>
+                
+                <option value="BTLEd">BTLEd</option>
+                
+                <option value="BPEd">BPEd</option>
+                
+                <option value="BECEd">BECEd</option>
+                
+                <option value="BSNEd">BSNEd</option>
+                
+              </optgroup>
+              
+              <optgroup label="School of Business and Management">
+                
+                <option value="BSBA - Financial Management">BSBA - Financial Management</option>
+                
+                <option value="BSBA - Marketing Management">BSBA - Marketing Management</option>
+                
+              </optgroup>
+              
+            </select>
+          </div>
+          <div class="space-y-1.5">
+            <label for="m-year-5">Year Level</label>
+            <select id="m-year-5" name="year_level">
+              
+              
+              <option value="1">1st Year</option>
+              
+              <option value="2">2nd Year</option>
+              
+              <option value="3" selected>3rd Year</option>
+              
+              <option value="4">4th Year</option>
+              
+            </select>
+          </div>
+          <div class="space-y-1.5">
+            <label for="m-gwa-5">GWA</label>
+            <input id="m-gwa-5" name="gwa" type="number" step="0.01" min="1" max="5"
+                   value="1.75" placeholder="Not set" />
+          </div>
+          
+        </div>
+        
+        <details class="manage-more">
+          <summary class="manage-more__summary">
+            More details
+            <span class="manage-more__hint">Address, family, schooling and admission scores &mdash; the student cannot change these once they are set</span>
+          </summary>
+          <div class="grid sm:grid-cols-2 gap-4 manage-more__body">
+            <div class="space-y-1.5">
+              <label for="m-gender-5">Gender</label>
+              <select id="m-gender-5" name="gender">
+                <option value="">&mdash; Not set &mdash;</option>
+                
+                <option value="Male" selected>Male</option>
+                
+                <option value="Female">Female</option>
+                
+              </select>
+            </div>
+            <div class="space-y-1.5">
+              <label for="m-civil-5">Civil Status</label>
+              <select id="m-civil-5" name="civil_status">
+                <option value="">&mdash; Not set &mdash;</option>
+                
+                <option value="Single">Single</option>
+                
+                <option value="Married">Married</option>
+                
+                <option value="Widowed">Widowed</option>
+                
+                <option value="Separated">Separated</option>
+                
+              </select>
+            </div>
+            
+            <div class="space-y-1.5">
+              <label for="m-barangay-5">Barangay / Street</label>
+              <input id="m-barangay-5" name="barangay" value="" />
+            </div>
+            
+            <div class="space-y-1.5">
+              <label for="m-municipality-5">Municipality</label>
+              <input id="m-municipality-5" name="municipality" value="Almeria" />
+            </div>
+            
+            <div class="space-y-1.5">
+              <label for="m-province-5">Province</label>
+              <input id="m-province-5" name="province" value="Biliran" />
+            </div>
+            
+            <div class="space-y-1.5">
+              <label for="m-elementary-5">Elementary School</label>
+              <input id="m-elementary-5" name="elementary" value="" />
+            </div>
+            
+            <div class="space-y-1.5">
+              <label for="m-highschool-5">High School</label>
+              <input id="m-highschool-5" name="highschool" value="" />
+            </div>
+            
+            <div class="space-y-1.5">
+              <label for="m-last_school-5">Last School Attended</label>
+              <input id="m-last_school-5" name="last_school" value="" />
+            </div>
+            
+            <div class="space-y-1.5">
+              <label for="m-father_last_name-5">Father&#x27;s Last Name</label>
+              <input id="m-father_last_name-5" name="father_last_name" value="" />
+            </div>
+            
+            <div class="space-y-1.5">
+              <label for="m-father_first_name-5">Father&#x27;s Given Name</label>
+              <input id="m-father_first_name-5" name="father_first_name" value="" />
+            </div>
+            
+            <div class="space-y-1.5">
+              <label for="m-father_middle_name-5">Father&#x27;s Middle Name</label>
+              <input id="m-father_middle_name-5" name="father_middle_name" value="" />
+            </div>
+            
+            <div class="space-y-1.5">
+              <label for="m-father_occupation-5">Father&#x27;s Occupation</label>
+              <input id="m-father_occupation-5" name="father_occupation" value="" />
+            </div>
+            
+            <div class="space-y-1.5">
+              <label for="m-mother_last_name-5">Mother&#x27;s Last Name</label>
+              <input id="m-mother_last_name-5" name="mother_last_name" value="" />
+            </div>
+            
+            <div class="space-y-1.5">
+              <label for="m-mother_first_name-5">Mother&#x27;s Given Name</label>
+              <input id="m-mother_first_name-5" name="mother_first_name" value="" />
+            </div>
+            
+            <div class="space-y-1.5">
+              <label for="m-mother_middle_name-5">Mother&#x27;s Middle Name</label>
+              <input id="m-mother_middle_name-5" name="mother_middle_name" value="" />
+            </div>
+            
+            <div class="space-y-1.5">
+              <label for="m-mother_occupation-5">Mother&#x27;s Occupation</label>
+              <input id="m-mother_occupation-5" name="mother_occupation" value="" />
+            </div>
+            
+            <div class="space-y-1.5">
+              <label for="m-public-hs-5">Was the high school public?</label>
+              <select id="m-public-hs-5" name="highschool_is_public">
+                <option value="">&mdash; Not set &mdash;</option>
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+              </select>
+            </div>
+            <div class="space-y-1.5 sm:col-span-2">
+              <label for="m-suc-score-5">SUC Admission Exam Score</label>
+              <div class="suc-score-pair">
+                <input id="m-suc-score-5" name="suc_exam_score" type="number" step="0.01" min="0"
+                       value="" placeholder="score" />
+                <span class="suc-score-of">out of</span>
+                <input name="suc_exam_total" type="number" step="0.01" min="0"
+                       value="" placeholder="total" aria-label="Total items" />
+              </div>
+            </div>
+          </div>
+          <p class="text-xs u-text-muted">A box left empty keeps what is already on file.</p>
+        </details>
+        
+        <button type="submit" class="btn btn-primary">Save changes</button>
+      </form>
+
+      <p class="section-title">Signing in</p>
+      <div class="account-manage">
+        
+        <form method="post" class="account-manage__row">
+          
+          <input type="hidden" name="manage" value="password" />
+          <input type="hidden" name="account_id" value="5" />
+          <label class="sr-only" for="m-pw-5">New password for jose.reyes@bipsu.edu.ph</label>
+          <input type="password" name="password" id="m-pw-5" minlength="8"
+                 autocomplete="new-password" placeholder="New password" required />
+          <label class="sr-only" for="m-pw2-5">Type the new password again</label>
+          <input type="password" name="confirm_password" id="m-pw2-5" minlength="8"
+                 autocomplete="new-password" placeholder="Type it again" required />
+          <button type="submit" class="btn btn-outline">Set password</button>
+        </form>
+        <p class="account-manage__note">Hand a new password over in person &mdash; this system never emails one. They can change it under My Profile once they are in.</p>
+        
+      </div>
+
+      <p class="section-title">Access</p>
+      <form method="post" class="account-manage__row"
+            data-confirm="Close the account of Jose Reyes?"
+            data-confirm-detail="They can no longer sign in. Nothing is deleted &mdash; their applications, awards and history stay, and the account can be reopened at any time."
+            data-confirm-tone="danger" data-confirm-label="Close the account">
+        
+        <input type="hidden" name="manage" value="access" />
+        <input type="hidden" name="account_id" value="5" />
+        <input type="hidden" name="active" value="0" />
+        <span class="account-manage__label">
+          Stop this account signing in without deleting anything.
+        </span>
+        <button type="submit" class="btn btn-danger-soft">
+          Close the account
+        </button>
+      </form>
+      
+    </div>
+  </div>
+</div>
+
+
+
+<div class="modal-overlay" id="manage-4" data-preview>
+  <div class="modal record-modal" role="dialog" aria-modal="true" aria-labelledby="manage-4-name">
+    <div class="modal-header">
+      <div class="record-modal__who">
+        <h2 class="record-modal__name" id="manage-4-name">Maria Santos</h2>
+        <p class="record-modal__sub">maria.santos@bipsu.edu.ph · Student · registered Nov 13, 2026</p>
+      </div>
+      <button type="button" class="modal-close" data-preview-close aria-label="Close">&times;</button>
+    </div>
+    <div class="modal-body">
+      
+
+      <p class="manage-status manage-status--head"><span class="badge badge-success">Verified</span>
+
+
+
+</p>
+      <div class="detail-grid">
+        <div class="detail-field"><label>Last sign-in</label><span>Never</span></div>
+        <div class="detail-field"><label>Registered for</label><span>2026-2027 1st Semester</span></div>
+      </div>
+
+      <p class="section-title">Correct their details</p>
+      <form method="post" class="space-y-4">
+        
+        <input type="hidden" name="manage" value="details" />
+        <input type="hidden" name="account_id" value="4" />
+        <div class="grid sm:grid-cols-2 gap-4">
+          <div class="space-y-1.5">
+            <label for="m-first-4">First Name</label>
+            <input id="m-first-4" name="first_name" value="Maria" required />
+          </div>
+          <div class="space-y-1.5">
+            <label for="m-last-4">Last Name</label>
+            <input id="m-last-4" name="last_name" value="Santos" required />
+          </div>
+          
+          <div class="space-y-1.5">
+            <label for="m-middle-4">Middle Name</label>
+            <input id="m-middle-4" name="middle_name" value="" />
+          </div>
+          <div class="space-y-1.5">
+            <label for="m-suffix-4">Suffix <span class="label-optional">Optional</span></label>
+            <input id="m-suffix-4" name="suffix" value="" />
+          </div>
+          
+          <div class="space-y-1.5">
+            <label for="m-email-4">Email &mdash; how they sign in</label>
+            <input id="m-email-4" type="email" name="email" value="maria.santos@bipsu.edu.ph" required />
+          </div>
+          
+          <div class="space-y-1.5">
+            <label for="m-contact-4">Contact Number</label>
+            <input id="m-contact-4" type="tel" name="contact_number" value="" />
+          </div>
+          
+          
+          <div class="space-y-1.5">
+            <label for="m-student-id-4">Student ID</label>
+            <input id="m-student-id-4" name="student_id" value="2022-00101" required />
+          </div>
+          <div class="space-y-1.5">
+            <label for="m-course-4">Course</label>
+            <select id="m-course-4" name="course">
+              <option value="BS Education" selected>BS Education</option>
+              
+              <optgroup label="School of Technologies and Computer Studies">
+                
+                <option value="BSCS">BSCS</option>
+                
+                <option value="BSIS">BSIS</option>
+                
+                <option value="BSIT - Automotive Technology">BSIT - Automotive Technology</option>
+                
+                <option value="BSIT - Architectural Drafting">BSIT - Architectural Drafting</option>
+                
+                <option value="BSIT - Electrical Technology">BSIT - Electrical Technology</option>
+                
+                <option value="BSIT - Electronics Technology">BSIT - Electronics Technology</option>
+                
+                <option value="BSIT - Culinary Technology">BSIT - Culinary Technology</option>
+                
+                <option value="BSIT - Apparel and Fashion Design Technology">BSIT - Apparel and Fashion Design Technology</option>
+                
+                <option value="BSIT - HVAC-R Technology">BSIT - HVAC-R Technology</option>
+                
+              </optgroup>
+              
+              <optgroup label="School of Engineering">
+                
+                <option value="BSCE">BSCE</option>
+                
+                <option value="BSEE">BSEE</option>
+                
+                <option value="BSCpE">BSCpE</option>
+                
+                <option value="BSME">BSME</option>
+                
+              </optgroup>
+              
+              <optgroup label="School of Nursing and Health Sciences">
+                
+                <option value="BSN">BSN</option>
+                
+              </optgroup>
+              
+              <optgroup label="School of Criminal Justice Education">
+                
+                <option value="BSCrim">BSCrim</option>
+                
+                <option value="BSISM">BSISM</option>
+                
+              </optgroup>
+              
+              <optgroup label="School of Tourism and Hospitality Management">
+                
+                <option value="BSHM">BSHM</option>
+                
+                <option value="BSTM">BSTM</option>
+                
+              </optgroup>
+              
+              <optgroup label="School of Arts and Sciences">
+                
+                <option value="BAComm">BAComm</option>
+                
+                <option value="BAEcon">BAEcon</option>
+                
+              </optgroup>
+              
+              <optgroup label="School of Teacher Education">
+                
+                <option value="BSEd - Mathematics">BSEd - Mathematics</option>
+                
+                <option value="BSEd - Science">BSEd - Science</option>
+                
+                <option value="BSEd - English">BSEd - English</option>
+                
+                <option value="BSEd - Filipino">BSEd - Filipino</option>
+                
+                <option value="BSEd - Social Studies">BSEd - Social Studies</option>
+                
+                <option value="BEEd">BEEd</option>
+                
+                <option value="BTLEd">BTLEd</option>
+                
+                <option value="BPEd">BPEd</option>
+                
+                <option value="BECEd">BECEd</option>
+                
+                <option value="BSNEd">BSNEd</option>
+                
+              </optgroup>
+              
+              <optgroup label="School of Business and Management">
+                
+                <option value="BSBA - Financial Management">BSBA - Financial Management</option>
+                
+                <option value="BSBA - Marketing Management">BSBA - Marketing Management</option>
+                
+              </optgroup>
+              
+            </select>
+          </div>
+          <div class="space-y-1.5">
+            <label for="m-year-4">Year Level</label>
+            <select id="m-year-4" name="year_level">
+              
+              
+              <option value="1">1st Year</option>
+              
+              <option value="2" selected>2nd Year</option>
+              
+              <option value="3">3rd Year</option>
+              
+              <option value="4">4th Year</option>
+              
+            </select>
+          </div>
+          <div class="space-y-1.5">
+            <label for="m-gwa-4">GWA</label>
+            <input id="m-gwa-4" name="gwa" type="number" step="0.01" min="1" max="5"
+                   value="1.25" placeholder="Not set" />
+          </div>
+          
+        </div>
+        
+        <details class="manage-more">
+          <summary class="manage-more__summary">
+            More details
+            <span class="manage-more__hint">Address, family, schooling and admission scores &mdash; the student cannot change these once they are set</span>
+          </summary>
+          <div class="grid sm:grid-cols-2 gap-4 manage-more__body">
+            <div class="space-y-1.5">
+              <label for="m-gender-4">Gender</label>
+              <select id="m-gender-4" name="gender">
+                <option value="">&mdash; Not set &mdash;</option>
+                
+                <option value="Male">Male</option>
+                
+                <option value="Female" selected>Female</option>
+                
+              </select>
+            </div>
+            <div class="space-y-1.5">
+              <label for="m-civil-4">Civil Status</label>
+              <select id="m-civil-4" name="civil_status">
+                <option value="">&mdash; Not set &mdash;</option>
+                
+                <option value="Single">Single</option>
+                
+                <option value="Married">Married</option>
+                
+                <option value="Widowed">Widowed</option>
+                
+                <option value="Separated">Separated</option>
+                
+              </select>
+            </div>
+            
+            <div class="space-y-1.5">
+              <label for="m-barangay-4">Barangay / Street</label>
+              <input id="m-barangay-4" name="barangay" value="" />
+            </div>
+            
+            <div class="space-y-1.5">
+              <label for="m-municipality-4">Municipality</label>
+              <input id="m-municipality-4" name="municipality" value="Caibiran" />
+            </div>
+            
+            <div class="space-y-1.5">
+              <label for="m-province-4">Province</label>
+              <input id="m-province-4" name="province" value="Biliran" />
+            </div>
+            
+            <div class="space-y-1.5">
+              <label for="m-elementary-4">Elementary School</label>
+              <input id="m-elementary-4" name="elementary" value="" />
+            </div>
+            
+            <div class="space-y-1.5">
+              <label for="m-highschool-4">High School</label>
+              <input id="m-highschool-4" name="highschool" value="" />
+            </div>
+            
+            <div class="space-y-1.5">
+              <label for="m-last_school-4">Last School Attended</label>
+              <input id="m-last_school-4" name="last_school" value="" />
+            </div>
+            
+            <div class="space-y-1.5">
+              <label for="m-father_last_name-4">Father&#x27;s Last Name</label>
+              <input id="m-father_last_name-4" name="father_last_name" value="" />
+            </div>
+            
+            <div class="space-y-1.5">
+              <label for="m-father_first_name-4">Father&#x27;s Given Name</label>
+              <input id="m-father_first_name-4" name="father_first_name" value="" />
+            </div>
+            
+            <div class="space-y-1.5">
+              <label for="m-father_middle_name-4">Father&#x27;s Middle Name</label>
+              <input id="m-father_middle_name-4" name="father_middle_name" value="" />
+            </div>
+            
+            <div class="space-y-1.5">
+              <label for="m-father_occupation-4">Father&#x27;s Occupation</label>
+              <input id="m-father_occupation-4" name="father_occupation" value="" />
+            </div>
+            
+            <div class="space-y-1.5">
+              <label for="m-mother_last_name-4">Mother&#x27;s Last Name</label>
+              <input id="m-mother_last_name-4" name="mother_last_name" value="" />
+            </div>
+            
+            <div class="space-y-1.5">
+              <label for="m-mother_first_name-4">Mother&#x27;s Given Name</label>
+              <input id="m-mother_first_name-4" name="mother_first_name" value="" />
+            </div>
+            
+            <div class="space-y-1.5">
+              <label for="m-mother_middle_name-4">Mother&#x27;s Middle Name</label>
+              <input id="m-mother_middle_name-4" name="mother_middle_name" value="" />
+            </div>
+            
+            <div class="space-y-1.5">
+              <label for="m-mother_occupation-4">Mother&#x27;s Occupation</label>
+              <input id="m-mother_occupation-4" name="mother_occupation" value="" />
+            </div>
+            
+            <div class="space-y-1.5">
+              <label for="m-public-hs-4">Was the high school public?</label>
+              <select id="m-public-hs-4" name="highschool_is_public">
+                <option value="">&mdash; Not set &mdash;</option>
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+              </select>
+            </div>
+            <div class="space-y-1.5 sm:col-span-2">
+              <label for="m-suc-score-4">SUC Admission Exam Score</label>
+              <div class="suc-score-pair">
+                <input id="m-suc-score-4" name="suc_exam_score" type="number" step="0.01" min="0"
+                       value="" placeholder="score" />
+                <span class="suc-score-of">out of</span>
+                <input name="suc_exam_total" type="number" step="0.01" min="0"
+                       value="" placeholder="total" aria-label="Total items" />
+              </div>
+            </div>
+          </div>
+          <p class="text-xs u-text-muted">A box left empty keeps what is already on file.</p>
+        </details>
+        
+        <button type="submit" class="btn btn-primary">Save changes</button>
+      </form>
+
+      <p class="section-title">Signing in</p>
+      <div class="account-manage">
+        
+        <form method="post" class="account-manage__row">
+          
+          <input type="hidden" name="manage" value="password" />
+          <input type="hidden" name="account_id" value="4" />
+          <label class="sr-only" for="m-pw-4">New password for maria.santos@bipsu.edu.ph</label>
+          <input type="password" name="password" id="m-pw-4" minlength="8"
+                 autocomplete="new-password" placeholder="New password" required />
+          <label class="sr-only" for="m-pw2-4">Type the new password again</label>
+          <input type="password" name="confirm_password" id="m-pw2-4" minlength="8"
+                 autocomplete="new-password" placeholder="Type it again" required />
+          <button type="submit" class="btn btn-outline">Set password</button>
+        </form>
+        <p class="account-manage__note">Hand a new password over in person &mdash; this system never emails one. They can change it under My Profile once they are in.</p>
+        
+      </div>
+
+      <p class="section-title">Access</p>
+      <form method="post" class="account-manage__row"
+            data-confirm="Close the account of Maria Santos?"
+            data-confirm-detail="They can no longer sign in. Nothing is deleted &mdash; their applications, awards and history stay, and the account can be reopened at any time."
+            data-confirm-tone="danger" data-confirm-label="Close the account">
+        
+        <input type="hidden" name="manage" value="access" />
+        <input type="hidden" name="account_id" value="4" />
+        <input type="hidden" name="active" value="0" />
+        <span class="account-manage__label">
+          Stop this account signing in without deleting anything.
+        </span>
+        <button type="submit" class="btn btn-danger-soft">
+          Close the account
+        </button>
+      </form>
+      
+    </div>
+  </div>
+</div>
+
+
+
+<div class="modal-overlay" id="manage-10" data-preview>
+  <div class="modal record-modal" role="dialog" aria-modal="true" aria-labelledby="manage-10-name">
+    <div class="modal-header">
+      <div class="record-modal__who">
+        <h2 class="record-modal__name" id="manage-10-name">Liza Torres</h2>
+        <p class="record-modal__sub">liza.torres@bipsu.edu.ph · Student · registered Nov 13, 2026</p>
+      </div>
+      <button type="button" class="modal-close" data-preview-close aria-label="Close">&times;</button>
+    </div>
+    <div class="modal-body">
+      
+
+      <p class="manage-status manage-status--head"><span class="badge badge-success">Verified</span>
+
+
+
+</p>
+      <div class="detail-grid">
+        <div class="detail-field"><label>Last sign-in</label><span>Never</span></div>
+        <div class="detail-field"><label>Registered for</label><span>2026-2027 1st Semester</span></div>
+      </div>
+
+      <p class="section-title">Correct their details</p>
+      <form method="post" class="space-y-4">
+        
+        <input type="hidden" name="manage" value="details" />
+        <input type="hidden" name="account_id" value="10" />
+        <div class="grid sm:grid-cols-2 gap-4">
+          <div class="space-y-1.5">
+            <label for="m-first-10">First Name</label>
+            <input id="m-first-10" name="first_name" value="Liza" required />
+          </div>
+          <div class="space-y-1.5">
+            <label for="m-last-10">Last Name</label>
+            <input id="m-last-10" name="last_name" value="Torres" required />
+          </div>
+          
+          <div class="space-y-1.5">
+            <label for="m-middle-10">Middle Name</label>
+            <input id="m-middle-10" name="middle_name" value="" />
+          </div>
+          <div class="space-y-1.5">
+            <label for="m-suffix-10">Suffix <span class="label-optional">Optional</span></label>
+            <input id="m-suffix-10" name="suffix" value="" />
+          </div>
+          
+          <div class="space-y-1.5">
+            <label for="m-email-10">Email &mdash; how they sign in</label>
+            <input id="m-email-10" type="email" name="email" value="liza.torres@bipsu.edu.ph" required />
+          </div>
+          
+          <div class="space-y-1.5">
+            <label for="m-contact-10">Contact Number</label>
+            <input id="m-contact-10" type="tel" name="contact_number" value="" />
+          </div>
+          
+          
+          <div class="space-y-1.5">
+            <label for="m-student-id-10">Student ID</label>
+            <input id="m-student-id-10" name="student_id" value="2022-00107" required />
+          </div>
+          <div class="space-y-1.5">
+            <label for="m-course-10">Course</label>
+            <select id="m-course-10" name="course">
+              <option value="BS Criminology" selected>BS Criminology</option>
+              
+              <optgroup label="School of Technologies and Computer Studies">
+                
+                <option value="BSCS">BSCS</option>
+                
+                <option value="BSIS">BSIS</option>
+                
+                <option value="BSIT - Automotive Technology">BSIT - Automotive Technology</option>
+                
+                <option value="BSIT - Architectural Drafting">BSIT - Architectural Drafting</option>
+                
+                <option value="BSIT - Electrical Technology">BSIT - Electrical Technology</option>
+                
+                <option value="BSIT - Electronics Technology">BSIT - Electronics Technology</option>
+                
+                <option value="BSIT - Culinary Technology">BSIT - Culinary Technology</option>
+                
+                <option value="BSIT - Apparel and Fashion Design Technology">BSIT - Apparel and Fashion Design Technology</option>
+                
+                <option value="BSIT - HVAC-R Technology">BSIT - HVAC-R Technology</option>
+                
+              </optgroup>
+              
+              <optgroup label="School of Engineering">
+                
+                <option value="BSCE">BSCE</option>
+                
+                <option value="BSEE">BSEE</option>
+                
+                <option value="BSCpE">BSCpE</option>
+                
+                <option value="BSME">BSME</option>
+                
+              </optgroup>
+              
+              <optgroup label="School of Nursing and Health Sciences">
+                
+                <option value="BSN">BSN</option>
+                
+              </optgroup>
+              
+              <optgroup label="School of Criminal Justice Education">
+                
+                <option value="BSCrim">BSCrim</option>
+                
+                <option value="BSISM">BSISM</option>
+                
+              </optgroup>
+              
+              <optgroup label="School of Tourism and Hospitality Management">
+                
+                <option value="BSHM">BSHM</option>
+                
+                <option value="BSTM">BSTM</option>
+                
+              </optgroup>
+              
+              <optgroup label="School of Arts and Sciences">
+                
+                <option value="BAComm">BAComm</option>
+                
+                <option value="BAEcon">BAEcon</option>
+                
+              </optgroup>
+              
+              <optgroup label="School of Teacher Education">
+                
+                <option value="BSEd - Mathematics">BSEd - Mathematics</option>
+                
+                <option value="BSEd - Science">BSEd - Science</option>
+                
+                <option value="BSEd - English">BSEd - English</option>
+                
+                <option value="BSEd - Filipino">BSEd - Filipino</option>
+                
+                <option value="BSEd - Social Studies">BSEd - Social Studies</option>
+                
+                <option value="BEEd">BEEd</option>
+                
+                <option value="BTLEd">BTLEd</option>
+                
+                <option value="BPEd">BPEd</option>
+                
+                <option value="BECEd">BECEd</option>
+                
+                <option value="BSNEd">BSNEd</option>
+                
+              </optgroup>
+              
+              <optgroup label="School of Business and Management">
+                
+                <option value="BSBA - Financial Management">BSBA - Financial Management</option>
+                
+                <option value="BSBA - Marketing Management">BSBA - Marketing Management</option>
+                
+              </optgroup>
+              
+            </select>
+          </div>
+          <div class="space-y-1.5">
+            <label for="m-year-10">Year Level</label>
+            <select id="m-year-10" name="year_level">
+              
+              
+              <option value="1">1st Year</option>
+              
+              <option value="2">2nd Year</option>
+              
+              <option value="3">3rd Year</option>
+              
+              <option value="4" selected>4th Year</option>
+              
+            </select>
+          </div>
+          <div class="space-y-1.5">
+            <label for="m-gwa-10">GWA</label>
+            <input id="m-gwa-10" name="gwa" type="number" step="0.01" min="1" max="5"
+                   value="1.55" placeholder="Not set" />
+          </div>
+          
+        </div>
+        
+        <details class="manage-more">
+          <summary class="manage-more__summary">
+            More details
+            <span class="manage-more__hint">Address, family, schooling and admission scores &mdash; the student cannot change these once they are set</span>
+          </summary>
+          <div class="grid sm:grid-cols-2 gap-4 manage-more__body">
+            <div class="space-y-1.5">
+              <label for="m-gender-10">Gender</label>
+              <select id="m-gender-10" name="gender">
+                <option value="">&mdash; Not set &mdash;</option>
+                
+                <option value="Male">Male</option>
+                
+                <option value="Female" selected>Female</option>
+                
+              </select>
+            </div>
+            <div class="space-y-1.5">
+              <label for="m-civil-10">Civil Status</label>
+              <select id="m-civil-10" name="civil_status">
+                <option value="">&mdash; Not set &mdash;</option>
+                
+                <option value="Single">Single</option>
+                
+                <option value="Married">Married</option>
+                
+                <option value="Widowed">Widowed</option>
+                
+                <option value="Separated">Separated</option>
+                
+              </select>
+            </div>
+            
+            <div class="space-y-1.5">
+              <label for="m-barangay-10">Barangay / Street</label>
+              <input id="m-barangay-10" name="barangay" value="" />
+            </div>
+            
+            <div class="space-y-1.5">
+              <label for="m-municipality-10">Municipality</label>
+              <input id="m-municipality-10" name="municipality" value="Maripipi" />
+            </div>
+            
+            <div class="space-y-1.5">
+              <label for="m-province-10">Province</label>
+              <input id="m-province-10" name="province" value="Biliran" />
+            </div>
+            
+            <div class="space-y-1.5">
+              <label for="m-elementary-10">Elementary School</label>
+              <input id="m-elementary-10" name="elementary" value="" />
+            </div>
+            
+            <div class="space-y-1.5">
+              <label for="m-highschool-10">High School</label>
+              <input id="m-highschool-10" name="highschool" value="" />
+            </div>
+            
+            <div class="space-y-1.5">
+              <label for="m-last_school-10">Last School Attended</label>
+              <input id="m-last_school-10" name="last_school" value="" />
+            </div>
+            
+            <div class="space-y-1.5">
+              <label for="m-father_last_name-10">Father&#x27;s Last Name</label>
+              <input id="m-father_last_name-10" name="father_last_name" value="" />
+            </div>
+            
+            <div class="space-y-1.5">
+              <label for="m-father_first_name-10">Father&#x27;s Given Name</label>
+              <input id="m-father_first_name-10" name="father_first_name" value="" />
+            </div>
+            
+            <div class="space-y-1.5">
+              <label for="m-father_middle_name-10">Father&#x27;s Middle Name</label>
+              <input id="m-father_middle_name-10" name="father_middle_name" value="" />
+            </div>
+            
+            <div class="space-y-1.5">
+              <label for="m-father_occupation-10">Father&#x27;s Occupation</label>
+              <input id="m-father_occupation-10" name="father_occupation" value="" />
+            </div>
+            
+            <div class="space-y-1.5">
+              <label for="m-mother_last_name-10">Mother&#x27;s Last Name</label>
+              <input id="m-mother_last_name-10" name="mother_last_name" value="" />
+            </div>
+            
+            <div class="space-y-1.5">
+              <label for="m-mother_first_name-10">Mother&#x27;s Given Name</label>
+              <input id="m-mother_first_name-10" name="mother_first_name" value="" />
+            </div>
+            
+            <div class="space-y-1.5">
+              <label for="m-mother_middle_name-10">Mother&#x27;s Middle Name</label>
+              <input id="m-mother_middle_name-10" name="mother_middle_name" value="" />
+            </div>
+            
+            <div class="space-y-1.5">
+              <label for="m-mother_occupation-10">Mother&#x27;s Occupation</label>
+              <input id="m-mother_occupation-10" name="mother_occupation" value="" />
+            </div>
+            
+            <div class="space-y-1.5">
+              <label for="m-public-hs-10">Was the high school public?</label>
+              <select id="m-public-hs-10" name="highschool_is_public">
+                <option value="">&mdash; Not set &mdash;</option>
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+              </select>
+            </div>
+            <div class="space-y-1.5 sm:col-span-2">
+              <label for="m-suc-score-10">SUC Admission Exam Score</label>
+              <div class="suc-score-pair">
+                <input id="m-suc-score-10" name="suc_exam_score" type="number" step="0.01" min="0"
+                       value="" placeholder="score" />
+                <span class="suc-score-of">out of</span>
+                <input name="suc_exam_total" type="number" step="0.01" min="0"
+                       value="" placeholder="total" aria-label="Total items" />
+              </div>
+            </div>
+          </div>
+          <p class="text-xs u-text-muted">A box left empty keeps what is already on file.</p>
+        </details>
+        
+        <button type="submit" class="btn btn-primary">Save changes</button>
+      </form>
+
+      <p class="section-title">Signing in</p>
+      <div class="account-manage">
+        
+        <form method="post" class="account-manage__row">
+          
+          <input type="hidden" name="manage" value="password" />
+          <input type="hidden" name="account_id" value="10" />
+          <label class="sr-only" for="m-pw-10">New password for liza.torres@bipsu.edu.ph</label>
+          <input type="password" name="password" id="m-pw-10" minlength="8"
+                 autocomplete="new-password" placeholder="New password" required />
+          <label class="sr-only" for="m-pw2-10">Type the new password again</label>
+          <input type="password" name="confirm_password" id="m-pw2-10" minlength="8"
+                 autocomplete="new-password" placeholder="Type it again" required />
+          <button type="submit" class="btn btn-outline">Set password</button>
+        </form>
+        <p class="account-manage__note">Hand a new password over in person &mdash; this system never emails one. They can change it under My Profile once they are in.</p>
+        
+      </div>
+
+      <p class="section-title">Access</p>
+      <form method="post" class="account-manage__row"
+            data-confirm="Close the account of Liza Torres?"
+            data-confirm-detail="They can no longer sign in. Nothing is deleted &mdash; their applications, awards and history stay, and the account can be reopened at any time."
+            data-confirm-tone="danger" data-confirm-label="Close the account">
+        
+        <input type="hidden" name="manage" value="access" />
+        <input type="hidden" name="account_id" value="10" />
+        <input type="hidden" name="active" value="0" />
+        <span class="account-manage__label">
+          Stop this account signing in without deleting anything.
+        </span>
+        <button type="submit" class="btn btn-danger-soft">
+          Close the account
+        </button>
+      </form>
+      
+    </div>
+  </div>
+</div>
+
+
+<datalist id="bipsuStaffUnits">
+  
+  <option value="School of Technologies and Computer Studies"></option>
+  
+  <option value="School of Engineering"></option>
+  
+  <option value="School of Nursing and Health Sciences"></option>
+  
+  <option value="School of Criminal Justice Education"></option>
+  
+  <option value="School of Tourism and Hospitality Management"></option>
+  
+  <option value="School of Arts and Sciences"></option>
+  
+  <option value="School of Teacher Education"></option>
+  
+  <option value="School of Business and Management"></option>
+  
+  <option value="School of Law and Governance"></option>
+  
+  <option value="School of Graduate Studies"></option>
+  
+  <option value="School of Agri-Industries and Natural Resource Management"></option>
+  
+  <option value="School of Teacher Education Biliran Campus"></option>
+  
+  <option value="National Service Training Program"></option>
+  
+  <option value="Academic Affairs &amp; Lifelong Learning"></option>
+  
+  <option value="Research, Innovation, and Social Impact"></option>
+  
+  <option value="Student, Internationalization &amp; Strategic Partner"></option>
+  
+  <option value="Administration, Finance, &amp; Sustainable Management"></option>
+  
+  <option value="Office of Advance and Accessible Lifelong Learning"></option>
+  
+  <option value="Office of Teaching, Learning, and Curriculum Effectiveness"></option>
+  
+  <option value="Center for Learning Resources"></option>
+  
+</datalist>
+
+
+    </main>
+  </div>
+</div>
+
+
+<script src="static/js/table-filter.js?v=3"></script>
+<script src="static/js/table-sort.js?v=1"></script>
+<script src="static/js/modal-open.js?v=3"></script>
+
+<div id="sidebarBackdrop" class="sidebar-backdrop lg:hidden" hidden></div>
+<script src="static/js/mobile-nav.js?v=1" defer></script>
+<div id="confirmDialog" class="confirm-dialog" role="alertdialog" aria-modal="true" aria-labelledby="confirmTitle" aria-describedby="confirmMessage" hidden>
+  <div class="confirm-backdrop"></div>
+  <div class="confirm-panel">
+    <div class="confirm-head">
+      <svg id="confirmIcon" class="confirm-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v4m0 4h.01M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/>
+      </svg>
+      <p id="confirmTitle" class="confirm-title"></p>
+    </div>
+    <p id="confirmMessage" class="confirm-message"></p>
+    <p id="confirmConsequence" class="confirm-consequence" hidden></p>
+    <div class="confirm-actions">
+      <button type="button" id="confirmCancel" class="btn btn-outline">Cancel</button>
+      <button type="button" id="confirmGo" class="btn confirm-go">Confirm</button>
+    </div>
+  </div>
+</div>
+<script src="static/js/confirm-dialog.js?v=2" defer></script>
+<div id="docViewer" class="doc-viewer" role="dialog" aria-modal="true" aria-labelledby="docViewerTitle" hidden>
+  <div class="doc-viewer-backdrop" data-doc-close></div>
+  <div class="doc-viewer-panel">
+    <header class="doc-viewer-bar">
+      <div class="u-minw-0">
+        <p id="docViewerTitle" class="doc-viewer-title">Document</p>
+        <p id="docViewerName" class="doc-viewer-sub"></p>
+      </div>
+      <div class="doc-viewer-actions">
+        <a id="docViewerOpen" href="#" target="_blank" rel="noopener" class="btn btn-outline u-p-0-3rem-0-7rem u-fs-0-75rem">Open in new tab</a>
+        <a id="docViewerDownload" href="#" download class="btn btn-outline u-p-0-3rem-0-7rem u-fs-0-75rem">Download</a>
+        <button type="button" class="doc-viewer-close" data-doc-close aria-label="Close">&#10005;</button>
+      </div>
+    </header>
+    <div id="docViewerBody" class="doc-viewer-body"></div>
+  </div>
+</div>
+<script nonce="vChvAuAGicDoyLGe7pqhJzoe">
+(function () {
+  var viewer   = document.getElementById('docViewer');
+  var body     = document.getElementById('docViewerBody');
+  var titleEl  = document.getElementById('docViewerTitle');
+  var nameEl   = document.getElementById('docViewerName');
+  var openEl   = document.getElementById('docViewerOpen');
+  var dlEl     = document.getElementById('docViewerDownload');
+  var lastFocus = null;
+  function fileName(url) {
+    try { return decodeURIComponent(url.split('?')[0].split('/').pop() || ''); }
+    catch (e) { return url; }
+  }
+  function render(url) {
+    var ext = fileName(url).split('.').pop().toLowerCase();
+    body.innerHTML = '';
+    if (['png', 'jpg', 'jpeg', 'gif', 'webp', 'bmp', 'svg'].indexOf(ext) !== -1) {
+      var img = document.createElement('img');
+      img.src = url;
+      img.alt = fileName(url);
+      body.appendChild(img);
+    } else if (ext === 'pdf' || ext === '') {
+      var frame = document.createElement('iframe');
+      frame.src = url;
+      frame.title = fileName(url);
+      body.appendChild(frame);
+    } else {
+      var p = document.createElement('div');
+      p.className = 'doc-viewer-fallback';
+      p.innerHTML = 'This file type cannot be previewed in the browser.<br />Use <strong>Download</strong> above to open it.';
+      body.appendChild(p);
+    }
+  }
+  window.openDoc = function (url, label) {
+    if (!url) return;
+    lastFocus = document.activeElement;
+    titleEl.textContent = label || 'Document';
+    nameEl.textContent = fileName(url);
+    openEl.href = url;
+    dlEl.href = url;
+    render(url);
+    viewer.hidden = false;
+    document.body.style.overflow = 'hidden';
+    viewer.querySelector('.doc-viewer-close').focus();
+  };
+  window.closeDoc = function () {
+    viewer.hidden = true;
+    body.innerHTML = '';
+    document.body.style.overflow = '';
+    if (lastFocus && lastFocus.focus) lastFocus.focus();
+  };
+  document.addEventListener('click', function (e) {
+    if (e.target.closest('[data-doc-close]')) { e.preventDefault(); window.closeDoc(); return; }
+    var link = e.target.closest('a[data-doc]');
+    if (!link) return;
+    if (e.metaKey || e.ctrlKey || e.shiftKey || e.button !== 0) return;
+    e.preventDefault();
+    window.openDoc(link.getAttribute('href'), link.getAttribute('data-doc') || link.textContent.trim());
+  });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && !viewer.hidden) window.closeDoc();
+  });
+})();
+</script>
+<button type="button" class="to-top" aria-label="Back to top">
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7"/></svg>
+</button>
+
+<div class="cookie-banner" role="region" aria-label="Cookie notice" hidden>
+  <p class="cookie-banner__text">
+    <strong>This site uses essential cookies only.</strong>
+    They keep you signed in and protect forms against tampering. No advertising
+    or third-party tracking cookies are set.
+  </p>
+  <button type="button" class="btn btn-primary" data-cookie-ok>Got it</button>
+</div>
+
+<script src="static/js/loading.js?v=3" defer></script>
+<script src="static/js/actions.js?v=1" defer></script>
+<script src="static/js/toast.js?v=1" defer></script>
+<script src="static/js/chrome.js?v=1" defer></script>
+<script src="static/js/meter.js?v=1" defer></script>
+<script src="static/js/table-pager.js?v=2" defer></script>
+<script src="static/js/consent.js?v=3" defer></script>
+<script src="static/js/search.js?v=2" defer></script>
+<script src="static/js/dl-menu.js?v=3" defer></script>
+<script src="static/js/display-settings.js?v=1" defer></script>
+<script src="static/js/tooltip.js?v=2" defer></script>
+<script src="static/js/table-priority.js?v=1" defer></script>
+
+<script type="speculationrules" nonce="vChvAuAGicDoyLGe7pqhJzoe">
+{"prefetch": [{"where": {"selector_matches": ".sidebar-nav a.sidebar-link"}, "eagerness": "conservative"}]}
+</script>
+<script src="static/demo/demo.js"></script>
+</body>
+</html>

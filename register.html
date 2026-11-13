@@ -1,0 +1,1126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Register — BiPSU SRMS</title>
+  <meta name="description" content="Create a BiPSU SRMS account to apply for scholarships at Biliran Province State University. Students and BiPSU employees register with their school details." />
+  <link rel="canonical" href="http://testserver/register/" />
+  
+<link rel="icon" href="static/img/favicon.ico?v=2" sizes="any" />
+<link rel="icon" type="image/png" href="static/img/favicon-32.png?v=2" sizes="32x32" />
+<link rel="apple-touch-icon" href="static/img/apple-touch-icon.png?v=2" />
+
+  <meta name="theme-color" content="#1a2168" media="(prefers-color-scheme: light)" />
+  <meta name="theme-color" content="#080b20" media="(prefers-color-scheme: dark)" />
+  
+  <link rel="stylesheet" href="static/css/tailwind.css?v=2" />
+  <link rel="stylesheet" href="static/css/srms.css?v=149" />
+  <script nonce="7Mxfh_nefCT6G1Cyy8Xprd_D">
+    if (localStorage.getItem('theme') === 'dark' ||
+        (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      document.documentElement.classList.add('dark');
+    }
+    document.documentElement.classList.add('steps-pending');
+    window.addEventListener('error', function (e) {
+      var src = e.target && e.target.src;
+      if (src && src.indexOf('form-steps') !== -1) document.documentElement.classList.remove('steps-pending');
+    }, true);
+  </script>
+  <script src="static/js/display-prefs.js?v=1"></script>
+
+<link rel="stylesheet" href="static/demo/demo.css">
+</head>
+<body data-portal="student" class="auth-page auth-page--tall">
+  <div class="auth-shell auth-shell--wide">
+    <div class="auth-brand">
+      <img src="media/logos/BiPSU.png?v=2" alt="BiPSU" class="h-16 w-16 object-contain mx-auto mb-3" />
+      <h1 class="text-2xl font-bold">BiPSU SRMS</h1>
+      <p class="text-sm mt-1">Create your account</p>
+    </div>
+    
+    
+    <form method="post" enctype="multipart/form-data" class="space-y-4" id="registerForm" data-utm data-steps>
+      
+      <div data-step data-step-label="Account type">
+      <div class="auth-card mb-4">
+        <p class="text-xs font-semibold uppercase tracking-wider mb-3 u-text-soft">I am registering as</p>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div class="type-card selected-student"
+               id="card-student" data-call="selectType" data-args='["student"]'>
+            <div class="flex items-center gap-2 mb-1">
+              <svg class="h-5 w-5 u-text-brand" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path d="M12 3L1 9l11 6 9-4.91V17h2V9L12 3z"/><path d="M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82z"/>
+              </svg>
+              <span class="text-sm font-semibold u-text-base">Student</span>
+            </div>
+            <p class="text-xs u-text-muted">Scholarship applicant enrolled at BiPSU</p>
+          </div>
+          <div class="type-card "
+               id="card-staff" data-call="selectType" data-args='["nsu_staff"]'>
+            <div class="flex items-center gap-2 mb-1">
+              <svg class="h-5 w-5 u-text-ok" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+              </svg>
+              <span class="text-sm font-semibold u-text-base">BiPSU Employee</span>
+            </div>
+            <p class="text-xs u-text-muted">Faculty, employee, or qualified dependent</p>
+          </div>
+        </div>
+        <input type="hidden" name="account_type" id="account_type"
+               value="student" />
+      </div>
+      </div>
+      <div data-step data-step-label="Your details">
+      <div class="auth-card mb-4">
+        <p class="text-xs font-semibold uppercase tracking-wider mb-4 u-text-brand" id="section-title">Personal Information</p>
+        <div class="space-y-3">
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            <div class="space-y-1.5">
+              <label for="f-first-name">First Name</label>
+              <input id="f-first-name" name="first_name" value="" placeholder="Juan" required />
+            </div>
+            <div class="space-y-1.5">
+              <label for="f-last-name">Last Name</label>
+              <input id="f-last-name" name="last_name" value="" placeholder="Dela Cruz" required />
+            </div>
+          </div>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            <div class="space-y-1.5">
+              <label for="f-middle-name">Middle Name <span class="label-optional">Optional</span></label>
+              <input id="f-middle-name" name="middle_name" value="" placeholder="Ramirez — if any" />
+            </div>
+            <div class="space-y-1.5">
+              <label for="f-suffix">Suffix <span class="label-optional">Optional</span></label>
+              <input id="f-suffix" name="suffix" value="" placeholder="Jr., III — if any" />
+            </div>
+          </div>
+          <div class="space-y-1.5">
+            <label for="f-email">Email</label>
+            <input id="f-email" type="email" name="email" value="" placeholder="you@gmail.com" required autocomplete="email"
+                   data-email-check="/register/check-email/" data-email-check-hint="f-email-check" aria-describedby="f-email-check" />
+          </div>
+          <div class="space-y-1.5">
+            <label for="f-contact-number">Contact Number</label>
+            <input id="f-contact-number" type="tel" name="contact_number" value="" placeholder="09XXXXXXXXX" required autocomplete="tel" />
+          </div>
+          
+          <div data-student-only class="space-y-3"
+               >
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <div class="space-y-1.5">
+                <label for="f-date-of-birth">Date of Birth</label>
+                <input id="f-date-of-birth" type="date" name="date_of_birth" value="" required />
+              </div>
+              <div class="space-y-1.5">
+                <label for="f-gender">Gender</label>
+                <select id="f-gender" name="gender" required>
+                  <option value="">— Select —</option>
+                  
+                  <option value="Male" >Male</option>
+                  
+                  <option value="Female" >Female</option>
+                  
+                </select>
+              </div>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <div class="space-y-1.5">
+                <label for="f-birth-place">Birth Place</label>
+                <input id="f-birth-place" name="birth_place" value="" placeholder="e.g. Naval, Biliran" required />
+              </div>
+              <div class="space-y-1.5">
+                <label for="f-civil-status">Civil Status</label>
+                <select id="f-civil-status" name="civil_status" required>
+                  <option value="">— Select —</option>
+                  
+                  <option value="Single" >Single</option>
+                  
+                  <option value="Married" >Married</option>
+                  
+                  <option value="Widowed" >Widowed</option>
+                  
+                  <option value="Separated" >Separated</option>
+                  
+                </select>
+              </div>
+            </div>
+            
+            <div class="space-y-1.5">
+              <label for="disabilityType">Disability Type</label>
+              <select name="disability_type" id="disabilityType" required
+                      data-reveals="#disabilityOther" data-reveal-on="Other">
+                <option value="" selected>— Select —</option>
+                
+                <option value="NO" >
+                  NO — not a person with disability
+                </option>
+                
+                <option value="Communication Disability" >
+                  Communication Disability
+                </option>
+                
+                <option value="Disability due to Chronic Illness" >
+                  Disability due to Chronic Illness
+                </option>
+                
+                <option value="Learning Disability" >
+                  Learning Disability
+                </option>
+                
+                <option value="Intellectual Disability" >
+                  Intellectual Disability
+                </option>
+                
+                <option value="Orthopedic Disability" >
+                  Orthopedic Disability
+                </option>
+                
+                <option value="Physical Disability" >
+                  Physical Disability
+                </option>
+                
+                <option value="Hearing Disability" >
+                  Hearing Disability
+                </option>
+                
+                <option value="Visual Disability" >
+                  Visual Disability
+                </option>
+                
+                <option value="Cancer" >
+                  Cancer
+                </option>
+                
+                <option value="Mental/ Psychosocial Disability" >
+                  Mental/ Psychosocial Disability
+                </option>
+                
+                <option value="Other" >
+                  Other
+                </option>
+                
+              </select>
+            </div>
+            <div class="space-y-1.5" id="disabilityOther" hidden>
+              <label for="f-disability-type-other">Please specify the disability</label>
+              <input id="f-disability-type-other" name="disability_type_other" value="" maxlength="100"
+                     placeholder="Type the disability as you would write it on a form" />
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+              <div class="space-y-1.5">
+                <label for="f-barangay">Barangay / Street</label>
+                <input id="f-barangay" name="barangay" value="" placeholder="e.g. Brgy. Larrazabal" required />
+              </div>
+              <div class="space-y-1.5">
+                <label for="f-municipality">Municipality</label>
+                <input id="f-municipality" name="municipality" value="" placeholder="e.g. Naval" required />
+              </div>
+              <div class="space-y-1.5">
+                <label for="f-province">Province</label>
+                <input id="f-province" name="province" value="" placeholder="e.g. Biliran" required />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      </div>
+      <div data-step data-step-label="Course">
+      <div data-student-only class="card mb-4 u-p-1-5rem" >
+        <p class="text-xs font-semibold uppercase tracking-wider mb-4 u-text-brand">Academic Information</p>
+        <div class="space-y-3">
+          <div class="space-y-1.5">
+            <label for="f-student-id">Student ID</label>
+            
+            <input id="f-student-id" name="student_id" value="" placeholder="e.g. 2021-00001" required />
+          </div>
+          <div class="space-y-1.5">
+            <label for="schoolSelect">School</label>
+            <select name="school" id="schoolSelect" required data-call="updateCourseDropdown" data-call-on="change">
+              <option value="">— Select School —</option>
+              
+              <option value="School of Technologies and Computer Studies" >School of Technologies and Computer Studies</option>
+              
+              <option value="School of Engineering" >School of Engineering</option>
+              
+              <option value="School of Nursing and Health Sciences" >School of Nursing and Health Sciences</option>
+              
+              <option value="School of Criminal Justice Education" >School of Criminal Justice Education</option>
+              
+              <option value="School of Tourism and Hospitality Management" >School of Tourism and Hospitality Management</option>
+              
+              <option value="School of Arts and Sciences" >School of Arts and Sciences</option>
+              
+              <option value="School of Teacher Education" >School of Teacher Education</option>
+              
+              <option value="School of Business and Management" >School of Business and Management</option>
+              
+            </select>
+          </div>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            <div class="space-y-1.5">
+              <label for="courseSelect">Course</label>
+              <select name="course" id="courseSelect" required>
+                <option value="">— Select your school first —</option>
+              </select>
+            </div>
+            <div class="space-y-1.5">
+              <label for="f-year-level">Year Level</label>
+              <select id="f-year-level" name="year_level" required>
+                <option value="" selected>— Select —</option>
+                <option value="1" >1st Year</option>
+                <option value="2" >2nd Year</option>
+                <option value="3" >3rd Year</option>
+                <option value="4" >4th Year</option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </div>
+      </div>
+      <div data-step data-step-label="Schooling">
+      <div data-student-only class="card mb-4 u-p-1-5rem" >
+        <p class="text-xs font-semibold uppercase tracking-wider mb-1 u-text-brand">Educational Background</p>
+        <p class="text-xs mb-4 u-text-muted">Where you studied before BiPSU. Locked once saved — the SDSO can correct it.</p>
+        <div class="space-y-3">
+          <div class="space-y-1.5">
+            <label for="f-elementary">Elementary School</label>
+            <input id="f-elementary" name="elementary" value="" required />
+          </div>
+          <div class="space-y-1.5">
+            <label for="f-highschool">High School</label>
+            <input id="f-highschool" name="highschool" value="" required />
+          </div>
+          <div class="space-y-1.5">
+            <label for="f-highschool-is-public">Was your high school a public school?</label>
+            <select id="f-highschool-is-public" name="highschool_is_public" required>
+              <option value="" selected>— Select —</option>
+              <option value="yes" >Yes</option>
+              <option value="no" >No</option>
+            </select>
+          </div>
+          <div class="space-y-1.5">
+            <label for="f-last-school">Last School Attended</label>
+            <input id="f-last-school" name="last_school" value="" required />
+          </div>
+        </div>
+      </div>
+      </div>
+      <div data-step data-step-label="Household">
+      <div data-student-only class="card mb-4 u-p-1-5rem" >
+        <p class="text-xs font-semibold uppercase tracking-wider mb-4 u-text-brand">Socioeconomic Information</p>
+        <div class="space-y-3">
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            <div class="space-y-1.5">
+              <label for="f-family-income">Annual Family Income (₱)</label>
+              <input id="f-family-income" name="family_income" type="number" step="0.01" min="0"
+                     value="" placeholder="e.g. 180000" required />
+            </div>
+            <div class="space-y-1.5">
+              <label for="f-indigenous-group">Indigenous Group <span class="label-optional">Optional</span></label>
+              <input id="f-indigenous-group" name="indigenous_group" value="" />
+            </div>
+          </div>
+          <div class="space-y-1.5">
+            <label for="f-is-from-depressed-area">Are you from a depressed area?</label>
+            <select id="f-is-from-depressed-area" name="is_from_depressed_area" required>
+              <option value="" selected>— Select —</option>
+              <option value="yes" >Yes</option>
+              <option value="no" >No</option>
+            </select>
+            <p class="text-xs u-text-muted">
+              A depressed or economically disadvantaged barangay or municipality.
+              The SDSO verifies this answer.
+            </p>
+          </div>
+        </div>
+      </div>
+      </div>
+      <div data-step data-step-label="Scholarships held">
+      <div data-student-only class="card mb-4 u-p-1-5rem" >
+        <div class="space-y-1.5">
+          <label class="flex items-center gap-2 cursor-pointer text-sm u-fw-600">
+            <input class="u-w-auto" type="checkbox" name="has_scholarship" id="hasScholarship" />
+            I already hold a scholarship
+          </label>
+          <p class="text-xs u-text-muted">
+            Tick this only for a scholarship you hold now. Leave it empty to apply for one
+            instead — the next steps then ask for your grades and TES answers.
+          </p>
+        </div>
+      </div>
+      
+      <div data-student-only data-slot="1" class="card mb-4 u-p-1-5rem" id="scholarshipData" hidden>
+        
+        <div class="flex items-start justify-between gap-3 mb-1">
+          <p class="text-xs font-semibold uppercase tracking-wider u-text-brand">
+            Scholarship Data
+          </p>
+          
+        </div>
+        <p class="text-xs mb-4 u-text-muted">
+          The SDSO verifies this against their records when they verify your account. Once
+          approved it is recorded as your award and appears under My Applications.
+        </p>
+        <div class="space-y-3">
+          <div class="space-y-1.5">
+            <label for="scholarshipType">Which scholarship</label>
+            <select name="scholarship_type" id="scholarshipType" data-type-for="1">
+              <option value="">— Which scholarship? —</option>
+              
+              <option value="Academic" >Academic Scholarship</option>
+              
+              <option value="TDP" >Tulong Dunong Program Scholarship</option>
+              
+              <option value="SUC-TDP" >SUC-TDP (Tulong Dunong for SUCs)</option>
+              
+              <option value="TES" >Tertiary Education Subsidy</option>
+              
+              <option value="DOST" >DOST S&amp;T Undergraduate Scholarship</option>
+              
+              <option value="JLSS" >Junior Level Science Scholarship (JLSS)</option>
+              
+              <option value="CHED" >CHED Merit</option>
+              
+              <option value="CoScho" >CoScho (Coconut Farmers)</option>
+              
+              <option value="Sports" >Sports, Athletics and Cultural Scholarship</option>
+              
+              <option value="GSIS" >GSIS Scholarship</option>
+              
+              <option value="Staff" >BiPSU Employee Scholarship</option>
+              
+            </select>
+            <p class="text-xs u-text-muted">Hold more than one? Add the others with “I hold another scholarship” below.</p>
+          </div>
+          
+          <div class="space-y-1.5" id="chedTier" data-ched-tier hidden>
+            <label for="f-award-tier-">CHED Award Tier</label>
+            <p class="text-xs u-text-muted">Your award letter says which. Full Merit covers full tuition; Half Merit is the partial grant.</p>
+            <select id="f-award-tier-" name="award_tier">
+              <option value="">— Select tier —</option>
+              
+              <option value="Full" >Full Merit / Full Scholar</option>
+              
+              <option value="Half" >Half Merit / Partial Scholar</option>
+              
+            </select>
+          </div>
+          <div class="space-y-3" data-staff-dependent hidden>
+            <p class="text-xs u-text-muted">
+              The BiPSU Employee Scholarship is held through a BiPSU employee. Tell the
+              office whose appointment it rests on and how you are related to them.
+            </p>
+            <div class="space-y-1.5">
+              <label for="f-staff-name-">Employee's Full Name</label>
+              <input id="f-staff-name-" name="staff_name" value=""
+                     placeholder="e.g. Ernesto Dela Pena" />
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <div class="space-y-1.5">
+                <label for="f-staff-employee-id-">Employee Number</label>
+                <input id="f-staff-employee-id-" name="staff_employee_id" value=""
+                       placeholder="e.g. EMP-0042" class="font-mono" />
+              </div>
+              <div class="space-y-1.5">
+                <label for="f-relationship-to-staff-">Your Relationship</label>
+                <select id="f-relationship-to-staff-" name="relationship_to_staff">
+                  <option value="">— Select —</option>
+                  
+                  <option value="Son" >Son</option>
+                  
+                  <option value="Daughter" >Daughter</option>
+                  
+                  <option value="Spouse" >Spouse</option>
+                  
+                  <option value="Ward" >Legal ward</option>
+                  
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="space-y-1.5">
+            <label for="f-award-number-">Award / Scholar Number <span class="label-optional">Optional</span></label>
+            <input id="f-award-number-" name="award_number" value="" placeholder="e.g. 2026-DOST-00194"
+                   class="font-mono" />
+            <p class="text-xs u-text-muted">If your award letter has one, it lets the office match you to their records automatically.</p>
+          </div>
+          <div class="space-y-1.5">
+            <label for="f-proof-document-">Proof Document</label>
+            <input id="f-proof-document-" type="file" name="proof_document" accept=".pdf,.jpg,.jpeg,.png" />
+            <p class="text-xs u-text-muted">Your award letter, certificate, or any official document proving the scholarship. PDF, JPG or PNG · maximum 5 MB.</p>
+          </div>
+          <div class="space-y-1.5">
+            <label for="f-notes-">Additional Notes <span class="label-optional">Optional</span></label>
+            <textarea id="f-notes-" name="notes" rows="3" placeholder="Anything the office should know about this award"></textarea>
+          </div>
+        </div>
+      </div>
+      
+      <div data-student-only data-slot="2" class="card mb-4 u-p-1-5rem" id="scholarshipData2" hidden>
+        
+        <input type="hidden" name="has_scholarship_2" value="on"
+               disabled />
+        
+        <div class="flex items-start justify-between gap-3 mb-1">
+          <p class="text-xs font-semibold uppercase tracking-wider u-text-brand">
+            Scholarship Data 2
+          </p>
+          
+          <button type="button" class="btn btn-outline u-p-0-15rem-0-5rem u-fs-0-75rem" data-drop-slot="2">Remove</button>
+          
+        </div>
+        <p class="text-xs mb-4 u-text-muted">
+          The SDSO verifies this against their records when they verify your account. Once
+          approved it is recorded as your award and appears under My Applications.
+        </p>
+        <div class="space-y-3">
+          <div class="space-y-1.5">
+            <label for="scholarshipType2">Which scholarship</label>
+            <select name="scholarship_type_2" id="scholarshipType2" data-type-for="2">
+              <option value="">— Which scholarship? —</option>
+              
+              <option value="Academic" >Academic Scholarship</option>
+              
+              <option value="TDP" >Tulong Dunong Program Scholarship</option>
+              
+              <option value="SUC-TDP" >SUC-TDP (Tulong Dunong for SUCs)</option>
+              
+              <option value="TES" >Tertiary Education Subsidy</option>
+              
+              <option value="DOST" >DOST S&amp;T Undergraduate Scholarship</option>
+              
+              <option value="JLSS" >Junior Level Science Scholarship (JLSS)</option>
+              
+              <option value="CHED" >CHED Merit</option>
+              
+              <option value="CoScho" >CoScho (Coconut Farmers)</option>
+              
+              <option value="Sports" >Sports, Athletics and Cultural Scholarship</option>
+              
+              <option value="GSIS" >GSIS Scholarship</option>
+              
+              <option value="Staff" >BiPSU Employee Scholarship</option>
+              
+            </select>
+            <p class="text-xs u-text-muted">Name each scholarship once. The office verifies them one at a time.</p>
+          </div>
+          
+          <div class="space-y-1.5" id="chedTier2" data-ched-tier hidden>
+            <label for="f-award-tier-_2">CHED Award Tier</label>
+            <p class="text-xs u-text-muted">Your award letter says which. Full Merit covers full tuition; Half Merit is the partial grant.</p>
+            <select id="f-award-tier-_2" name="award_tier_2">
+              <option value="">— Select tier —</option>
+              
+              <option value="Full" >Full Merit / Full Scholar</option>
+              
+              <option value="Half" >Half Merit / Partial Scholar</option>
+              
+            </select>
+          </div>
+          <div class="space-y-3" data-staff-dependent hidden>
+            <p class="text-xs u-text-muted">
+              The BiPSU Employee Scholarship is held through a BiPSU employee. Tell the
+              office whose appointment it rests on and how you are related to them.
+            </p>
+            <div class="space-y-1.5">
+              <label for="f-staff-name-_2">Employee's Full Name</label>
+              <input id="f-staff-name-_2" name="staff_name_2" value=""
+                     placeholder="e.g. Ernesto Dela Pena" />
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <div class="space-y-1.5">
+                <label for="f-staff-employee-id-_2">Employee Number</label>
+                <input id="f-staff-employee-id-_2" name="staff_employee_id_2" value=""
+                       placeholder="e.g. EMP-0042" class="font-mono" />
+              </div>
+              <div class="space-y-1.5">
+                <label for="f-relationship-to-staff-_2">Your Relationship</label>
+                <select id="f-relationship-to-staff-_2" name="relationship_to_staff_2">
+                  <option value="">— Select —</option>
+                  
+                  <option value="Son" >Son</option>
+                  
+                  <option value="Daughter" >Daughter</option>
+                  
+                  <option value="Spouse" >Spouse</option>
+                  
+                  <option value="Ward" >Legal ward</option>
+                  
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="space-y-1.5">
+            <label for="f-award-number-_2">Award / Scholar Number <span class="label-optional">Optional</span></label>
+            <input id="f-award-number-_2" name="award_number_2" value="" placeholder="e.g. 2026-DOST-00194"
+                   class="font-mono" />
+            <p class="text-xs u-text-muted">If your award letter has one, it lets the office match you to their records automatically.</p>
+          </div>
+          <div class="space-y-1.5">
+            <label for="f-proof-document-_2">Proof Document</label>
+            <input id="f-proof-document-_2" type="file" name="proof_document_2" accept=".pdf,.jpg,.jpeg,.png" />
+            <p class="text-xs u-text-muted">Your award letter, certificate, or any official document proving the scholarship. PDF, JPG or PNG · maximum 5 MB.</p>
+          </div>
+          <div class="space-y-1.5">
+            <label for="f-notes-_2">Additional Notes <span class="label-optional">Optional</span></label>
+            <textarea id="f-notes-_2" name="notes_2" rows="3" placeholder="Anything the office should know about this award"></textarea>
+          </div>
+        </div>
+      </div>
+      
+      <div data-student-only data-slot="3" class="card mb-4 u-p-1-5rem" id="scholarshipData3" hidden>
+        
+        <input type="hidden" name="has_scholarship_3" value="on"
+               disabled />
+        
+        <div class="flex items-start justify-between gap-3 mb-1">
+          <p class="text-xs font-semibold uppercase tracking-wider u-text-brand">
+            Scholarship Data 3
+          </p>
+          
+          <button type="button" class="btn btn-outline u-p-0-15rem-0-5rem u-fs-0-75rem" data-drop-slot="3">Remove</button>
+          
+        </div>
+        <p class="text-xs mb-4 u-text-muted">
+          The SDSO verifies this against their records when they verify your account. Once
+          approved it is recorded as your award and appears under My Applications.
+        </p>
+        <div class="space-y-3">
+          <div class="space-y-1.5">
+            <label for="scholarshipType3">Which scholarship</label>
+            <select name="scholarship_type_3" id="scholarshipType3" data-type-for="3">
+              <option value="">— Which scholarship? —</option>
+              
+              <option value="Academic" >Academic Scholarship</option>
+              
+              <option value="TDP" >Tulong Dunong Program Scholarship</option>
+              
+              <option value="SUC-TDP" >SUC-TDP (Tulong Dunong for SUCs)</option>
+              
+              <option value="TES" >Tertiary Education Subsidy</option>
+              
+              <option value="DOST" >DOST S&amp;T Undergraduate Scholarship</option>
+              
+              <option value="JLSS" >Junior Level Science Scholarship (JLSS)</option>
+              
+              <option value="CHED" >CHED Merit</option>
+              
+              <option value="CoScho" >CoScho (Coconut Farmers)</option>
+              
+              <option value="Sports" >Sports, Athletics and Cultural Scholarship</option>
+              
+              <option value="GSIS" >GSIS Scholarship</option>
+              
+              <option value="Staff" >BiPSU Employee Scholarship</option>
+              
+            </select>
+            <p class="text-xs u-text-muted">Name each scholarship once. The office verifies them one at a time.</p>
+          </div>
+          
+          <div class="space-y-1.5" id="chedTier3" data-ched-tier hidden>
+            <label for="f-award-tier-_3">CHED Award Tier</label>
+            <p class="text-xs u-text-muted">Your award letter says which. Full Merit covers full tuition; Half Merit is the partial grant.</p>
+            <select id="f-award-tier-_3" name="award_tier_3">
+              <option value="">— Select tier —</option>
+              
+              <option value="Full" >Full Merit / Full Scholar</option>
+              
+              <option value="Half" >Half Merit / Partial Scholar</option>
+              
+            </select>
+          </div>
+          <div class="space-y-3" data-staff-dependent hidden>
+            <p class="text-xs u-text-muted">
+              The BiPSU Employee Scholarship is held through a BiPSU employee. Tell the
+              office whose appointment it rests on and how you are related to them.
+            </p>
+            <div class="space-y-1.5">
+              <label for="f-staff-name-_3">Employee's Full Name</label>
+              <input id="f-staff-name-_3" name="staff_name_3" value=""
+                     placeholder="e.g. Ernesto Dela Pena" />
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <div class="space-y-1.5">
+                <label for="f-staff-employee-id-_3">Employee Number</label>
+                <input id="f-staff-employee-id-_3" name="staff_employee_id_3" value=""
+                       placeholder="e.g. EMP-0042" class="font-mono" />
+              </div>
+              <div class="space-y-1.5">
+                <label for="f-relationship-to-staff-_3">Your Relationship</label>
+                <select id="f-relationship-to-staff-_3" name="relationship_to_staff_3">
+                  <option value="">— Select —</option>
+                  
+                  <option value="Son" >Son</option>
+                  
+                  <option value="Daughter" >Daughter</option>
+                  
+                  <option value="Spouse" >Spouse</option>
+                  
+                  <option value="Ward" >Legal ward</option>
+                  
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="space-y-1.5">
+            <label for="f-award-number-_3">Award / Scholar Number <span class="label-optional">Optional</span></label>
+            <input id="f-award-number-_3" name="award_number_3" value="" placeholder="e.g. 2026-DOST-00194"
+                   class="font-mono" />
+            <p class="text-xs u-text-muted">If your award letter has one, it lets the office match you to their records automatically.</p>
+          </div>
+          <div class="space-y-1.5">
+            <label for="f-proof-document-_3">Proof Document</label>
+            <input id="f-proof-document-_3" type="file" name="proof_document_3" accept=".pdf,.jpg,.jpeg,.png" />
+            <p class="text-xs u-text-muted">Your award letter, certificate, or any official document proving the scholarship. PDF, JPG or PNG · maximum 5 MB.</p>
+          </div>
+          <div class="space-y-1.5">
+            <label for="f-notes-_3">Additional Notes <span class="label-optional">Optional</span></label>
+            <textarea id="f-notes-_3" name="notes_3" rows="3" placeholder="Anything the office should know about this award"></textarea>
+          </div>
+        </div>
+      </div>
+      
+      <div data-student-only class="mb-4" id="addScholarshipRow" hidden>
+        <button type="button" class="btn btn-outline w-full" id="addScholarship">
+          + I hold another scholarship
+        </button>
+      </div>
+      </div>
+      
+      <div data-step data-step-label="Grades">
+      <div data-student-only class="card mb-4 u-p-1-5rem" id="scholarshipEligibility" >
+        <p class="text-xs font-semibold uppercase tracking-wider mb-1 u-text-brand">Scholarship Eligibility Information</p>
+        <p class="text-xs mb-4 u-text-muted">Used for scholarship matching. The exam score is optional, but if you give one, give its total and upload the certificate too. Without a score you are not considered for Affirmative Action.</p>
+        <div class="space-y-3">
+          <div class="space-y-1.5">
+            <label for="f-suc-exam-score">SUC Admission Exam Score <span class="label-optional">Optional</span></label>
+            <div class="suc-score-pair">
+              <input id="f-suc-exam-score" name="suc_exam_score" type="number" step="0.01" min="0"
+                     value="" placeholder="score, e.g. 35" aria-label="SUC exam score" />
+              <span class="suc-score-of">out of</span>
+              <input name="suc_exam_total" type="number" step="0.01" min="1"
+                     value="" placeholder="total, e.g. 50" aria-label="Total items" />
+            </div>
+            <p class="text-xs u-text-muted">Enter 100 as the total if your certificate already gives a percentage. Both come off the same certificate, so copy them from the document rather than from memory.</p>
+          </div>
+          <div class="space-y-1.5">
+            <label for="f-suc-exam-cert">SUC Exam Certificate <span class="font-normal u-text-muted">(PDF/JPG/PNG)</span> <span class="label-optional">Optional</span></label>
+            <input id="f-suc-exam-cert" name="suc_exam_cert" type="file" accept=".pdf,.jpg,.jpeg,.png" />
+          </div>
+          <div class="space-y-1.5">
+            <label for="f-study-load">Certificate of Registration / Study Load <span class="font-normal u-text-muted">(PDF/JPG/PNG)</span></label>
+            <input id="f-study-load" name="study_load" type="file" accept=".pdf,.jpg,.jpeg,.png" required />
+            <p class="text-xs u-text-muted">This term's registration form or study load from the registrar. The office uses it to confirm you are currently enrolled.</p>
+          </div>
+          <label class="flex items-center gap-2 cursor-pointer text-sm">
+            <input class="u-w-auto" type="checkbox" name="is_tes_beneficiary" />
+            I am a current TES (Tertiary Education Subsidy) beneficiary
+          </label>
+        </div>
+      </div>
+      </div>
+      <div data-step data-step-label="TES questions">
+      <div data-student-only class="card mb-4 u-p-1-5rem" id="tesEligibility" >
+        <p class="text-xs font-semibold uppercase tracking-wider mb-1 u-text-brand">TES Eligibility Information</p>
+        <p class="text-xs mb-4 u-text-muted">
+          What the SDSO checks the TES rules against when it recommends students to UniFAST.
+          All of it has to be answered before the form will send, so answer from the document you
+          hold — your Listahanan or 4Ps record, your enrolment papers — rather than from memory.
+          The SDSO checks each answer against its own records before it recommends anybody, so
+          nothing here decides your place on its own.
+        </p>
+        <div class="space-y-3">
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            <div class="space-y-1.5">
+              <label for="f-citizenship">Citizenship</label>
+              <select id="f-citizenship" name="citizenship" required>
+                <option value="" selected>— Select —</option>
+                <option value="Filipino" >Filipino</option>
+                <option value="Non-Filipino" >Non-Filipino</option>
+              </select>
+            </div>
+            <div class="space-y-1.5">
+              <label for="f-household-size">Household Size</label>
+              <input id="f-household-size" name="household_size" type="number" min="1" step="1" placeholder="e.g. 5"
+                     value="" required />
+              <p class="text-xs u-text-muted">Everyone your family income supports, including you.</p>
+            </div>
+          </div>
+          <div class="space-y-1.5">
+            <label for="f-year-first-enrolled">Year You First Enrolled in This Course</label>
+            <input id="f-year-first-enrolled" name="year_first_enrolled" type="number" min="1980" step="1" placeholder="e.g. 2023"
+                   value="" required />
+            <p class="text-xs u-text-muted">Not the current year — the year you started the programme.</p>
+          </div>
+          <div class="space-y-1.5">
+            <label for="f-is-listahanan-household">Listed in the DSWD Listahanan?</label>
+            <select id="f-is-listahanan-household" name="is_listahanan_household" required>
+              <option value="" selected>— Select —</option>
+              <option value="yes" >Yes</option>
+              <option value="no" >No</option>
+            </select>
+          </div>
+          <div class="space-y-1.5">
+            <label for="f-is-4ps-beneficiary">4Ps (Pantawid Pamilya) Beneficiary?</label>
+            <select id="f-is-4ps-beneficiary" name="is_4ps_beneficiary" required>
+              <option value="" selected>— Select —</option>
+              <option value="yes" >Yes</option>
+              <option value="no" >No</option>
+            </select>
+          </div>
+          <div class="space-y-1.5">
+            <label for="f-is-solo-parent-dependent">Dependent of a solo parent?</label>
+            <select id="f-is-solo-parent-dependent" name="is_solo_parent_dependent" required>
+              <option value="" selected>— Select —</option>
+              <option value="yes" >Yes</option>
+              <option value="no" >No</option>
+            </select>
+            <p class="text-xs u-text-muted">A solo parent listed on the DSWD registry.</p>
+          </div>
+          <div class="space-y-1.5">
+            <label for="f-has-previous-degree">Do you already hold a college degree?</label>
+            <select id="f-has-previous-degree" name="has_previous_degree" required>
+              <option value="" selected>— Select —</option>
+              <option value="yes" >Yes</option>
+              <option value="no" >No</option>
+            </select>
+            <p class="text-xs u-text-muted">TES is for a first undergraduate degree.</p>
+          </div>
+        </div>
+      </div>
+      </div>
+      <div data-step data-step-label="Employment">
+      <div data-staff-only class="card mb-4 u-p-1-5rem" hidden>
+        <p class="text-xs font-semibold uppercase tracking-wider mb-1 u-text-ok">Employment Information</p>
+        <p class="text-xs mb-4 u-text-muted">
+          Saved to your employee profile. The BiPSU Employee Scholarship form opens already filled in
+          from it, so you answer this once. You can correct any of it later under My Profile.
+        </p>
+        <div class="space-y-3">
+          <div class="space-y-1.5">
+            <label for="f-school-id">School / Employee ID</label>
+            <input id="f-school-id" name="school_id" value="" placeholder="e.g. 32-1-213313" required />
+          </div>
+          <div class="space-y-1.5">
+            <label for="f-staff-school">Office / College / Unit</label>
+            <input id="f-staff-school" name="staff_school" value=""
+                   placeholder="e.g. School of Engineering" autocomplete="off" required />
+            <p class="text-xs u-text-muted">Type the office, college or unit you are assigned to, in full.</p>
+          </div>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            <div class="space-y-1.5">
+              <label for="f-department">Department</label>
+              <input id="f-department" name="department" value="" placeholder="e.g. Computer Science Department" required />
+            </div>
+            <div class="space-y-1.5">
+              <label for="f-position">Position</label>
+              <input id="f-position" name="position" value="" placeholder="e.g. Instructor I" required />
+            </div>
+          </div>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            <div class="space-y-1.5">
+              <label for="f-employment-status">Employment Status</label>
+              <select id="f-employment-status" name="employment_status" data-appointment-status required>
+                <option value="">— Select —</option>
+                
+                <option value="Regular" >Regular</option>
+                
+                <option value="Contract of Service" >Contract of Service</option>
+                
+                <option value="Part Time" >Part Time</option>
+                
+                <option value="Job Order" >Job Order</option>
+                
+              </select>
+              <p class="text-xs u-text-muted">The BiPSU Employee Scholarship is open to a regular appointment. Recording it here is what lets the office read your eligibility without asking again.</p>
+            </div>
+            <div class="space-y-1.5">
+              <label for="f-designation">Designation</label>
+              <select id="f-designation" name="designation" required>
+                <option value="">— Select —</option>
+                
+                <option value="Teaching" >Teaching</option>
+                
+                <option value="Non-Teaching" >Non-Teaching</option>
+                
+              </select>
+            </div>
+          </div>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3" data-regular-only
+               hidden>
+            <div class="space-y-1.5">
+              <label for="f-years-of-service">Years of Service</label>
+              <input id="f-years-of-service" name="years_of_service" type="number" min="0" step="1"
+                     value="" placeholder="e.g. 5" />
+            </div>
+            <div class="space-y-1.5">
+              <label for="f-date-of-regularization">Date of Regularization</label>
+              <input id="f-date-of-regularization" name="date_of_regularization" type="date"
+                     value="" />
+            </div>
+            <div class="space-y-1.5 sm:col-span-2">
+              <label for="f-appointment-paper">Appointment Paper</label>
+              <input id="f-appointment-paper" type="file" name="appointment_paper"
+                     accept=".pdf,.jpg,.jpeg,.png" />
+              <p class="text-xs u-text-muted">
+                Your official appointment document. The office checks your eligibility
+                against it, so the BiPSU Employee Scholarship does not ask for it again.
+                PDF, JPG or PNG — maximum 5 MB.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      </div>
+      
+      <div data-step data-step-label="Declared award">
+      <div data-staff-only class="card mb-4 u-p-1-5rem" hidden>
+        <p class="text-xs font-semibold uppercase tracking-wider mb-1 u-text-ok">Scholarship Data</p>
+        <p class="text-xs mb-4 u-text-muted">
+          The SDSO verifies this against their records when they verify your account. Once
+          approved it is recorded as your award and you will not need to apply for it again.
+        </p>
+        <div class="space-y-3">
+          <div class="space-y-1.5">
+            <label class="flex items-center gap-2 cursor-pointer text-sm u-fw-600">
+              <input class="u-w-auto" type="checkbox" name="has_staff_scholarship" id="hasStaffScholarship" />
+              I already hold the BiPSU Employee Scholarship
+            </label>
+            <p class="text-xs u-text-muted">
+              Tick this only for an award you hold now. Leave it clear if you mean to apply
+              for one — the Apply page in your portal is where that starts.
+            </p>
+          </div>
+          <div id="staffScholarshipData" class="space-y-3"
+               hidden>
+            <div class="space-y-1.5">
+              <label for="f-staff-proof-document">Proof Document</label>
+              <input id="f-staff-proof-document" type="file" name="staff_proof_document" accept=".pdf,.jpg,.jpeg,.png" />
+              <p class="text-xs u-text-muted">Your award letter, certificate, or any official document proving the scholarship. PDF, JPG or PNG · maximum 5 MB.</p>
+            </div>
+            <div class="space-y-1.5">
+              <label for="f-staff-notes">Additional Notes <span class="label-optional">Optional</span></label>
+              <textarea id="f-staff-notes" name="staff_notes" rows="3" placeholder="Anything the office should know about this award"></textarea>
+            </div>
+          </div>
+        </div>
+      </div>
+      </div>
+      <div data-step data-step-label="Password">
+      <div class="auth-card mb-4">
+        <p class="text-xs font-semibold uppercase tracking-wider mb-4 u-text-brand">Account Security</p>
+        <div class="space-y-3">
+          <div class="space-y-1.5">
+            <label for="f-password">Password</label>
+            <input id="f-password" type="password" name="password" placeholder="••••••••" required autocomplete="new-password" />
+          </div>
+          <div class="space-y-1.5">
+            <label for="f-confirm-password">Confirm Password</label>
+            <input id="f-confirm-password" type="password" name="confirm_password" placeholder="••••••••" required autocomplete="new-password" />
+          </div>
+        </div>
+      </div>
+      </div>
+      <div data-step data-step-label="Terms">
+      <div class="auth-card mb-4" id="termsCard">
+        <p class="terms-eyebrow">Terms and Agreement</p>
+        <p class="terms-lead">
+          Registering places a personal record — including income, household and
+          disability answers — in the hands of the SDSO, and a scholar's record is
+          shared with whoever funds the scholarship. Read what that means before
+          you agree to it.
+        </p>
+        <button type="button" class="btn btn-outline terms-open" data-preview-open="termsModal">
+          Read the Terms of Use and Data Privacy Notice
+        </button>
+        <input type="hidden" name="terms_version" value="1.0" />
+        <label class="terms-consent">
+          <input type="checkbox" name="accept_terms" id="acceptTerms" value="yes"
+                  required />
+          <span class="terms-consent__text">I confirm that everything I have entered is true, and I consent to the Scholarship and Development Services Office collecting and processing this record — including sharing it with the agency funding any scholarship I am awarded — under the Data Privacy Act of 2012.</span>
+        </label>
+        <p class="terms-meta">Version 1.0 · September 2026</p>
+      </div>
+      </div>
+      <button type="submit" id="submit-btn" data-step-submit
+              class="btn btn-auth" data-busy-text="Creating your account…">
+        Create Account
+      </button>
+    </form>
+    <p class="auth-footnote">Already have an account? <a href="login.html">Sign in</a></p>
+    <p class="auth-footnote auth-footnote--back"><a href="index.html">← Back to Main Page</a></p>
+  </div>
+<div class="modal-overlay" id="termsModal" data-preview>
+  <div class="modal modal-sheet terms-sheet" role="dialog" aria-modal="true"
+       aria-labelledby="termsModalTitle">
+    <div class="modal-sheet-head">
+      <div>
+        <h2 class="text-lg font-bold modal-title" id="termsModalTitle">Terms of Use and Data Privacy Notice</h2>
+        <p class="terms-meta">Version 1.0 · Effective September 2026</p>
+      </div>
+      <button type="button" class="modal-close" data-preview-close aria-label="Close">✕</button>
+    </div>
+    <div class="modal-sheet-body">
+      
+      <section class="terms-section">
+        <h3>1. What this system is</h3>
+        <p>The Scholarship Records Management System (SRMS) is the record system of the Scholarship and Development Services Office (SDSO) of Biliran Province State University. It registers scholarship applicants, evaluates and ranks them against each programme’s criteria, records awards and renewals, and reports scholars to the agencies that fund them.</p><p>An account here is a working record, not an award. Registering creates no entitlement to any scholarship, and nothing entered on this form decides a grant on its own.</p>
+      </section>
+      
+      <section class="terms-section">
+        <h3>2. Who may register</h3>
+        <p>Accounts are for students currently enrolled at BiPSU and for BiPSU personnel applying to the BiPSU Employee Scholarship. One account per person. Registering on behalf of somebody else, or holding more than one account, is grounds for rejecting every account involved.</p><p>A self-registered account cannot sign in until the SDSO has verified it against university records, and the email address given must be confirmed before it will receive anything the office sends — including its own decision.</p>
+      </section>
+      
+      <section class="terms-section">
+        <h3>3. Truthfulness of what you declare</h3>
+        <p>You confirm that every answer, figure and uploaded document is true, complete, and yours to submit. Much of what this form asks for — family income, Listahanan and 4Ps status, a disability, a scholarship already held — is verified by the office against its own records and the issuing agency’s before it counts for anything.</p><p>A declaration found to be false may have the account rejected, an award withdrawn, and the matter referred to the university under its student or personnel discipline rules. Where an agency outside BiPSU funds the grant, that agency’s own sanctions apply as well.</p><p>Tell the SDSO when something on the record changes — your enrolment status, your contact details, a scholarship newly held or lost. A record that was right on the day it was filed and is wrong afterwards is what causes a scholar to be dropped from a payroll.</p>
+      </section>
+      
+      <section class="terms-section">
+        <h3>4. Your account</h3>
+        <p>You are responsible for what is done through your account. Keep the password to yourself, and tell the SDSO at once if you think somebody else has it. A submission made from an account is treated as made by the person it belongs to.</p>
+      </section>
+      
+      <section class="terms-section">
+        <h3>5. Personal data this system collects</h3>
+        <p>Registering gives the university your identity and contact details, your enrolment and academic record, your educational background, and the socio-economic answers the programmes select on — household income and size, Listahanan and 4Ps membership, solo-parent and indigenous-group status, and whether you are a person with disability.</p><p>Some of that is sensitive personal information under the Data Privacy Act of 2012 (Republic Act No. 10173). It is collected because the programmes themselves are defined in those terms: a grant reserved for indigent households cannot be awarded without asking about the household. A document uploaded as proof is held on the same footing as the answer it proves.</p>
+      </section>
+      
+      <section class="terms-section">
+        <h3>6. What it is used for</h3>
+        <p>Your record is processed to verify your account, to check you against the eligibility rules of the programmes you apply to or are matched with, to rank applicants where a programme has more of them than slots, to record and renew awards, and to produce the masterlists and reports the university and its funding partners require.</p><p>Statistics drawn from these records — counts by programme, school, course and term — are used for planning and reporting. Those are aggregates and name nobody.</p>
+      </section>
+      
+      <section class="terms-section">
+        <h3>7. Who else sees it</h3>
+        <p>Inside BiPSU, your record is seen by SDSO staff and by the university officials who decide and sign off on scholarships.</p><p>Outside BiPSU, the record of a scholar is shared with the agency funding that scholarship — CHED, UniFAST, DOST, GSIS, a local government or a private partner, depending on the programme — because the agency requires it to release the grant and to audit it afterwards. A partner office signing in here sees only the scholars of the programmes it funds, and only the columns the SDSO has released to it.</p><p>Your record is not sold, and it is not given to anyone else except where a law, a subpoena, or a lawful order of a government body requires it.</p>
+      </section>
+      
+      <section class="terms-section">
+        <h3>8. How long it is kept</h3>
+        <p>Records are kept for as long as you hold an account and a scholarship relationship with the university, and afterwards for as long as the university’s retention rules and the funding agencies’ audit requirements demand. Archived records stay available to the SDSO for verification and reporting, and are disposed of under those rules.</p>
+      </section>
+      
+      <section class="terms-section">
+        <h3>9. Your rights over your data</h3>
+        <p>The Data Privacy Act of 2012 gives you the right to be informed how your data is processed, to have access to it, to correct anything inaccurate, to object to processing, to have your data erased or blocked in the circumstances the law provides, to be compensated for damage caused by its misuse, and to complain to the National Privacy Commission.</p><p>Much of your record you can correct yourself under My Profile. For anything locked to the office — the fields it has already verified — or to exercise any of the other rights above, write to the SDSO.</p><p>Withdrawing consent is your right, but it ends the processing a scholarship depends on: an application cannot be evaluated, and an award cannot be maintained or reported to its funder, without the record it is made from.</p>
+      </section>
+      
+      <section class="terms-section">
+        <h3>10. Keeping it safe</h3>
+        <p>Access is restricted by role, every account is verified before it can sign in, uploaded documents are served only to those entitled to see them, and actions taken on records are logged. No system is perfectly secure and we do not claim otherwise — but a breach affecting your data will be handled as the Data Privacy Act requires, including notice to you and to the National Privacy Commission where the law calls for it.</p>
+      </section>
+      
+      <section class="terms-section">
+        <h3>11. Changes to this notice</h3>
+        <p>These terms carry a version, and the version you agreed to is recorded on your account with the date you agreed to it. If the office revises them materially, you will be asked to read and agree to the new version.</p>
+      </section>
+      
+      <section class="terms-section">
+        <h3>12. Contact</h3>
+        <p>Scholarship and Development Services Office, Biliran Province State University, Naval, Biliran. Reach the office through the contact details published on the university website, or at the SDSO itself, for anything concerning this notice or your record.</p>
+      </section>
+      
+    </div>
+    <div class="modal-sheet-foot terms-foot">
+      <button type="button" class="btn btn-auth terms-agree" id="termsAgree">
+        I have read and agree
+      </button>
+      <button type="button" class="btn btn-outline" data-preview-close>Close</button>
+    </div>
+  </div>
+</div>
+<script nonce="7Mxfh_nefCT6G1Cyy8Xprd_D">
+var BIPSU_COURSES = {"School of Technologies and Computer Studies": ["BSCS", "BSIS", "BSIT - Automotive Technology", "BSIT - Architectural Drafting", "BSIT - Electrical Technology", "BSIT - Electronics Technology", "BSIT - Culinary Technology", "BSIT - Apparel and Fashion Design Technology", "BSIT - HVAC-R Technology"], "School of Engineering": ["BSCE", "BSEE", "BSCpE", "BSME"], "School of Nursing and Health Sciences": ["BSN"], "School of Criminal Justice Education": ["BSCrim", "BSISM"], "School of Tourism and Hospitality Management": ["BSHM", "BSTM"], "School of Arts and Sciences": ["BAComm", "BAEcon"], "School of Teacher Education": ["BSEd - Mathematics", "BSEd - Science", "BSEd - English", "BSEd - Filipino", "BSEd - Social Studies", "BEEd", "BTLEd", "BPEd", "BECEd", "BSNEd"], "School of Business and Management": ["BSBA - Financial Management", "BSBA - Marketing Management"]};
+var chosenCourse = "";
+function updateCourseDropdown() {
+  var school = document.getElementById('schoolSelect').value;
+  var sel = document.getElementById('courseSelect');
+  sel.innerHTML = '';
+  var courses = BIPSU_COURSES[school] || [];
+  if (!courses.length) {
+    sel.appendChild(new Option('— Select your school first —', ''));
+    return;
+  }
+  sel.appendChild(new Option('— Select Course —', ''));
+  courses.forEach(function (c) {
+    var opt = new Option(c, c);
+    if (c === chosenCourse) opt.selected = true;
+    sel.appendChild(opt);
+  });
+}
+(function () {
+  var schoolSel = document.getElementById('schoolSelect');
+  if (!schoolSel) return;
+  if (!schoolSel.value && chosenCourse) {
+    for (var school in BIPSU_COURSES) {
+      if (BIPSU_COURSES[school].indexOf(chosenCourse) !== -1) { schoolSel.value = school; break; }
+    }
+  }
+  updateCourseDropdown();
+})();
+function setBlocksHidden(selector, hide) {
+  document.querySelectorAll(selector).forEach(function (el) {
+    el.hidden = hide;
+    if (hide) {
+      el.querySelectorAll('[required]').forEach(function (field) {
+        field.dataset.wasRequired = '1';
+        field.required = false;
+      });
+    } else {
+      el.querySelectorAll('[data-was-required]').forEach(function (field) {
+        field.required = true;
+        delete field.dataset.wasRequired;
+      });
+    }
+  });
+}
+function selectType(type) {
+  document.getElementById('account_type').value = type;
+  const cardStudent = document.getElementById('card-student');
+  const cardStaff   = document.getElementById('card-staff');
+  const btn = document.getElementById('submit-btn');
+  const title = document.getElementById('section-title');
+  const student = type === 'student';
+  setBlocksHidden('[data-student-only]', !student);
+  setBlocksHidden('[data-staff-only]', student);
+  syncScholarshipData();
+  syncStaffScholarshipData();
+  if (student) {
+    cardStudent.className = 'type-card selected-student';
+    cardStaff.className   = 'type-card';
+    btn.style.background = '';
+    btn.style.color      = '';
+    title.style.color    = 'var(--brand)';
+  } else {
+    cardStaff.className   = 'type-card selected-staff';
+    cardStudent.className = 'type-card';
+    btn.style.background = '#0000c4';
+    btn.style.color      = '#fff';
+    title.style.color    = '#0000c4';
+  }
+}
+</script>
+<script src="static/js/form-steps.js?v=5"></script>
+
+<script src="static/js/register-scholarship.js?v=10"></script>
+<script src="static/js/reveal-on-select.js?v=1"></script>
+<script src="static/js/modal-open.js?v=3"></script>
+<script src="static/js/terms-agree.js?v=1"></script>
+
+<script nonce="7Mxfh_nefCT6G1Cyy8Xprd_D">
+(function() {
+  var t = document.getElementById('account_type').value;
+  selectType(t === 'nsu_staff' ? 'nsu_staff' : 'student');
+})();
+</script>
+<script src="static/js/actions.js?v=1" defer></script>
+<script src="static/js/chrome.js?v=1" defer></script>
+<script src="static/js/tooltip.js?v=2" defer></script>
+<script src="static/js/consent.js?v=3" defer></script>
+<script src="static/js/loading.js?v=3" defer></script>
+<script src="static/demo/demo.js"></script>
+</body>
+</html>
